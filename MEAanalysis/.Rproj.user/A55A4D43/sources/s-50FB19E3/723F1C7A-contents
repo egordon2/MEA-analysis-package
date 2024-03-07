@@ -1,5 +1,5 @@
 
-#' Well Mean Burst ISI
+#' Well Burst Duration
 #'
 #' @description Function reads in electrode burst list data and creates new columns with the mean, SD, and SEM mean ISI within a burst (sec) recorded for each well within a given time interval of a recording
 #'
