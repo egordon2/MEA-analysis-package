@@ -1,11 +1,7 @@
 Package: MEAanalysis
-Type: Package
-Title: A package to analyse MEA single electrode, well, and synchrony data
 Version: 0.1.0
+Title: A package to analyse MEA single electrode, well, and synchrony data
 Author: Emily Gordon
-Maintainer: Emily Gordon
-Package contains functions to analyse single electrode, well, and synchrony data obtained using the multi electrode array techinique. Functions utilise Axis Navigator software output files.
-License: What license is it under?
-Encoding: UTF-8
-LazyData: true
-Imports: dplyr, tidyverse, readxl, stringr, ggplot2, reshape2, data.table
+Maintainer: Emily Gordon <emily.gordon@wadham.ox.ac.uk>
+Description: Package contains functions to analyse single electrode, well, and synchrony data obtained using the multi electrode array techinique. Functions utilise Axis Navigator software output files.
+License: GPL (>= 2)
