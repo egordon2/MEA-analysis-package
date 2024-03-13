@@ -6,3 +6,4 @@ Maintainer: Emily Gordon <emily.gordon@wadham.ox.ac.uk>
 Description: Package contains functions to analyse single electrode, well, and synchrony data obtained using the multi electrode array techinique. Functions utilise Axis Navigator software output files.
 License: GPL (>= 2)
 Depends: dplyr, tidyverse, readxl, stringr, ggplot2, reshape2, janitor, data.table
+RoxygenNote: 7.3.1
