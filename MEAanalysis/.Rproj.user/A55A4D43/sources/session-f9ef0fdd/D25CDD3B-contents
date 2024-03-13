@@ -1,0 +1,144 @@
+
+###############################################################################################################################
+
+#############      SCRIPT CREATES BAR CHART OF CALCULATED MEA PARAMETERS GROUPED BY WELL OR SINGLE ELECTRODE      ############# 
+
+###############################################################################################################################
+
+######################################################################################################################
+#####################      Following code installs required packages and sources functions      ######################
+######################################################################################################################
+
+
+# define packages to install
+packages <- c('dplyr', 'tidyverse', 'readxl', 'stringr', 'ggplot2', 'reshape2', 'data.table')
+
+# install all packages that are not already installed
+install.packages(setdiff(packages, rownames(installed.packages())))
+
+# load packages
+invisible(lapply(packages, library, character.only = TRUE))
+
+# set function path dependent on working directory
+wd <- getwd()
+function_path <- paste0(wd, "/MEA_analysis_functions/")
+
+# call in functions 
+source(file = paste(function_path, "create_electrode_dataset.R", sep = ""))
+source(file = paste(function_path, "electrode_number_of_bursts.R", sep = ""))
+source(file = paste(function_path, "electrode_burst_duration.R", sep = ""))
+source(file = paste(function_path, "electrode_spikes_per_burst.R", sep = ""))
+source(file = paste(function_path, "electrode_mean_burst_ISI.R", sep = ""))
+source(file = paste(function_path, "well_number_of_bursts.R", sep = ""))
+source(file = paste(function_path, "well_burst_duration.R", sep = ""))
+source(file = paste(function_path, "well_spikes_per_burst.R", sep = ""))
+source(file = paste(function_path, "well_mean_burst_ISI.R", sep = ""))
+source(file = paste(function_path, "single_electrode_barchart.R", sep = ""))
+source(file = paste(function_path, "well_barchart.R", sep = ""))
+
+######################################################################################################################
+###################      Following code reads in electrode burst data for use in MEA analysis      ###################
+######################################################################################################################
+
+# read in electrode_burst_list file produced by axis navigator software and reformat for use in analysis
+# update data_path and include an identifier for the recording to merge/filter data later
+# function contains following parameters: create_electrode_dataset(data_path, recording_identifier)
+
+test_data_1 <- create_electrode_dataset(data_path = "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/single_electrode_analysis_script/single_electrode_analysis/electrode_burst_data/Baseline_WT hippocampal culture_8DIV_11-04-2023(000)(000)_electrode_burst_list.csv", 
+                                             recording_identifier = "test_data_1")
+test_data_2 <- create_electrode_dataset(data_path = "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/single_electrode_analysis_script/single_electrode_analysis/electrode_burst_data/WT hippocampal culture_22DIV_Agonists Challenge_25-04-2023(000)(000)_electrode_burst_list.csv", 
+                                             recording_identifier = "test_data_2")
+
+# merge datasets together vertically (list datasets for use in analysis in the rbind function, use examples below to update code) (rerun to refresh dataset used to create barchart)
+# e.g., output_table <- rbind(test_data_1)
+# e.g., output_table <- rbind(test_data_1, test_data_2)
+
+output_table <- rbind(test_data_1, test_data_2)
+
+####################################################################################################################
+###################      Following code adds extra columns to calculate electrode MEA parameters      ##############
+####################################################################################################################
+
+# calculates chosen parameter for specific time interval and recording 
+# new columns will be added to the dataset each time a function is run (run above rbind function to refresh)
+# update time interval (s) and recording identifier accordingly i.e., function(data, time_lower_bound, time_upper_bound, recording_identifier)
+
+# output_table <- number_of_bursts() #calculates number of bursts within a given time interval by electrode (for a specific recording)
+# output_table <- burst_duration() #calculates the mean, sd, and se burst duration within a given time interval by electrode (for a specific recording)
+# output_table <- spikes_per_burst() #calculates mean, sd, and se number of spikes per burst within a given time interval by electrode (for a specific recording)
+# output_table <- mean_burst_ISI() #calculates average, sd, and se mean ISI within a burst (sec) for a given time interval by electrode (for a specific recording)
+
+# EXAMPLE CODE: calculates each parameter for each individual electrode within the given time interval for a recording
+
+output_table <- electrode_burst_duration(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- electrode_burst_duration(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- electrode_burst_duration(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- electrode_burst_duration(data = output_table, 60, 90, recording_identifier = "test_data_2")
+
+output_table <- electrode_spikes_per_burst(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "test_data_2")
+
+output_table <- electrode_mean_burst_ISI(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "test_data_2")
+
+output_table <- electrode_number_of_bursts(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- electrode_number_of_bursts(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- electrode_number_of_bursts(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- electrode_number_of_bursts(data = output_table, 60, 90, recording_identifier = "test_data_2")
+
+####################################################################################################################
+###################      Following code adds extra columns to calculate well MEA parameters      ###################
+####################################################################################################################
+
+# output_table <- well_number_of_bursts() #calculates number of bursts recorded by an electrode for each well
+# output_table <- well_burst_duration() #calculates the mean burst duration for each well
+# output_table <- well_spikes_per_burst() #calculates mean spikes per burst for each well
+# output_table <- well_mean_burst_ISI() #calculates mean burst ISI for each well
+
+# EXAMPLE CODE: calculates parameters for each  well within the given time interval for a recording
+
+output_table <- well_burst_duration(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- well_burst_duration(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- well_burst_duration(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- well_burst_duration(data = output_table, 60, 90, recording_identifier = "test_data_2")
+
+output_table <- well_spikes_per_burst(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- well_spikes_per_burst(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- well_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- well_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "test_data_2")
+
+output_table <- well_mean_burst_ISI(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- well_mean_burst_ISI(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- well_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- well_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "test_data_2")
+
+output_table <- well_number_of_bursts(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- well_number_of_bursts(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- well_number_of_bursts(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- well_number_of_bursts(data = output_table, 60, 90, recording_identifier = "test_data_2")
+
+###################################################################################################################################
+###########   Following code creates a bar chart of the calculated MEA parameters grouped by well or single electrode   ###########
+###################################################################################################################################
+
+# update function arguments accordingly i.e., single_electrode_barchart(data, electrode_parameter, electrode_filter, statistic)
+# for electrode_parameter argument include "number_of_bursts"/ "burst_duration"/ "spikes_per_burst"// "mean_burst_ISI"
+# note statistics will not be calculated for the number of bursts within a given time interval
+
+single_electrode_barchart(data = output_table, electrode_parameter = "burst_duration", electrode_filter = "A1_", statistic = se)
+single_electrode_barchart(data = output_table, electrode_parameter = "spikes_per_burst", electrode_filter = "A1_", statistic = se)
+single_electrode_barchart(data = output_table, electrode_parameter = "mean_burst_ISI", electrode_filter = "A1_", statistic = se)
+single_electrode_barchart(data = output_table, electrode_parameter = "number_of_bursts", electrode_filter = "A1_")
+
+# update function arguments accordingly i.e., well_barchart(data, well_parameter, well_filter, statistic)
+# for well_parameter argument include "number_of_bursts"/ "burst_duration"/ "spikes_per_burst"// "mean_burst_ISI"
+
+well_barchart(data = output_table, well_parameter = "burst_duration", well_filter = "A1|A2|A3|A4", statistic = se)
+well_barchart(data = output_table, well_parameter = "spikes_per_burst", well_filter = "A1|A2|A3|A4", statistic = se)
+well_barchart(data = output_table, well_parameter = "mean_burst_ISI", well_filter = "A1|A2|A3|A4", statistic = se)
+well_barchart(data = output_table, well_parameter = "number_of_bursts", well_filter = "A1|A2|A3|A4", statistic = se)
+
