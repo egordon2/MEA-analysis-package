@@ -12,14 +12,20 @@ electrode_mean_burst_ISI(
 )
 }
 \arguments{
-\item{name}{data, time_lower_bound, time_upper_bound, recording_identifier}
+\item{data}{Electrode burst list dataset preprocessed using the create_electrode_dataset function.}
+
+\item{time_lower_bound}{Define lower bound of time interval for which to calculate the MEA parameter (seconds).}
+
+\item{time_upper_bound}{Define upper bound of time interval for which to calculate the MEA parameter (seconds).}
+
+\item{recording_identifier}{Define recording for which to calculate the MEA parameter. Use recording_identifier defined in create_electrode_dataset function.}
 }
 \value{
-electrode burst list table with three additional columns (mean, SD and SEM mean ISI within a burst (sec) for single electrodes within a given time interval and recording)
+An electrode burst list dataset with three additional columns (mean, SD and SEM mean ISI within a burst (sec) for single electrodes within the specified time interval and recording)
 }
 \description{
-Function reads in electrode burst list data and creates new columns with the mean, SD, and SEM mean ISI within a burst (sec) recorded by single electrodes within a given time interval and recording
+Function reads in electrode burst list data and creates new columns with the mean, SD, and SEM mean ISI within a burst (sec) recorded by single electrodes (within the specified time interval and recording).
 }
 \examples{
-output_table <- electrode_mean_burst_ISI(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_MEA_data <- electrode_mean_burst_ISI(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
 }

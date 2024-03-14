@@ -12,14 +12,20 @@ well_number_of_bursts(
 )
 }
 \arguments{
-\item{name}{data, time_lower_bound, time_upper_bound, recording_identifier}
+\item{data}{Electrode burst list dataset preprocessed using the create_electrode_dataset function.}
+
+\item{time_lower_bound}{Define lower bound of time interval for which to calculate the MEA parameter (seconds).}
+
+\item{time_upper_bound}{Define upper bound of time interval for which to calculate the MEA parameter (seconds).}
+
+\item{recording_identifier}{Define recording for which to calculate the MEA parameter. Use recording_identifier defined in create_electrode_dataset function.}
 }
 \value{
-electrode burst list table with three additional columns (mean, SD and SEM number of bursts recorded for each well within a given time interval of a recording)
+An electrode burst list table with three additional columns (mean, SD and SEM number of bursts recorded for each well within the specified time interval and recording).
 }
 \description{
-Function reads in electrode burst list data and creates new columns with the mean, SD, and SEM number of bursts recorded for each well within a given time interval of a recording
+Function reads in electrode burst list data and creates new columns with the mean, SD, and SEM number of bursts recorded for each well (within the specified time interval and recording).
 }
 \examples{
-output_table <- well_number_of_bursts(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_MEA_data <- well_number_of_bursts(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
 }

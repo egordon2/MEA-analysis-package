@@ -7,14 +7,18 @@
 create_synchrony_dataset(data_path, heatmap_condition)
 }
 \arguments{
-\item{name}{data_path, heatmap_condition}
+\item{data_path}{Include path to neural metric dataset csv file produced by the axis navigator neural metric tool in quotation marks.}
+
+\item{heatmap_condition}{Include a unique identifier for this neuralMetric dataset's experimental condition, this argument will be used by the MEA_heatmap function to group data.}
 }
 \value{
-Reformatted and filtered neural metric dataset for use in synchrony analysis
+A reformatted and filtered neural metric dataset for use in synchrony index analysis.
 }
 \description{
-Function reads in neural metric output dataset and reformats for use in synchrony index analysis
+Function reads in neural metric output dataset and reformats for use in synchrony index analysis.
+ Data will be filtered to include the average synchrony index for each well.
+ The synchrony index column name will also be updated to include a 'heatmap_condition'.
 }
 \examples{
-baseline_data <- create_synchrony_dataset(data_path = "C:/Users/Emily Gordon/baseline_neuralMetrics.csv", heatmap_condition = "Baseline")
+output_neuralMetric <- create_synchrony_dataset(data_path = "./data/input_neuralMetric.csv", heatmap_condition = "SI_condition_1")
 }

@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @examples
-#' output_MEA_data <- electrode_mean_burst_ISI(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+#' output_electrode_parameter <- electrode_mean_burst_ISI(data = input_electrode_parameter, 0, 30, recording_identifier = "burst_recording_1")
 
 
 electrode_mean_burst_ISI <- function(data = output_table, time_lower_bound = 0, time_upper_bound = Inf, recording_identifier) {

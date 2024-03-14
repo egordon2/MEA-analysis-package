@@ -8,9 +8,9 @@
 # Following code reads in electrode burst dataset produced by the axis navigator software in csv format and processes for use in analysis
 # User to update the data_path (direct to electrode burst dataset) and recording identifier (used to determine time interval within specific recording)
 
-test_data_1 <- create_electrode_dataset(data_path = paste(getwd(), "/inst/data/baseline_electrode_burst_list.csv", sep = ""),
+test_data_1 <- create_electrode_dataset(data_path = "./inst/data/baseline_electrode_burst_list.csv",
                                         recording_identifier = "test_data_1")
-test_data_2 <- create_electrode_dataset(data_path = paste(getwd(), "/inst/data/comparison_agonist_challenge_electrode_burst_list.csv", sep = ""),
+test_data_2 <- create_electrode_dataset(data_path = "./inst/data/comparison_agonist_challenge_electrode_burst_list.csv",
                                         recording_identifier = "test_data_2")
 
 # Following code merges datasets together vertically (list datasets for use in analysis in the rbind function, use examples below to update code)

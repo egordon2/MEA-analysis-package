@@ -13,17 +13,24 @@ single_electrode_barchart(
 )
 }
 \arguments{
-\item{name}{data, electrode_parameter, electrode_filter, statistic}
+\item{data}{Dataset containing electrode burst data and calculated MEA parameter.
+Use create_electrode_dataset and electrode parameter functions to preprocess data before use in this function (i.e., electrode_burst_duration, electrode_mean_burst_ISI, electrode_number_of_bursts, electrode_spikes_per_burst).}
+
+\item{electrode_parameter}{Include "number_of_bursts"/ "burst_duration"/ "spikes_per_burst"/ "mean_burst_ISI" to determine the parameter visualised in the barchart.}
+
+\item{electrode_filter}{Argument can be used to filter for single electrodes to include in the barchart.}
+
+\item{statistic}{Include "se" or "sd" to determine whether bar chart error bars represent the standard error or standard deviation of the mean.}
 }
 \value{
-bar chart of calculated MEA parameters by single electrode for a given time interval and recording
+A bar chart of calculated MEA parameters by single electrode for a given time interval and recording.
 }
 \description{
-Function creates a bar chart of calculated MEA parameters by single electrode for a given time interval and recording
+Function creates a bar chart of calculated MEA parameters by single electrode for a given time interval and recording.
 }
 \examples{
-single_electrode_barchart(data = output_table, electrode_parameter = "burst_duration", electrode_filter = "A1_", statistic = se)
-single_electrode_barchart(data = output_table, electrode_parameter = "spikes_per_burst", electrode_filter = "A1_", statistic = se)
-single_electrode_barchart(data = output_table, electrode_parameter = "mean_burst_ISI", electrode_filter = "A1_", statistic = se)
-single_electrode_barchart(data = output_table, electrode_parameter = "number_of_bursts", electrode_filter = "A1_")
+single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "burst_duration", electrode_filter = "A1_", statistic = se)
+single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "spikes_per_burst", electrode_filter = "A1_", statistic = se)
+single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "mean_burst_ISI", electrode_filter = "A1_", statistic = se)
+single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "number_of_bursts", electrode_filter = "A1_")
 }
