@@ -1,16 +1,18 @@
 
 #' Electrode Number of Bursts
 #'
-#' @description Function reads in electrode burst list data and creates new columns with the mean, SD, and SEM number of bursts recorded by single electrodes within a given time interval and recording
+#' @description Function reads in electrode burst list data and creates new columns with the mean, SD, and SEM number of bursts recorded by single electrodes (within the specified time interval and recording).
 #'
-#' @param name data, time_lower_bound, time_upper_bound, recording_identifier
+#' @param data Electrode burst list dataset preprocessed using the create_electrode_dataset function.
+#' @param time_lower_bound Define lower bound of time interval for which to calculate the MEA parameter (seconds).
+#' @param time_upper_bound Define upper bound of time interval for which to calculate the MEA parameter (seconds).
+#' @param recording_identifier Define recording for which to calculate the MEA parameter. Use recording_identifier defined in create_electrode_dataset function.
 #'
-#' @return electrode burst list table with three additional columns (mean, SD and SEM number of bursts for single electrodes within a given time interval and recording)
+#' @return An electrode burst list table with three additional columns (mean, SD and SEM number of bursts for single electrodes within the specified time interval and recording).
 #' @export
 #'
 #' @examples
-#' output_table <- electrode_number_of_bursts(data = output_table, 0, 30, recording_identifier = "test_data_1")
-
+#' output_MEA_data <- electrode_number_of_bursts(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
 
 electrode_number_of_bursts <- function(data = output_table, time_lower_bound = 0, time_upper_bound  = Inf, recording_identifier) {
 

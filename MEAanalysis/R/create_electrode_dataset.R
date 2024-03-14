@@ -1,15 +1,19 @@
 
 #' Create Electrode Data set
 #'
-#' @description Function reads and reformats electrode burst data obtained by the axis navigator tool for use in analysis
+#' @description Function reads in and reformats the electrode burst list dataset produced by the axis navigator tool for use in analysis.
+#'  The data will be filtered to only contain information relating to single electrodes and burst characteristics.
+#'  A 'Recording_identifier' column is added to enable filtering for a specific recording when used alongside other functions.
+#'  A column to identify the well a burst was recorded within will also be added.
 #'
-#' @param name data_path, recording_identifier
+#' @param data_path Include path to electrode burst dataset csv file produced by the axis navigator tool in quotation marks.
+#' @param recording_identifier Include a unique identifier for this specific electrode burst dataset which will be added to the 'Recording_identifier' column. Other functions will use this column to filter for a specific recording.
 #'
-#' @return Reformatted and filtered electrode burst list for use in analysis
+#' @return A reformatted and filtered electrode burst list for use in analysis.
 #' @export
 #'
 #' @examples
-#' test_data_1 <- create_electrode_dataset(data_path = "C:/Users/Emily Gordon/electrode_burst_list.csv", recording_identifier = "test_data_1")
+#' output_electrode_burst <- create_electrode_dataset(data_path = "./data-raw/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
 
 
 create_electrode_dataset <- function(data_path, recording_identifier) {

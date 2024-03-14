@@ -1,19 +1,22 @@
 
-
 #' Well Bar chart
 #'
-#' @description Function creates a bar chart of calculated MEA parameters by well for a given time interval and recording
+#' @description Function creates a bar chart of calculated MEA parameters by well for a given time interval and recording.
 #'
-#' @param name data, well_parameter, well_filter, statistic
+#' @param data Dataset containing electrode burst data and calculated MEA parameter.
+#'  Use create_electrode_dataset and well parameter functions to preprocess data before use in this function (i.e., well_burst_duration, well_mean_burst_ISI, well_number_of_bursts, well_spikes_per_burst).
+#' @param well_parameter Include "number_of_bursts"/ "burst_duration"/ "spikes_per_burst"/ "mean_burst_ISI" to determine the parameter visualised in the barchart.
+#' @param well_filter Argument can be used to filter for specific MEA wells to include in the barchart.
+#' @param statistic Include "se" or "sd" to determine whether bar chart error bars represent the standard error or standard deviation of the mean.
 #'
-#' @return bar chart of calculated MEA parameters by single electrode for a given time interval and recording
+#' @return A bar chart of calculated MEA parameters by single electrode for a given time interval and recording.
 #' @export
 #'
 #' @examples
-#' well_barchart(data = output_table, well_parameter = "burst_duration", well_filter = "A1|A2|A3|A4", statistic = se)
-#' well_barchart(data = output_table, well_parameter = "spikes_per_burst", well_filter = "A1|A2|A3|A4", statistic = se)
-#' well_barchart(data = output_table, well_parameter = "mean_burst_ISI", well_filter = "A1|A2|A3|A4", statistic = se)
-#' well_barchart(data = output_table, well_parameter = "number_of_bursts", well_filter = "A1|A2|A3|A4", statistic = se)
+#' well_barchart(data = input_well_barchart, well_parameter = "burst_duration", well_filter = "A1|A2|A3|A4", statistic = se)
+#' well_barchart(data = input_well_barchart, well_parameter = "spikes_per_burst", well_filter = "A1|A2|A3|A4", statistic = se)
+#' well_barchart(data = input_well_barchart, well_parameter = "mean_burst_ISI", well_filter = "A1|A2|A3|A4", statistic = se)
+#' well_barchart(data = input_well_barchart, well_parameter = "number_of_bursts", well_filter = "A1|A2|A3|A4", statistic = se)
 
 well_barchart <- function(data = output_table, well_parameter,
                                       well_filter = "A1|A2|A3|A4|A5|A6|B1|B2|B3|B4|B5|B6|C1|C2|C3|C4|C5|C6|D1|D2|D3|D4|D5|D6",
