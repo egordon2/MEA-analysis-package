@@ -1,0 +1,19 @@
+---
+title: "MEA_well_barchart"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{MEA_well_barchart}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MEAanalysis)
+```
