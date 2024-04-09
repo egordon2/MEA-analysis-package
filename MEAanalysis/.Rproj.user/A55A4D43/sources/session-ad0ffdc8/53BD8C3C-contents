@@ -1,0 +1,24 @@
+Package: MEAanalysis
+Version: 0.1.0
+Title: Analyse Multi Electrode Array Single Electrode, Well, and Synchrony Data
+Author: c(
+  person("Emily", "Gordon", email = "emily.gordon@wadham.ox.ac.uk", role = c("aut", "cre")),
+  person("Georgios", "Baskozos", email = "georgios.baskozos@ndcn.ox.ac.uk", role = "ctb"))
+Description: A package containing functions to analyse single electrode, well, and synchrony data obtained using the multi electrode array techinique. Functions utilise Axis Navigator software output files.
+License: GPL (>= 2)
+Depends: 
+  data.table (>= 1.14.8),
+  dplyr (>= 1.1.3),
+  ggplot2 (>= 3.4.4),
+  janitor (>= 2.2.0),
+  readxl (>= 1.4.3),
+  reshape2 (>= 1.4.4),
+  stringr (>= 1.5.0),
+  tidyverse (>= 2.0.0),
+  R (>= 2.10)
+RoxygenNote: 7.3.1
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
