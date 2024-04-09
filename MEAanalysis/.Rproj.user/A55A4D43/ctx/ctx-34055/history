@@ -1,0 +1,504 @@
+install.packages("Rtools")
+library(Rtools)
+library("Rtools")
+install.packages("Rtools")
+install.packages("Rtools")
+library("Rtools")
+library("Rtools43")
+Version()
+version()
+Version()
+R.version)
+R.version()
+R.Version()
+install.packages("Rtools")
+library(Rtools)
+library(Rtools43)
+library("Rtools43")
+install.packages("Rtools")
+install.packages("Rtools43")
+install.packages("Rtools")
+library(Rtools43)
+library("Rtools43")
+library(C:/rtools43)
+version
+gcc --version
+version
+install.packages("Rtools")
+library(Rtools)
+library(Rtools43)
+library(MEAanalysis)
+library(MEAanalysis)
+library(MEAanalysis)
+# define packages to install
+packages <- c('dplyr', 'tidyverse', 'readxl', 'stringr', 'ggplot2', 'reshape2', 'janitor', 'data.table')
+# install all packages that are not already installed
+install.packages(setdiff(packages, rownames(installed.packages())))
+# load packages
+invisible(lapply(packages, library, character.only = TRUE))
+# set function path dependent on working directory
+wd <- getwd()
+function_path <- paste0(wd, "/synchrony_functions/")
+# call in functions (update function_path accordingly)
+source(file = paste(function_path, "create_synchrony_dataset.R", sep = ""))
+setwd("C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/synchrony_heat_map")
+# set function path dependent on working directory
+wd <- getwd()
+function_path <- paste0(wd, "/synchrony_functions/")
+# call in functions (update function_path accordingly)
+source(file = paste(function_path, "create_synchrony_dataset.R", sep = ""))
+source(file = paste(function_path, "MEA_heatmap.R", sep = ""))
+baseline_data <- create_synchrony_dataset(data_path = "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/synchrony_heat_map/synchrony_data/baseline_neuralMetrics.csv",
+heatmap_condition = "Baseline")
+agonist_challenge_data <- create_synchrony_dataset(data_path = "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/synchrony_heat_map/synchrony_data/comparison_neuralMetrics_agonist_challenge.csv",
+heatmap_condition = "Agonist Challenge")
+df_list <- list(baseline_data, agonist_challenge_data)
+heatmap_data <- df_list %>%
+reduce(full_join, by = 'Well')
+# plot heatmap grouped by the heatmap_condition specified above
+# option to filter for specific wells using 'well_filter' argument
+# function contains following arguments heatmap(data, well_filter)
+MEA_heatmap(data = heatmap_data, well_filter = "A1|A2|A3|A4|A5|A6|B1|B2|B3|B4|B5|B6|C1|C2|C3|C4|C5|C6|D1|D2|D3|D4|D5|D6")
+# set function path dependent on working directory
+wd <- getwd()
+function_path <- paste0(wd, "/synchrony_functions/")
+# call in functions (update function_path accordingly)
+source(file = paste(function_path, "create_synchrony_dataset.R", sep = ""))
+source(file = paste(function_path, "MEA_heatmap.R", sep = ""))
+baseline_data <- create_synchrony_dataset(data_path = "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/synchrony_heat_map/synchrony_data/baseline_neuralMetrics.csv",
+heatmap_condition = "Baseline")
+agonist_challenge_data <- create_synchrony_dataset(data_path = "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/synchrony_heat_map/synchrony_data/comparison_neuralMetrics_agonist_challenge.csv",
+heatmap_condition = "Agonist Challenge")
+df_list <- list(baseline_data, agonist_challenge_data)
+heatmap_data <- df_list %>%
+reduce(full_join, by = 'Well')
+# plot heatmap grouped by the heatmap_condition specified above
+# option to filter for specific wells using 'well_filter' argument
+# function contains following arguments heatmap(data, well_filter)
+MEA_heatmap(data = heatmap_data, well_filter = "A1|A2|A3|A4|A5|A6|B1|B2|B3|B4|B5|B6|C1|C2|C3|C4|C5|C6|D1|D2|D3|D4|D5|D6")
+# set function path dependent on working directory
+wd <- getwd()
+function_path <- paste0(wd, "/synchrony_functions/")
+# call in functions (update function_path accordingly)
+source(file = paste(function_path, "create_synchrony_dataset.R", sep = ""))
+source(file = paste(function_path, "MEA_heatmap.R", sep = ""))
+baseline_data <- create_synchrony_dataset(data_path = "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/synchrony_heat_map/synchrony_data/baseline_neuralMetrics.csv",
+heatmap_condition = "Baseline")
+agonist_challenge_data <- create_synchrony_dataset(data_path = "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/synchrony_heat_map/synchrony_data/comparison_neuralMetrics_agonist_challenge.csv",
+heatmap_condition = "Agonist Challenge")
+df_list <- list(baseline_data, agonist_challenge_data)
+heatmap_data <- df_list %>%
+reduce(full_join, by = 'Well')
+# plot heatmap grouped by the heatmap_condition specified above
+# option to filter for specific wells using 'well_filter' argument
+# function contains following arguments heatmap(data, well_filter)
+MEA_heatmap(data = heatmap_data, well_filter = "A1|A2|A3|A4|A5|A6|B1|B2|B3|B4|B5|B6|C1|C2|C3|C4|C5|C6|D1|D2|D3|D4|D5|D6")
+setwd("C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis")
+library(MEAanalysis)
+?MEA_heatmap
+library(MEAanalysis)
+library(usethis)
+use_data_raw()
+library(MEAanalysis)
+library(MEAanalysis)
+getwd()
+data_path = paste(getwd(), "/inst/data/baseline_neuralMetrics.csv", sep = "")
+baseline_data <- create_synchrony_dataset(data_path = paste(getwd(), "/inst/data/baseline_neuralMetrics.csv", sep = ""),
+heatmap_condition = "Baseline")
+library(MEAanalysis)
+baseline_data <- create_synchrony_dataset(data_path = paste(getwd(), "/inst/data/baseline_neuralMetrics.csv", sep = ""),
+heatmap_condition = "Baseline")
+library(readxl)
+baseline_data <- create_synchrony_dataset(data_path = paste(getwd(), "/inst/data/baseline_neuralMetrics.csv", sep = ""),
+heatmap_condition = "Baseline")
+library(readr)
+baseline_data <- create_synchrony_dataset(data_path = paste(getwd(), "/inst/data/baseline_neuralMetrics.csv", sep = ""),
+heatmap_condition = "Baseline")
+library(MEAanalysis)
+baseline_data <- create_synchrony_dataset(data_path = paste(getwd(), "/inst/data/baseline_neuralMetrics.csv", sep = ""),
+heatmap_condition = "Baseline")
+library(data.table)
+baseline_data <- create_synchrony_dataset(data_path = paste(getwd(), "/inst/data/baseline_neuralMetrics.csv", sep = ""),
+heatmap_condition = "Baseline")
+library(MEAanalysis)
+baseline_data <- create_synchrony_dataset(data_path = paste(getwd(), "/inst/data/baseline_neuralMetrics.csv", sep = ""),
+heatmap_condition = "Baseline")
+library(MEAanalysis)
+baseline_data <- create_synchrony_dataset(data_path = paste(getwd(), "/inst/data/baseline_neuralMetrics.csv", sep = ""),
+heatmap_condition = "Baseline")
+agonist_challenge_data <- create_synchrony_dataset(data_path = paste(getwd(), "/inst/data/comparison_agonist_challenge_neuralMetrics.csv", sep = ""),
+heatmap_condition = "Agonist Challenge")
+df_list <- list(baseline_data, agonist_challenge_data)
+heatmap_data <- df_list %>%
+reduce(full_join, by = 'Well')
+# plot heatmap grouped by the heatmap_condition specified above
+# option to filter for specific wells using 'well_filter' argument
+# function contains following arguments heatmap(data, well_filter)
+MEA_heatmap(data = heatmap_data, well_filter = "A1|A2|A3|A4|A5|A6|B1|B2|B3|B4|B5|B6|C1|C2|C3|C4|C5|C6|D1|D2|D3|D4|D5|D6")
+test_data_1 <- create_electrode_dataset(data_path = paste(getwd(), "/inst/data/baseline_electrode_burst_list.csv", sep = ""),
+recording_identifier = "test_data_1")
+test_data_2 <- create_electrode_dataset(data_path = paste(getwd(), "/inst/data/comparison_agonist_challenge_electrode_burst_list.csv", sep = ""),
+recording_identifier = "test_data_2")
+output_table <- rbind(test_data_1, test_data_2)
+output_table <- electrode_burst_duration(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- electrode_burst_duration(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- electrode_burst_duration(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- electrode_burst_duration(data = output_table, 60, 90, recording_identifier = "test_data_2")
+output_table <- electrode_spikes_per_burst(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "test_data_2")
+output_table <- electrode_mean_burst_ISI(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "test_data_2")
+output_table <- electrode_number_of_bursts(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- electrode_number_of_bursts(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- electrode_number_of_bursts(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- electrode_number_of_bursts(data = output_table, 60, 90, recording_identifier = "test_data_2")
+single_electrode_barchart(data = output_table, electrode_parameter = "burst_duration", electrode_filter = "A1_", statistic = se)
+single_electrode_barchart(data = output_table, electrode_parameter = "spikes_per_burst", electrode_filter = "A1_", statistic = se)
+test_data_1 <- create_electrode_dataset(data_path = paste(getwd(), "/inst/data/baseline_electrode_burst_list.csv", sep = ""),
+recording_identifier = "test_data_1")
+test_data_2 <- create_electrode_dataset(data_path = paste(getwd(), "/inst/data/comparison_agonist_challenge_electrode_burst_list.csv", sep = ""),
+recording_identifier = "test_data_2")
+output_table <- rbind(test_data_1, test_data_2)
+output_table <- well_burst_duration(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- well_burst_duration(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- well_burst_duration(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- well_burst_duration(data = output_table, 60, 90, recording_identifier = "test_data_2")
+output_table <- well_spikes_per_burst(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- well_spikes_per_burst(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- well_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- well_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "test_data_2")
+output_table <- well_mean_burst_ISI(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- well_mean_burst_ISI(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- well_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- well_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "test_data_2")
+output_table <- well_number_of_bursts(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- well_number_of_bursts(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- well_number_of_bursts(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- well_number_of_bursts(data = output_table, 60, 90, recording_identifier = "test_data_2")
+well_barchart(data = output_table, well_parameter = "burst_duration", well_filter = "A1|A2|A3|A4", statistic = se)
+well_barchart(data = output_table, well_parameter = "spikes_per_burst", well_filter = "A1|A2|A3|A4", statistic = se)
+well_barchart(data = output_table, well_parameter = "mean_burst_ISI", well_filter = "A1|A2|A3|A4", statistic = se)
+well_barchart(data = output_table, well_parameter = "number_of_bursts", well_filter = "A1|A2|A3|A4", statistic = se)
+library(MEAanalysis)
+# Following code reads in electrode burst dataset produced by the axis navigator software in csv format and processes for use in analysis
+# User to update the data_path (direct to electrode burst dataset) and recording identifier (used to determine time interval within specific recording)
+test_data_1 <- create_electrode_dataset(data_path = paste(getwd(), "/inst/data/baseline_electrode_burst_list.csv", sep = ""),
+recording_identifier = "test_data_1")
+test_data_2 <- create_electrode_dataset(data_path = paste(getwd(), "/inst/data/comparison_agonist_challenge_electrode_burst_list.csv", sep = ""),
+recording_identifier = "test_data_2")
+# Following code merges datasets together vertically (list datasets for use in analysis in the rbind function, use examples below to update code)
+# Rerun code if with to refresh dataset used to create barchart
+# e.g., output_table <- rbind(test_data_1)
+# e.g., output_table <- rbind(test_data_1, test_data_2)
+output_table <- rbind(test_data_1, test_data_2)
+# Following code calculates a chosen parameter for a specific time interval and recordings by single electrodes
+# new columns will be added to the dataset each time a function is run (run above rbind function to refresh)
+# update time interval (s) and recording identifier accordingly i.e., function(data, time_lower_bound, time_upper_bound, recording_identifier)
+# output_table <- number_of_bursts() #calculates number of bursts within a given time interval by electrode (for a specific recording)
+# output_table <- burst_duration() #calculates the mean, sd, and se burst duration within a given time interval by electrode (for a specific recording)
+# output_table <- spikes_per_burst() #calculates mean, sd, and se number of spikes per burst within a given time interval by electrode (for a specific recording)
+# output_table <- mean_burst_ISI() #calculates average, sd, and se mean ISI within a burst (sec) for a given time interval by electrode (for a specific recording)
+# EXAMPLE CODE: calculates each parameter for each individual electrode within the given time interval for a recording
+output_table <- electrode_burst_duration(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- electrode_burst_duration(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- electrode_burst_duration(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- electrode_burst_duration(data = output_table, 60, 90, recording_identifier = "test_data_2")
+output_table <- electrode_spikes_per_burst(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "test_data_2")
+output_table <- electrode_mean_burst_ISI(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "test_data_2")
+output_table <- electrode_number_of_bursts(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- electrode_number_of_bursts(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- electrode_number_of_bursts(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- electrode_number_of_bursts(data = output_table, 60, 90, recording_identifier = "test_data_2")
+single_electrode_barchart(data = output_table, electrode_parameter = "burst_duration", electrode_filter = "A1_", statistic = se)
+single_electrode_barchart(data = output_table, electrode_parameter = "spikes_per_burst", electrode_filter = "A1_", statistic = se)
+single_electrode_barchart(data = output_table, electrode_parameter = "mean_burst_ISI", electrode_filter = "A1_", statistic = se)
+single_electrode_barchart(data = output_table, electrode_parameter = "number_of_bursts", electrode_filter = "A1_")
+# Following code reads in electrode burst dataset produced by the axis navigator software in csv format and processes for use in analysis
+# User to update the data_path (direct to electrode burst dataset) and recording identifier (used to determine time interval within specific recording)
+test_data_1 <- create_electrode_dataset(data_path = paste(getwd(), "/inst/data/baseline_electrode_burst_list.csv", sep = ""),
+recording_identifier = "test_data_1")
+test_data_2 <- create_electrode_dataset(data_path = paste(getwd(), "/inst/data/comparison_agonist_challenge_electrode_burst_list.csv", sep = ""),
+recording_identifier = "test_data_2")
+# Following code merges datasets together vertically (list datasets for use in analysis in the rbind function, use examples below to update code)
+# Rerun code if with to refresh dataset used to create barchart
+# e.g., output_table <- rbind(test_data_1)
+# e.g., output_table <- rbind(test_data_1, test_data_2)
+output_table <- rbind(test_data_1, test_data_2)
+# Following code calculates a chosen parameter for a specific time interval and recordings by well
+# new columns will be added to the dataset each time a function is run (run above rbind function to refresh)
+# update time interval (s) and recording identifier accordingly i.e., function(data, time_lower_bound, time_upper_bound, recording_identifier)
+# output_table <- number_of_bursts() #calculates he mean, sd, and se  number of bursts within a given time interval by an electrode for each well (for a specific recording)
+# output_table <- burst_duration() #calculates the mean, sd, and se burst duration within a given time interval for each well (for a specific recording)
+# output_table <- spikes_per_burst() #calculates mean, sd, and se number of spikes per burst within a given time interval for each well (for a specific recording)
+# output_table <- mean_burst_ISI() #calculates average, sd, and se mean ISI within a burst (sec) for a given time interval for each well (for a specific recording)
+# EXAMPLE CODE: calculates parameters for each  well within the given time interval for a recording
+output_table <- well_burst_duration(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- well_burst_duration(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- well_burst_duration(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- well_burst_duration(data = output_table, 60, 90, recording_identifier = "test_data_2")
+output_table <- well_spikes_per_burst(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- well_spikes_per_burst(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- well_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- well_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "test_data_2")
+output_table <- well_mean_burst_ISI(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- well_mean_burst_ISI(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- well_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- well_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "test_data_2")
+output_table <- well_number_of_bursts(data = output_table, 0, 30, recording_identifier = "test_data_1")
+output_table <- well_number_of_bursts(data = output_table, 30, 60, recording_identifier = "test_data_1")
+output_table <- well_number_of_bursts(data = output_table, 60, 90, recording_identifier = "test_data_1")
+output_table <- well_number_of_bursts(data = output_table, 60, 90, recording_identifier = "test_data_2")
+# Following code creates a bar chart of the calculated MEA parameter grouped by well
+# User to update function arguments accordingly ii.e., well_barchart(data, well_parameter, well_filter, statistic)
+# For well_parameter argument include "number_of_bursts"/ "burst_duration"/ "spikes_per_burst"/ "mean_burst_ISI"
+well_barchart(data = output_table, well_parameter = "burst_duration", well_filter = "A1|A2|A3|A4", statistic = se)
+well_barchart(data = output_table, well_parameter = "spikes_per_burst", well_filter = "A1|A2|A3|A4", statistic = se)
+well_barchart(data = output_table, well_parameter = "mean_burst_ISI", well_filter = "A1|A2|A3|A4", statistic = se)
+baseline_data <- create_synchrony_dataset(data_path = paste(getwd(), "/inst/data/baseline_neuralMetrics.csv", sep = ""),
+heatmap_condition = "Baseline")
+agonist_challenge_data <- create_synchrony_dataset(data_path = paste(getwd(), "/inst/data/comparison_agonist_challenge_neuralMetrics.csv", sep = ""),
+heatmap_condition = "Agonist Challenge")
+df_list <- list(baseline_data, agonist_challenge_data)
+heatmap_data <- df_list %>%
+reduce(full_join, by = 'Well')
+MEA_heatmap(data = heatmap_data, well_filter = "A1|A2|A3|A4|A5|A6|B1|B2|B3|B4|B5|B6|C1|C2|C3|C4|C5|C6|D1|D2|D3|D4|D5|D6")
+?MEAanalysis
+??MEAanalysis
+devtools::document()
+library(devtools)
+install.packages("devtools")
+library(devtools)
+devtools::document()
+library(MEAanalysis)
+?MEA_heatmap
+?MEAanalysis
+??MEAanalysis
+?create_electrode_dataset
+?MEA_heatmap
+library(MEAanalysis)
+?create_electrode_dataset
+?create_electrode_dataset
+library(MEAanalysis)
+?create_electrode_dataset
+library(MEAanalysis)
+?create_electrode_dataset
+library(MEAanalysis)
+?create_electrode_dataset
+devtools::document()
+?create_electrode_dataset
+devtools::document()
+test_data_1 <- create_electrode_dataset(data_path = "./inst/data/baseline_electrode_burst_list.csv",
+recording_identifier = "test_data_1")
+test_data_2 <- create_electrode_dataset(data_path = "./inst/data/comparison_agonist_challenge_electrode_burst_list.csv",
+recording_identifier = "test_data_2")
+test_data_1 <- create_electrode_dataset(data_path = "./inst/data/baseline_electrode_burst_list.csv",
+recording_identifier = "test_data_1")
+test_data_2 <- create_electrode_dataset(data_path = "./inst/data/comparison_agonist_challenge_electrode_burst_list.csv",
+recording_identifier = "test_data_2")
+output_table <- rbind(test_data_1, test_data_2)
+baseline_data <- create_synchrony_dataset(data_path = "./inst/data/baseline_neuralMetrics.csv",
+heatmap_condition = "Baseline")
+agonist_challenge_data <- create_synchrony_dataset(data_path = "./inst/data/comparison_agonist_challenge_neuralMetrics.csv",
+heatmap_condition = "Agonist Challenge")
+devtools::document()
+?create_electrode_dataset
+devtools::document()
+?create_synchrony_dataset
+devtools::document()
+?create_synchrony_dataset
+devtools::document()
+?create_synchrony_dataset
+baseline_data <- create_synchrony_dataset(data_path = "./inst/data/baseline_neuralMetrics.csv",
+heatmap_condition = "Baseline")
+agonist_challenge_data <- create_synchrony_dataset(data_path = "./inst/data/comparison_agonist_challenge_neuralMetrics.csv",
+heatmap_condition = "Agonist Challenge")
+df_list <- list(baseline_data, agonist_challenge_data)
+heatmap_data <- df_list %>%
+reduce(full_join, by = 'Well')
+MEA_heatmap(data = heatmap_data, well_filter = "A1|A2|A3|A4|A5|A6|B1|B2|B3|B4|B5|B6|C1|C2|C3|C4|C5|C6|D1|D2|D3|D4|D5|D6")
+View(heatmap_data)
+devtools::document()
+?MEA_heatmap
+devtools::document()
+?well_barchart
+devtools::document()
+?single_electrode_barchart
+devtools::document()
+pkgload::dev_help('electrode_burst_duration')
+?MEA_heatmap
+use_data_raw()
+library(usethis)
+use_data_raw()
+devtools::document()
+pkgload::dev_help('create_electrode_dataset')
+output_electrode_burst <- create_electrode_dataset(data_path = "./data-raw/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
+library(MEAanalysis)
+baseline_data <- create_synchrony_dataset(data_path = "./data-raw/input_neuralMetric.csv",
+heatmap_condition = "Baseline")
+agonist_challenge_data <- create_synchrony_dataset(data_path = "./data-raw/comparison_agonist_challenge_neuralMetrics.csv",
+heatmap_condition = "Agonist Challenge")
+df_list <- list(baseline_data, agonist_challenge_data)
+input_heatmap_data <- df_list %>%
+reduce(full_join, by = 'Well')
+# Save the cleaned data in the required R package location
+usethis::use_data(input_heatmap_data, overwrite = TRUE)
+load("C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis/data/input_heatmap_data.rda")
+load("C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis/data/input_heatmap_data.rda")
+# Save the cleaned data in the required R package location
+usethis::use_data(input_heatmap_data)
+burst_recording_1 <- create_electrode_dataset(data_path = "./data-raw/input_electrode_burst.csv",
+recording_identifier = "burst_recording_1")
+burst_recording_2 <- create_electrode_dataset(data_path = "./data-raw/comparison_agonist_challenge_electrode_burst_list.csv",
+recording_identifier = "burst_recording_2")
+output_table <- rbind(burst_recording_1, burst_recording_2)
+burst_recording_2 <- create_electrode_dataset(data_path = "./data-raw/comparison_agonist_challenge_electrode_burst_list.csv",
+recording_identifier = "burst_recording_2")
+output_table <- rbind(burst_recording_1, burst_recording_2)
+output_table <- electrode_burst_duration(data = output_table, 0, 30, recording_identifier = "burst_recording_1")
+output_table <- electrode_burst_duration(data = output_table, 30, 60, recording_identifier = "burst_recording_1")
+output_table <- electrode_burst_duration(data = output_table, 60, 90, recording_identifier = "burst_recording_1")
+output_table <- electrode_burst_duration(data = output_table, 60, 90, recording_identifier = "burst_recording_2")
+output_table <- electrode_spikes_per_burst(data = output_table, 0, 30, recording_identifier = "burst_recording_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 30, 60, recording_identifier = "burst_recording_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "burst_recording_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "burst_recording_2")
+output_table <- electrode_mean_burst_ISI(data = output_table, 0, 30, recording_identifier = "burst_recording_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 30, 60, recording_identifier = "burst_recording_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "burst_recording_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "burst_recording_2")
+output_table <- electrode_number_of_bursts(data = output_table, 0, 30, recording_identifier = "burst_recording_1")
+output_table <- electrode_number_of_bursts(data = output_table, 30, 60, recording_identifier = "burst_recording_1")
+output_table <- electrode_number_of_bursts(data = output_table, 60, 90, recording_identifier = "burst_recording_1")
+output_table <- electrode_number_of_bursts(data = output_table, 60, 90, recording_identifier = "burst_recording_2")
+input_electrode_barchart <- output_table
+output_table <- well_burst_duration(data = output_table, 0, 30, recording_identifier = "burst_recording_1")
+output_table <- well_burst_duration(data = output_table, 30, 60, recording_identifier = "burst_recording_1")
+output_table <- well_burst_duration(data = output_table, 60, 90, recording_identifier = "burst_recording_1")
+output_table <- well_burst_duration(data = output_table, 60, 90, recording_identifier = "burst_recording_2")
+output_table <- well_spikes_per_burst(data = output_table, 0, 30, recording_identifier = "burst_recording_1")
+output_table <- well_spikes_per_burst(data = output_table, 30, 60, recording_identifier = "burst_recording_1")
+output_table <- well_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "burst_recording_1")
+output_table <- well_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "burst_recording_2")
+output_table <- well_mean_burst_ISI(data = output_table, 0, 30, recording_identifier = "burst_recording_1")
+output_table <- well_mean_burst_ISI(data = output_table, 30, 60, recording_identifier = "burst_recording_1")
+output_table <- well_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "burst_recording_1")
+output_table <- well_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "burst_recording_2")
+output_table <- well_number_of_bursts(data = output_table, 0, 30, recording_identifier = "burst_recording_1")
+output_table <- well_number_of_bursts(data = output_table, 30, 60, recording_identifier = "burst_recording_1")
+output_table <- rbind(burst_recording_1, burst_recording_2)
+output_table <- electrode_burst_duration(data = output_table, 0, 30, recording_identifier = "burst_recording_1")
+output_table <- electrode_burst_duration(data = output_table, 30, 60, recording_identifier = "burst_recording_1")
+output_table <- electrode_burst_duration(data = output_table, 60, 90, recording_identifier = "burst_recording_1")
+output_table <- electrode_burst_duration(data = output_table, 60, 90, recording_identifier = "burst_recording_2")
+output_table <- electrode_spikes_per_burst(data = output_table, 0, 30, recording_identifier = "burst_recording_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 30, 60, recording_identifier = "burst_recording_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "burst_recording_1")
+output_table <- electrode_spikes_per_burst(data = output_table, 60, 90, recording_identifier = "burst_recording_2")
+output_table <- electrode_mean_burst_ISI(data = output_table, 0, 30, recording_identifier = "burst_recording_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 30, 60, recording_identifier = "burst_recording_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "burst_recording_1")
+output_table <- electrode_mean_burst_ISI(data = output_table, 60, 90, recording_identifier = "burst_recording_2")
+output_table <- electrode_number_of_bursts(data = output_table, 0, 30, recording_identifier = "burst_recording_1")
+output_table <- electrode_number_of_bursts(data = output_table, 30, 60, recording_identifier = "burst_recording_1")
+output_table <- electrode_number_of_bursts(data = output_table, 60, 90, recording_identifier = "burst_recording_1")
+output_table <- electrode_number_of_bursts(data = output_table, 60, 90, recording_identifier = "burst_recording_2")
+input_electrode_barchart <- output_table
+output_table_2 <- rbind(burst_recording_1, burst_recording_2)
+output_table_2 <- well_burst_duration(data = output_table_2, 0, 30, recording_identifier = "burst_recording_1")
+output_table_2 <- well_burst_duration(data = output_table_2, 30, 60, recording_identifier = "burst_recording_1")
+output_table_2 <- well_burst_duration(data = output_table_2, 60, 90, recording_identifier = "burst_recording_1")
+output_table_2 <- well_burst_duration(data = output_table_2, 60, 90, recording_identifier = "burst_recording_2")
+output_table_2 <- well_spikes_per_burst(data = output_table_2, 0, 30, recording_identifier = "burst_recording_1")
+output_table_2 <- well_spikes_per_burst(data = output_table_2, 30, 60, recording_identifier = "burst_recording_1")
+output_table_2 <- well_spikes_per_burst(data = output_table_2, 60, 90, recording_identifier = "burst_recording_1")
+output_table_2 <- well_spikes_per_burst(data = output_table_2, 60, 90, recording_identifier = "burst_recording_2")
+output_table_2 <- well_mean_burst_ISI(data = output_table_2, 0, 30, recording_identifier = "burst_recording_1")
+output_table_2 <- well_mean_burst_ISI(data = output_table_2, 30, 60, recording_identifier = "burst_recording_1")
+output_table_2 <- well_mean_burst_ISI(data = output_table_2, 60, 90, recording_identifier = "burst_recording_1")
+output_table_2 <- well_mean_burst_ISI(data = output_table_2, 60, 90, recording_identifier = "burst_recording_2")
+output_table_2 <- well_number_of_bursts(data = output_table_2, 0, 30, recording_identifier = "burst_recording_1")
+output_table_2 <- well_number_of_bursts(data = output_table_2, 30, 60, recording_identifier = "burst_recording_1")
+output_table_2 <- well_number_of_bursts(data = output_table_2, 60, 90, recording_identifier = "burst_recording_1")
+output_table_2 <- well_number_of_bursts(data = output_table_2, 60, 90, recording_identifier = "burst_recording_2")
+input_well_barchart <- output_table_2
+usethis::use_data(input_electrode_barchart, overwrite = TRUE)
+usethis::use_data(input_well_barchart, overwrite = TRUE)
+input_MEA_data <- rbind(burst_recording_1, burst_recording_2)
+usethis::use_data(input_MEA_data, overwrite = TRUE)
+View(input_heatmap_data)
+load("C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis/data/input_electrode_barchart.rda")
+View(input_electrode_barchart)
+View(input_MEA_data)
+devtools::document()
+pkgload::dev_help('input_MEA_data')
+pkgload::dev_help('input_electrode_barchart')
+pkgload::dev_help('input_electrode_barchart')
+pkgload::dev_help('input_well_barchart')
+devtools::document()
+pkgload::dev_help('input_electrode_barchart')
+?create_electrode_dataset
+library(MEAanalysis)
+?create_electrode_dataset
+output_electrode_burst <- create_electrode_dataset(data_path = "./data-raw/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
+?create_synchrony_dataset
+output_neuralMetric <- create_synchrony_dataset(data_path = "./data-raw/input_neuralMetric.csv", heatmap_condition = "SI_condition_1")
+?MEA_heatmap
+devtools::document()
+?MEA_heatmap
+MEA_heatmap(data = input_heatmap_data, well_filter = "A1|A2|A3|A4|A5|A6|B1|B2|B3|B4|B5|B6|C1|C2|C3|C4|C5|C6|D1|D2|D3|D4|D5|D6")
+?well_barchart
+well_barchart(data = input_well_barchart, well_parameter = "burst_duration", well_filter = "A1|A2|A3|A4", statistic = se)
+?single_electrode_barchart
+single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "burst_duration", electrode_filter = "A1_", statistic = se)
+?electrode_mean_burst_ISI
+output_MEA_data <- electrode_mean_burst_ISI(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+View(output_MEA_data)
+?well_burst_duration
+output_MEA_data <- well_burst_duration(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+View(output_MEA_data)
+usethis::use_vignette("MEA-single-electrode-barchart")
+usethis::use_vignette("MEA_well_barchart")
+usethis::use_vignette("MEA_synchrony_index_heatmap")
+devtools::load_all()
+?electrode_burst_duration
+?single_electrode_barchart
+create_electrode_dataset()
+?create_electrode_dataset
+library(MEAanalysis)
+library(MEAanalysis)
+burst_recording_1 <- create_electrode_dataset(data_path = "./data-raw/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
+burst_recording_2 <- create_electrode_dataset(data_path = "./data-raw/comparison_agonist_challenge_electrode_burst_list.csv", recording_identifier = "burst_recording_2")
+output_table <- rbind(burst_recording_1, burst_recording_2)
+analysis_dataset <- output_table
+analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 0, 30, recording_identifier = "burst_duration_1")
+analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 30, 60, recording_identifier = "burst_duration_1")
+analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 60, 90, recording_identifier = "burst_duration_1")
+analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 60, 90, recording_identifier = "burst_duration_2")
+single_electrode_barchart(data = analysis_dataset, electrode_parameter = "burst_duration", electrode_filter = "A1_", statistic = se)
+View(burst_recording_1)
+View(analysis_dataset)
+analysis_dataset <- output_table
+analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 0, 30, recording_identifier = "burst_recording_1")
+analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 30, 60, recording_identifier = "burst_recording_1")
+analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 60, 90, recording_identifier = "burst_recording_1")
+analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 60, 90, recording_identifier = "burst_recording_2")
+single_electrode_barchart(data = analysis_dataset, electrode_parameter = "burst_duration", electrode_filter = "A1_", statistic = se)
+getwd()
+?create_electrode_dataset
+?head
+install.packages("kableExtra")
+library(kableExtra)
+?create_electrode_dataset
+devtools::document()
+usethis::use_readme_rmd()
+vignette("MEA-single-electrode-barchart", package = "MEAanalysis")
