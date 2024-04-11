@@ -1,0 +1,21 @@
+Package: MEAanalysis
+Version: 0.1.0
+Title: Analyse Multi Electrode Array Single Electrode, Well, and
+        Synchrony Data
+Author: Emily Gordon
+Maintainer: Emily Gordon <emily.gordon@wadham.ox.ac.uk>
+Description: A package containing functions to analyse single electrode, well, and synchrony data obtained using the multi electrode array techinique. Functions utilise Axis Navigator software output files.
+License: GPL (>= 2)
+Depends: data.table (>= 1.14.8), dplyr (>= 1.1.3), ggplot2 (>= 3.4.4),
+        janitor (>= 2.2.0), readr, readxl (>= 1.4.3), reshape2 (>=
+        1.4.4), stringr (>= 1.5.0), tidyr, tidyverse (>= 2.0.0), R (>=
+        2.10)
+Encoding: UTF-8
+RoxygenNote: 7.3.1
+LazyData: true
+Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+NeedsCompilation: no
+Packaged: 2024-04-10 11:51:56 UTC; Emily Gordon
+Built: R 4.3.2; ; 2024-04-10 11:52:03 UTC; windows

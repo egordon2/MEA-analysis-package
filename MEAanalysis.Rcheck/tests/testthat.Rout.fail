@@ -1,0 +1,124 @@
+
+R version 4.3.2 (2023-10-31 ucrt) -- "Eye Holes"
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # This file is part of the standard setup for testthat.
+> # It is recommended that you do not modify it.
+> #
+> # Where should you do additional test configuration?
+> # Learn more about the roles of various files in:
+> # * https://r-pkgs.org/testing-design.html#sec-tests-files-overview
+> # * https://testthat.r-lib.org/articles/special-files.html
+> 
+> library(testthat)
+> library(MEAanalysis)
+Loading required package: data.table
+Loading required package: dplyr
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:data.table':
+
+    between, first, last
+
+The following object is masked from 'package:testthat':
+
+    matches
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+Loading required package: ggplot2
+Loading required package: janitor
+
+Attaching package: 'janitor'
+
+The following objects are masked from 'package:stats':
+
+    chisq.test, fisher.test
+
+Loading required package: readr
+
+Attaching package: 'readr'
+
+The following objects are masked from 'package:testthat':
+
+    edition_get, local_edition
+
+Loading required package: readxl
+Loading required package: reshape2
+
+Attaching package: 'reshape2'
+
+The following objects are masked from 'package:data.table':
+
+    dcast, melt
+
+Loading required package: stringr
+Loading required package: tidyr
+
+Attaching package: 'tidyr'
+
+The following object is masked from 'package:reshape2':
+
+    smiths
+
+The following object is masked from 'package:testthat':
+
+    matches
+
+Loading required package: tidyverse
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.0     ✔ purrr     1.0.2
+✔ lubridate 1.9.3     ✔ tibble    3.2.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::between()       masks data.table::between()
+✖ readr::edition_get()   masks testthat::edition_get()
+✖ dplyr::filter()        masks stats::filter()
+✖ dplyr::first()         masks data.table::first()
+✖ lubridate::hour()      masks data.table::hour()
+✖ purrr::is_null()       masks testthat::is_null()
+✖ lubridate::isoweek()   masks data.table::isoweek()
+✖ dplyr::lag()           masks stats::lag()
+✖ dplyr::last()          masks data.table::last()
+✖ readr::local_edition() masks testthat::local_edition()
+✖ tidyr::matches()       masks dplyr::matches(), testthat::matches()
+✖ lubridate::mday()      masks data.table::mday()
+✖ lubridate::minute()    masks data.table::minute()
+✖ lubridate::month()     masks data.table::month()
+✖ lubridate::quarter()   masks data.table::quarter()
+✖ lubridate::second()    masks data.table::second()
+✖ purrr::transpose()     masks data.table::transpose()
+✖ lubridate::wday()      masks data.table::wday()
+✖ lubridate::week()      masks data.table::week()
+✖ lubridate::yday()      masks data.table::yday()
+✖ lubridate::year()      masks data.table::year()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+> 
+> test_check("MEAanalysis")
+Error in `test_dir()`:
+! No test files found
+Backtrace:
+    ▆
+ 1. └─testthat::test_check("MEAanalysis")
+ 2.   └─testthat::test_dir("testthat", package = package, reporter = reporter, ..., load_package = "installed")
+ 3.     └─rlang::abort("No test files found")
+Execution halted
