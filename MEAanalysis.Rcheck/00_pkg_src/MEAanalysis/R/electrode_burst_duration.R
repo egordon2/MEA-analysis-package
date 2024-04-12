@@ -54,8 +54,8 @@ electrode_burst_duration <- function(data = output_table, time_lower_bound = 0, 
 
     # filter for time interval of specified recording
      data_1 <- data %>%
-      filter(between(Time_s, time_lower_bound, time_upper_bound)) %>%
-      filter(Recording_identifier == recording_identifier)
+      filter(., between(Time_s, time_lower_bound, time_upper_bound)) %>%
+      filter(., Recording_identifier == recording_identifier)
 
     # calculate new columns
     data_2  <- data_1 %>%

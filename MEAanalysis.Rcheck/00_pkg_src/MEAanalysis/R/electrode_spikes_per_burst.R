@@ -53,8 +53,8 @@ electrode_spikes_per_burst <- function(data = output_table, time_lower_bound = 0
   else {
 
   data_1 <- data %>%
-    filter(between(Time_s, time_lower_bound, time_upper_bound)) %>%
-    filter(Recording_identifier == recording_identifier)
+    filter(., between(Time_s, time_lower_bound, time_upper_bound)) %>%
+    filter(., Recording_identifier == recording_identifier)
 
   data_2  <- data_1 %>%
     group_by(Electrode) %>%

@@ -23,7 +23,7 @@ selectively is preferable.
 * checking for hidden files and directories ... OK
 * checking for portable file names ... OK
 * checking serialization versions ... OK
-* checking whether package 'MEAanalysis' can be installed ... [32s] WARNING
+* checking whether package 'MEAanalysis' can be installed ... [16s] WARNING
 Found the following significant warnings:
   Warning: package 'kableExtra' was built under R version 4.3.3
 See 'C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis.Rcheck/00install.out' for details.
@@ -56,7 +56,7 @@ Packages in Depends field not imported from:
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
-* checking R code for possible problems ... [21s] NOTE
+* checking R code for possible problems ... [11s] NOTE
 MEA_heatmap: no visible binding for global variable 'Well'
 MEA_heatmap: no visible global function definition for '%>%'
 MEA_heatmap: no visible binding for global variable 'variable'
@@ -83,6 +83,7 @@ electrode_burst_duration: no visible binding for global variable
   'output_table'
 electrode_burst_duration: no visible global function definition for
   '%>%'
+electrode_burst_duration: no visible binding for global variable '.'
 electrode_burst_duration: no visible binding for global variable
   'Time_s'
 electrode_burst_duration: no visible binding for global variable
@@ -107,6 +108,7 @@ electrode_mean_burst_ISI: no visible binding for global variable
   'output_table'
 electrode_mean_burst_ISI: no visible global function definition for
   '%>%'
+electrode_mean_burst_ISI: no visible binding for global variable '.'
 electrode_mean_burst_ISI: no visible binding for global variable
   'Time_s'
 electrode_mean_burst_ISI: no visible binding for global variable
@@ -131,6 +133,7 @@ electrode_number_of_bursts: no visible binding for global variable
   'output_table'
 electrode_number_of_bursts: no visible global function definition for
   '%>%'
+electrode_number_of_bursts: no visible binding for global variable '.'
 electrode_number_of_bursts: no visible binding for global variable
   'Time_s'
 electrode_number_of_bursts: no visible binding for global variable
@@ -145,6 +148,7 @@ electrode_spikes_per_burst: no visible binding for global variable
   'output_table'
 electrode_spikes_per_burst: no visible global function definition for
   '%>%'
+electrode_spikes_per_burst: no visible binding for global variable '.'
 electrode_spikes_per_burst: no visible binding for global variable
   'Time_s'
 electrode_spikes_per_burst: no visible binding for global variable
@@ -178,6 +182,7 @@ single_electrode_barchart: no visible binding for global variable
   'Size_spikes'
 single_electrode_barchart: no visible binding for global variable
   'Recording_identifier'
+single_electrode_barchart: no visible binding for global variable '.'
 single_electrode_barchart: no visible binding for global variable
   'Electrode'
 single_electrode_barchart: no visible binding for global variable
@@ -202,6 +207,7 @@ well_barchart: no visible binding for global variable 'Duration_s'
 well_barchart: no visible binding for global variable 'Size_spikes'
 well_barchart: no visible binding for global variable
   'Recording_identifier'
+well_barchart: no visible binding for global variable '.'
 well_barchart: no visible binding for global variable 'well'
 well_barchart: no visible binding for global variable 'variable'
 well_barchart: no visible binding for global variable 'parameter'
@@ -215,6 +221,7 @@ well_barchart: no visible global function definition for
 well_burst_duration: no visible binding for global variable
   'output_table'
 well_burst_duration: no visible global function definition for '%>%'
+well_burst_duration: no visible binding for global variable '.'
 well_burst_duration: no visible binding for global variable 'Time_s'
 well_burst_duration: no visible binding for global variable
   'Recording_identifier'
@@ -238,6 +245,7 @@ well_burst_duration: no visible binding for global variable
 well_mean_burst_ISI: no visible binding for global variable
   'output_table'
 well_mean_burst_ISI: no visible global function definition for '%>%'
+well_mean_burst_ISI: no visible binding for global variable '.'
 well_mean_burst_ISI: no visible binding for global variable 'Time_s'
 well_mean_burst_ISI: no visible binding for global variable
   'Recording_identifier'
@@ -266,6 +274,7 @@ well_number_of_bursts: no visible binding for global variable
 well_number_of_bursts: no visible binding for global variable
   'Recording_identifier'
 well_number_of_bursts: no visible binding for global variable 'well'
+well_number_of_bursts: no visible binding for global variable '.'
 well_number_of_bursts: no visible binding for global variable 'Time_s'
 well_number_of_bursts: no visible global function definition for
   'add_count'
@@ -283,6 +292,7 @@ well_number_of_bursts: no visible binding for global variable
 well_spikes_per_burst: no visible binding for global variable
   'output_table'
 well_spikes_per_burst: no visible global function definition for '%>%'
+well_spikes_per_burst: no visible binding for global variable '.'
 well_spikes_per_burst: no visible binding for global variable 'Time_s'
 well_spikes_per_burst: no visible binding for global variable
   'Recording_identifier'
@@ -305,7 +315,7 @@ well_spikes_per_burst: no visible binding for global variable
 well_spikes_per_burst: no visible binding for global variable
   'well_spikes_se'
 Undefined global functions or variables:
-  %>% .SD := Duration_s Electrode Recording_identifier Size_spikes
+  %>% . .SD := Duration_s Electrode Recording_identifier Size_spikes
   Time_s Well X1 add_count aes avg_mean_burst_ISI burst_count
   duration_mean duration_raw duration_sd duration_se
   electrode_burst_count experimental_condition mean_burst_ISI_s
@@ -412,7 +422,7 @@ Extensions' manual.
 * checking data for ASCII and uncompressed saves ... OK
 * checking installed files from 'inst/doc' ... OK
 * checking files in 'vignettes' ... OK
-* checking examples ... [17s] OK
+* checking examples ... OK
 * checking for unstated dependencies in 'tests' ... OK
 * checking tests ... ERROR
   Running 'testthat.R'
@@ -435,7 +445,7 @@ Last 13 lines of output:
   Execution halted
 * checking for unstated dependencies in vignettes ... OK
 * checking package vignettes in 'inst/doc' ... OK
-* checking re-building of vignette outputs ... [36s] OK
+* checking re-building of vignette outputs ... [18s] OK
 * checking for non-standard things in the check directory ... OK
 * checking for detritus in the temp directory ... OK
 * DONE

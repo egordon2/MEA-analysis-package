@@ -62,8 +62,8 @@ well_number_of_bursts <- function(data = output_table, time_lower_bound = 0, tim
 
   # filter for bursts within given time interval of the recording
   data_1 <- data %>%
-    filter(between(Time_s, time_lower_bound, time_upper_bound)) %>%
-    filter(Recording_identifier == recording_identifier)
+    filter(., between(Time_s, time_lower_bound, time_upper_bound)) %>%
+    filter(., Recording_identifier == recording_identifier)
 
   # calculate number of bursts detected by an electrode during the given time interval of the recording
   data_2 <- data_1 %>%

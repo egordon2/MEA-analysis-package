@@ -56,8 +56,8 @@ well_burst_duration <- function(data = output_table, time_lower_bound = 0, time_
 
   # filter for bursts within given time interval of the recording
   data_1 <- data %>%
-    filter(between(Time_s, time_lower_bound, time_upper_bound)) %>%
-    filter(Recording_identifier == recording_identifier)
+    filter(., between(Time_s, time_lower_bound, time_upper_bound)) %>%
+    filter(., Recording_identifier == recording_identifier)
 
   # calculate the average, sd, and se burst duration within a well
   data_2  <- data_1 %>%

@@ -40,7 +40,7 @@ well_barchart <- function(data = output_table, well_parameter,
   analysis_dataset <- data %>%
     select(-c(Time_s, Duration_s, Size_spikes, Recording_identifier)) %>%
     distinct() %>%
-    filter(str_detect(well, well_filter))
+    filter(., str_detect(well, well_filter))
 
   #assign y axis title dependent on chosen well parameter
   #(include "number_of_bursts"/ "burst_duration"/ "spikes_per_burst"/ "mean_burst_ISI")
@@ -81,11 +81,11 @@ well_barchart <- function(data = output_table, well_parameter,
 
   # create data frame of raw values
   raw_values <- analysis_dataset_3 %>%
-    filter(parameter == "raw")
+    filter(., parameter == "raw")
 
   # create data frame of distinct calculated statistics
   calculated_statistics <- analysis_dataset_3 %>%
-    filter(parameter != "raw") %>%
+    filter(., parameter != "raw") %>%
     distinct() %>%
     group_by(well, recording_time, parameter) %>%
     slice(which.max(!is.na(value)))

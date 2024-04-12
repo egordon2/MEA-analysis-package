@@ -55,8 +55,8 @@ well_mean_burst_ISI <- function(data = output_table, time_lower_bound = 0, time_
 
   # filter for bursts within given time interval of the recording
   data_1 <- data %>%
-    filter(between(Time_s, time_lower_bound, time_upper_bound)) %>%
-    filter(Recording_identifier == recording_identifier)
+    filter(., between(Time_s, time_lower_bound, time_upper_bound)) %>%
+    filter(., Recording_identifier == recording_identifier)
 
   #calculate mean ISI within a burst (sec)
   data_2 <- data_1 %>%
