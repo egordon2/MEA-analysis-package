@@ -9,14 +9,14 @@ library(MEAanalysis)
 knitr::opts_knit$set(root.dir = '..')
 
 ## ----warning = FALSE, message = FALSE-----------------------------------------
-burst_recording_1 <- create_electrode_dataset(data_path = "data-raw/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
+burst_recording_1 <- create_electrode_dataset(data_path = "data/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
 
 # view first 10 lines of dataset
 
 head(burst_recording_1, 10)
 
 ## ----warning = FALSE, message = FALSE-----------------------------------------
-burst_recording_2 <- create_electrode_dataset(data_path = "data-raw/comparison_agonist_challenge_electrode_burst_list.csv", recording_identifier = "burst_recording_2")
+burst_recording_2 <- create_electrode_dataset(data_path = "data/comparison_agonist_challenge_electrode_burst_list.csv", recording_identifier = "burst_recording_2")
 
 # view first 10 lines of dataset
 

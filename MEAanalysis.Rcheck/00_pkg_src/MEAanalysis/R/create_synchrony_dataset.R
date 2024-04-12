@@ -16,8 +16,7 @@
 #' @importFrom stringr str_detect
 #' @export
 #'
-#' @examples
-#' output_neuralMetric <- create_synchrony_dataset(data_path = "./data-raw/input_neuralMetric.csv", heatmap_condition = "SI_condition_1")
+#' @examples output_neuralMetric <- create_synchrony_dataset(data_path = "MEAanalysis/data/input_neuralMetric.csv", heatmap_condition = "SI_condition_1")
 
 create_synchrony_dataset <- function(data_path, heatmap_condition) {
 

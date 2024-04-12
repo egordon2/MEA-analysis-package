@@ -1,0 +1,26 @@
+{
+    "id": "8401884D",
+    "path": "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis/R/create_electrode_dataset.R",
+    "project_path": "R/create_electrode_dataset.R",
+    "type": "r_source",
+    "hash": "340082212",
+    "contents": "",
+    "dirty": false,
+    "created": 1712830521042.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "17,88",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1712836057,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1712836057841,
+    "read_only": false,
+    "read_only_alternatives": []
+}

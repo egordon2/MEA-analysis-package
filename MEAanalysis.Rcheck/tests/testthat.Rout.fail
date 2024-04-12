@@ -55,6 +55,14 @@ The following objects are masked from 'package:stats':
 
     chisq.test, fisher.test
 
+Loading required package: kableExtra
+
+Attaching package: 'kableExtra'
+
+The following object is masked from 'package:dplyr':
+
+    group_rows
+
 Loading required package: readr
 
 Attaching package: 'readr'
@@ -90,28 +98,31 @@ Loading required package: tidyverse
 ✔ forcats   1.0.0     ✔ purrr     1.0.2
 ✔ lubridate 1.9.3     ✔ tibble    3.2.1
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::between()       masks data.table::between()
-✖ readr::edition_get()   masks testthat::edition_get()
-✖ dplyr::filter()        masks stats::filter()
-✖ dplyr::first()         masks data.table::first()
-✖ lubridate::hour()      masks data.table::hour()
-✖ purrr::is_null()       masks testthat::is_null()
-✖ lubridate::isoweek()   masks data.table::isoweek()
-✖ dplyr::lag()           masks stats::lag()
-✖ dplyr::last()          masks data.table::last()
-✖ readr::local_edition() masks testthat::local_edition()
-✖ tidyr::matches()       masks dplyr::matches(), testthat::matches()
-✖ lubridate::mday()      masks data.table::mday()
-✖ lubridate::minute()    masks data.table::minute()
-✖ lubridate::month()     masks data.table::month()
-✖ lubridate::quarter()   masks data.table::quarter()
-✖ lubridate::second()    masks data.table::second()
-✖ purrr::transpose()     masks data.table::transpose()
-✖ lubridate::wday()      masks data.table::wday()
-✖ lubridate::week()      masks data.table::week()
-✖ lubridate::yday()      masks data.table::yday()
-✖ lubridate::year()      masks data.table::year()
+✖ dplyr::between()         masks data.table::between()
+✖ readr::edition_get()     masks testthat::edition_get()
+✖ dplyr::filter()          masks stats::filter()
+✖ dplyr::first()           masks data.table::first()
+✖ kableExtra::group_rows() masks dplyr::group_rows()
+✖ lubridate::hour()        masks data.table::hour()
+✖ purrr::is_null()         masks testthat::is_null()
+✖ lubridate::isoweek()     masks data.table::isoweek()
+✖ dplyr::lag()             masks stats::lag()
+✖ dplyr::last()            masks data.table::last()
+✖ readr::local_edition()   masks testthat::local_edition()
+✖ tidyr::matches()         masks dplyr::matches(), testthat::matches()
+✖ lubridate::mday()        masks data.table::mday()
+✖ lubridate::minute()      masks data.table::minute()
+✖ lubridate::month()       masks data.table::month()
+✖ lubridate::quarter()     masks data.table::quarter()
+✖ lubridate::second()      masks data.table::second()
+✖ purrr::transpose()       masks data.table::transpose()
+✖ lubridate::wday()        masks data.table::wday()
+✖ lubridate::week()        masks data.table::week()
+✖ lubridate::yday()        masks data.table::yday()
+✖ lubridate::year()        masks data.table::year()
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Warning message:
+package 'kableExtra' was built under R version 4.3.3 
 > 
 > test_check("MEAanalysis")
 Error in `test_dir()`:

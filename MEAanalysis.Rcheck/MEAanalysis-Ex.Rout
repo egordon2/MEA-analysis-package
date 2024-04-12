@@ -60,6 +60,15 @@ The following objects are masked from 'package:stats':
 
     chisq.test, fisher.test
 
+Loading required package: kableExtra
+Warning: package 'kableExtra' was built under R version 4.3.3
+
+Attaching package: 'kableExtra'
+
+The following object is masked from 'package:dplyr':
+
+    group_rows
+
 Loading required package: readr
 Loading required package: readxl
 Loading required package: reshape2
@@ -84,23 +93,24 @@ Loading required package: tidyverse
 ✔ forcats   1.0.0     ✔ purrr     1.0.2
 ✔ lubridate 1.9.3     ✔ tibble    3.2.1
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::between()     masks data.table::between()
-✖ dplyr::filter()      masks stats::filter()
-✖ dplyr::first()       masks data.table::first()
-✖ lubridate::hour()    masks data.table::hour()
-✖ lubridate::isoweek() masks data.table::isoweek()
-✖ dplyr::lag()         masks stats::lag()
-✖ dplyr::last()        masks data.table::last()
-✖ lubridate::mday()    masks data.table::mday()
-✖ lubridate::minute()  masks data.table::minute()
-✖ lubridate::month()   masks data.table::month()
-✖ lubridate::quarter() masks data.table::quarter()
-✖ lubridate::second()  masks data.table::second()
-✖ purrr::transpose()   masks data.table::transpose()
-✖ lubridate::wday()    masks data.table::wday()
-✖ lubridate::week()    masks data.table::week()
-✖ lubridate::yday()    masks data.table::yday()
-✖ lubridate::year()    masks data.table::year()
+✖ dplyr::between()         masks data.table::between()
+✖ dplyr::filter()          masks stats::filter()
+✖ dplyr::first()           masks data.table::first()
+✖ kableExtra::group_rows() masks dplyr::group_rows()
+✖ lubridate::hour()        masks data.table::hour()
+✖ lubridate::isoweek()     masks data.table::isoweek()
+✖ dplyr::lag()             masks stats::lag()
+✖ dplyr::last()            masks data.table::last()
+✖ lubridate::mday()        masks data.table::mday()
+✖ lubridate::minute()      masks data.table::minute()
+✖ lubridate::month()       masks data.table::month()
+✖ lubridate::quarter()     masks data.table::quarter()
+✖ lubridate::second()      masks data.table::second()
+✖ purrr::transpose()       masks data.table::transpose()
+✖ lubridate::wday()        masks data.table::wday()
+✖ lubridate::week()        masks data.table::week()
+✖ lubridate::yday()        masks data.table::yday()
+✖ lubridate::year()        masks data.table::year()
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
@@ -137,6 +147,275 @@ Loading required package: tidyverse
 > 
 > ### ** Examples
 > 
-> output_electrode_burst <- create_electrode_dataset(data_path = "./data-raw/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
-Error: './data-raw/input_electrode_burst.csv' does not exist in current working directory ('C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis.Rcheck').
-Execution halted
+> output_electrode_burst <- create_electrode_dataset(data_path = "MEAanalysis/data/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
+New names:
+• `` -> `...7`
+• `` -> `...8`
+• `` -> `...9`
+• `` -> `...10`
+• `` -> `...11`
+• `` -> `...12`
+• `` -> `...13`
+• `` -> `...14`
+• `` -> `...15`
+• `` -> `...16`
+• `` -> `...17`
+• `` -> `...18`
+• `` -> `...19`
+• `` -> `...20`
+• `` -> `...21`
+• `` -> `...22`
+• `` -> `...23`
+• `` -> `...24`
+• `` -> `...25`
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("create_electrode_dataset", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("create_synchrony_dataset")
+> ### * create_synchrony_dataset
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: create_synchrony_dataset
+> ### Title: Create Synchrony Data Set
+> ### Aliases: create_synchrony_dataset
+> 
+> ### ** Examples
+> 
+> output_neuralMetric <- create_synchrony_dataset(data_path = "MEAanalysis/data/input_neuralMetric.csv", heatmap_condition = "SI_condition_1")
+Warning: One or more parsing issues, call `problems()` on your data frame for details,
+e.g.:
+  dat <- vroom(...)
+  problems(dat)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("create_synchrony_dataset", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("electrode_burst_duration")
+> ### * electrode_burst_duration
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: electrode_burst_duration
+> ### Title: Electrode Burst Duration
+> ### Aliases: electrode_burst_duration
+> 
+> ### ** Examples
+> 
+> output_MEA_data <- electrode_burst_duration(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("electrode_burst_duration", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("electrode_mean_burst_ISI")
+> ### * electrode_mean_burst_ISI
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: electrode_mean_burst_ISI
+> ### Title: Electrode Mean Burst ISI
+> ### Aliases: electrode_mean_burst_ISI
+> 
+> ### ** Examples
+> 
+> output_MEA_data <- electrode_mean_burst_ISI(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("electrode_mean_burst_ISI", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("electrode_number_of_bursts")
+> ### * electrode_number_of_bursts
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: electrode_number_of_bursts
+> ### Title: Electrode Number of Bursts
+> ### Aliases: electrode_number_of_bursts
+> 
+> ### ** Examples
+> 
+> output_MEA_data <- electrode_number_of_bursts(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("electrode_number_of_bursts", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("electrode_spikes_per_burst")
+> ### * electrode_spikes_per_burst
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: electrode_spikes_per_burst
+> ### Title: Electrode Spikes per Burst
+> ### Aliases: electrode_spikes_per_burst
+> 
+> ### ** Examples
+> 
+> output_MEA_data <- electrode_spikes_per_burst(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("electrode_spikes_per_burst", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("single_electrode_barchart")
+> ### * single_electrode_barchart
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: single_electrode_barchart
+> ### Title: Single Electrode Bar chart
+> ### Aliases: single_electrode_barchart
+> 
+> ### ** Examples
+> 
+> single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "burst_duration", electrode_filter = "A1_", statistic = se)
+Warning: Removed 43 rows containing missing values (`geom_bar()`).
+Warning: Removed 117 rows containing missing values (`geom_point()`).
+> single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "spikes_per_burst", electrode_filter = "A1_", statistic = se)
+Warning: Removed 43 rows containing missing values (`geom_bar()`).
+Warning: Removed 117 rows containing missing values (`geom_point()`).
+> single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "mean_burst_ISI", electrode_filter = "A1_", statistic = se)
+Warning: Removed 43 rows containing missing values (`geom_bar()`).
+Warning: Removed 117 rows containing missing values (`geom_point()`).
+> single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "number_of_bursts", electrode_filter = "A1_")
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("single_electrode_barchart", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("well_barchart")
+> ### * well_barchart
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: well_barchart
+> ### Title: Well Bar chart
+> ### Aliases: well_barchart
+> 
+> ### ** Examples
+> 
+> well_barchart(data = input_well_barchart, well_parameter = "burst_duration", well_filter = "A1|A2|A3|A4", statistic = se)
+Warning: Removed 3 rows containing missing values (`geom_bar()`).
+Warning: Removed 634 rows containing missing values (`geom_point()`).
+> well_barchart(data = input_well_barchart, well_parameter = "spikes_per_burst", well_filter = "A1|A2|A3|A4", statistic = se)
+Warning: Removed 3 rows containing missing values (`geom_bar()`).
+Warning: Removed 634 rows containing missing values (`geom_point()`).
+> well_barchart(data = input_well_barchart, well_parameter = "mean_burst_ISI", well_filter = "A1|A2|A3|A4", statistic = se)
+Warning: Removed 3 rows containing missing values (`geom_bar()`).
+Warning: Removed 634 rows containing missing values (`geom_point()`).
+> well_barchart(data = input_well_barchart, well_parameter = "number_of_bursts", well_filter = "A1|A2|A3|A4", statistic = se)
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("well_barchart", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("well_burst_duration")
+> ### * well_burst_duration
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: well_burst_duration
+> ### Title: Well Burst Duration
+> ### Aliases: well_burst_duration
+> 
+> ### ** Examples
+> 
+> output_MEA_data <- well_burst_duration(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("well_burst_duration", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("well_mean_burst_ISI")
+> ### * well_mean_burst_ISI
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: well_mean_burst_ISI
+> ### Title: Well Mean Burst ISI
+> ### Aliases: well_mean_burst_ISI
+> 
+> ### ** Examples
+> 
+> output_MEA_data <- well_mean_burst_ISI(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("well_mean_burst_ISI", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("well_number_of_bursts")
+> ### * well_number_of_bursts
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: well_number_of_bursts
+> ### Title: Well Number of Bursts
+> ### Aliases: well_number_of_bursts
+> 
+> ### ** Examples
+> 
+> output_MEA_data <- well_number_of_bursts(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("well_number_of_bursts", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> cleanEx()
+> nameEx("well_spikes_per_burst")
+> ### * well_spikes_per_burst
+> 
+> flush(stderr()); flush(stdout())
+> 
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: well_spikes_per_burst
+> ### Title: Well Spikes per Burst
+> ### Aliases: well_spikes_per_burst
+> 
+> ### ** Examples
+> 
+> output_MEA_data <- well_spikes_per_burst(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+> 
+> 
+> 
+> base::assign(".dptime", (proc.time() - get(".ptime", pos = "CheckExEnv")), pos = "CheckExEnv")
+> base::cat("well_spikes_per_burst", base::get(".format_ptime", pos = 'CheckExEnv')(get(".dptime", pos = "CheckExEnv")), "\n", file=base::get(".ExTimings", pos = 'CheckExEnv'), append=TRUE, sep="\t")
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  9.25 6.02 16.52 NA NA 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

@@ -15,8 +15,7 @@
 #' @importFrom stringr str_detect
 #' @export
 #'
-#' @examples
-#' output_electrode_burst <- create_electrode_dataset(data_path = "./data-raw/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
+#' @examples output_electrode_burst <- create_electrode_dataset(data_path = "MEAanalysis/data/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
 
 create_electrode_dataset <- function(data_path, recording_identifier) {
 
