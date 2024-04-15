@@ -1,0 +1,26 @@
+{
+    "id": "72D6FFAE",
+    "path": "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis/R/create_synchrony_dataset.R",
+    "project_path": "R/create_synchrony_dataset.R",
+    "type": "r_source",
+    "hash": "3199305834",
+    "contents": "",
+    "dirty": false,
+    "created": 1713184209697.0,
+    "source_on_save": false,
+    "relative_order": 9,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "36,24",
+        "scrollLine": "21"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1712933338,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1712933338,
+    "read_only": false,
+    "read_only_alternatives": []
+}

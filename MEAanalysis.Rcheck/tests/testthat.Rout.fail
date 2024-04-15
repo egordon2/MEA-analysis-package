@@ -125,11 +125,60 @@ Warning message:
 package 'kableExtra' was built under R version 4.3.3 
 > 
 > test_check("MEAanalysis")
-Error in `test_dir()`:
-! No test files found
+[ FAIL 5 | WARN 0 | SKIP 0 | PASS 11 ]
+
+══ Failed tests ════════════════════════════════════════════════════════════════
+── Error ('test-create_electrode_dataset.R:4:3'): create_electrode_dataset output is a datatable ──
+Error: 'data/input_electrode_burst.csv' does not exist in current working directory ('C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis.Rcheck/tests/testthat').
 Backtrace:
     ▆
- 1. └─testthat::test_check("MEAanalysis")
- 2.   └─testthat::test_dir("testthat", package = package, reporter = reporter, ..., load_package = "installed")
- 3.     └─rlang::abort("No test files found")
+ 1. ├─MEAanalysis::create_electrode_dataset(...) at test-create_electrode_dataset.R:4:3
+ 2. │ └─readr::read_csv(file = data_path, col_select = 3:6, show_col_types = FALSE)
+ 3. │   └─vroom::vroom(...)
+ 4. │     └─vroom:::vroom_(...)
+ 5. └─vroom (local) `<fn>`("data/input_electrode_burst.csv")
+ 6.   └─vroom:::check_path(path)
+── Error ('test-create_electrode_dataset.R:11:3'): create_electrode_dataset column names are correct ──
+Error: 'data/input_electrode_burst.csv' does not exist in current working directory ('C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis.Rcheck/tests/testthat').
+Backtrace:
+    ▆
+ 1. ├─MEAanalysis::create_electrode_dataset(...) at test-create_electrode_dataset.R:11:3
+ 2. │ └─readr::read_csv(file = data_path, col_select = 3:6, show_col_types = FALSE)
+ 3. │   └─vroom::vroom(...)
+ 4. │     └─vroom:::vroom_(...)
+ 5. └─vroom (local) `<fn>`("data/input_electrode_burst.csv")
+ 6.   └─vroom:::check_path(path)
+── Error ('test-create_electrode_dataset.R:24:3'): create_electrode_dataset column classes are correct ──
+Error: 'data/input_electrode_burst.csv' does not exist in current working directory ('C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis.Rcheck/tests/testthat').
+Backtrace:
+    ▆
+ 1. ├─MEAanalysis::create_electrode_dataset(...) at test-create_electrode_dataset.R:24:3
+ 2. │ └─readr::read_csv(file = data_path, col_select = 3:6, show_col_types = FALSE)
+ 3. │   └─vroom::vroom(...)
+ 4. │     └─vroom:::vroom_(...)
+ 5. └─vroom (local) `<fn>`("data/input_electrode_burst.csv")
+ 6.   └─vroom:::check_path(path)
+── Error ('test-create_synchrony_dataset.R:4:3'): create_synchrony_dataset output is a data table ──
+Error: 'data/input_neuralMetric.csv' does not exist in current working directory ('C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis.Rcheck/tests/testthat').
+Backtrace:
+    ▆
+ 1. ├─MEAanalysis::create_synchrony_dataset(...) at test-create_synchrony_dataset.R:4:3
+ 2. │ └─readr::read_csv(...)
+ 3. │   └─vroom::vroom(...)
+ 4. │     └─vroom:::vroom_(...)
+ 5. └─vroom (local) `<fn>`("data/input_neuralMetric.csv")
+ 6.   └─vroom:::check_path(path)
+── Error ('test-create_synchrony_dataset.R:12:3'): create_synchrony dataset column classes are correct ──
+Error: 'data/input_neuralMetric.csv' does not exist in current working directory ('C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis.Rcheck/tests/testthat').
+Backtrace:
+    ▆
+ 1. ├─MEAanalysis::create_synchrony_dataset(...) at test-create_synchrony_dataset.R:12:3
+ 2. │ └─readr::read_csv(...)
+ 3. │   └─vroom::vroom(...)
+ 4. │     └─vroom:::vroom_(...)
+ 5. └─vroom (local) `<fn>`("data/input_neuralMetric.csv")
+ 6.   └─vroom:::check_path(path)
+
+[ FAIL 5 | WARN 0 | SKIP 0 | PASS 11 ]
+Error: Test failures
 Execution halted

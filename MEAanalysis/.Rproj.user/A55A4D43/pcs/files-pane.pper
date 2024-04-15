@@ -1,13 +1,13 @@
 {
     "sortOrder": [
         {
-            "columnIndex": 3,
-            "ascending": false
-        },
-        {
             "columnIndex": 2,
             "ascending": true
+        },
+        {
+            "columnIndex": 3,
+            "ascending": false
         }
     ],
-    "path": "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis/inst/workflow_examples"
+    "path": "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis/R"
 }
