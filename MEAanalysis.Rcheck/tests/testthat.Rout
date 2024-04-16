@@ -189,4 +189,4 @@ New names:
 > 
 > proc.time()
    user  system elapsed 
-   2.34    1.95    4.98 
+   4.12    3.18    8.56 

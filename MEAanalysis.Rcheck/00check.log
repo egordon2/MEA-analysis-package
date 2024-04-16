@@ -23,7 +23,7 @@ selectively is preferable.
 * checking for hidden files and directories ... OK
 * checking for portable file names ... OK
 * checking serialization versions ... OK
-* checking whether package 'MEAanalysis' can be installed ... [16s] WARNING
+* checking whether package 'MEAanalysis' can be installed ... [33s] WARNING
 Found the following significant warnings:
   Warning: package 'kableExtra' was built under R version 4.3.3
 See 'C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis.Rcheck/00install.out' for details.
@@ -52,7 +52,7 @@ Packages in Depends field not imported from:
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
-* checking R code for possible problems ... [10s] NOTE
+* checking R code for possible problems ... [20s] NOTE
 MEA_heatmap: no visible binding for global variable 'Well'
 MEA_heatmap: no visible global function definition for '%>%'
 MEA_heatmap: no visible binding for global variable 'variable'
@@ -402,13 +402,13 @@ These lines will be truncated in the PDF manual.
 * checking data for ASCII and uncompressed saves ... OK
 * checking installed files from 'inst/doc' ... OK
 * checking files in 'vignettes' ... OK
-* checking examples ... OK
+* checking examples ... [16s] OK
 * checking for unstated dependencies in 'tests' ... OK
 * checking tests ... OK
   Running 'testthat.R'
 * checking for unstated dependencies in vignettes ... OK
 * checking package vignettes in 'inst/doc' ... OK
-* checking re-building of vignette outputs ... [19s] OK
+* checking re-building of vignette outputs ... [31s] OK
 * checking for non-standard things in the check directory ... OK
 * checking for detritus in the temp directory ... OK
 * DONE
