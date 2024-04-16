@@ -147,7 +147,7 @@ Loading required package: tidyverse
 > 
 > ### ** Examples
 > 
-> output_electrode_burst <- create_electrode_dataset(data_path = "MEAanalysis/data/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
+> output_electrode_burst <- create_electrode_dataset(data_path = system.file("extdata", "input_electrode_burst.csv", package = "MEAanalysis"), recording_identifier = "burst_recording_1")
 New names:
 • `` -> `...7`
 • `` -> `...8`
@@ -186,7 +186,7 @@ New names:
 > 
 > ### ** Examples
 > 
-> output_neuralMetric <- create_synchrony_dataset(data_path = "MEAanalysis/data/input_neuralMetric.csv", heatmap_condition = "SI_condition_1")
+> output_neuralMetric <- create_synchrony_dataset(data_path = system.file("extdata", "input_neuralMetric.csv", package = "MEAanalysis"), heatmap_condition = "SI_condition_1")
 Warning: One or more parsing issues, call `problems()` on your data frame for details,
 e.g.:
   dat <- vroom(...)
@@ -409,7 +409,7 @@ Warning: Removed 634 rows containing missing values (`geom_point()`).
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  8.67 5.81 16 NA NA 
+Time elapsed:  9.13 5.53 15.75 NA NA 
 > grDevices::dev.off()
 null device 
           1 

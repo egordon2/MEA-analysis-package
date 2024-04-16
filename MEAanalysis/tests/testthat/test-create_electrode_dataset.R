@@ -1,14 +1,14 @@
 
 test_that("create_electrode_dataset output is a datatable", {
   # Load the dataset
-  dataset <- create_electrode_dataset(data_path = "data/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
+  dataset <- create_electrode_dataset(data_path = system.file("extdata", "input_electrode_burst.csv", package = "MEAanalysis"), recording_identifier = "burst_recording_1")
 
   expect_equal(is.data.table(dataset), TRUE)
 })
 
 test_that("create_electrode_dataset column names are correct", {
   # Load the dataset
-  dataset <- create_electrode_dataset(data_path = "data/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
+  dataset <- create_electrode_dataset(data_path = system.file("extdata", "input_electrode_burst.csv", package = "MEAanalysis"), recording_identifier = "burst_recording_1")
 
   # Define expected column names
   expected_names <- c("Electrode", "Time_s", "Size_spikes", "Duration_s", "Recording_identifier", "well")
@@ -21,7 +21,7 @@ test_that("create_electrode_dataset column names are correct", {
 
 test_that("create_electrode_dataset column classes are correct", {
   # Load the dataset
-  dataset <- create_electrode_dataset(data_path = "data/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
+  dataset <- create_electrode_dataset(data_path = system.file("extdata", "input_electrode_burst.csv", package = "MEAanalysis"), recording_identifier = "burst_recording_1")
 
   # Define expected column classes
   expected_columns <- data.table(

@@ -21,5 +21,5 @@ Function reads in and reformats the electrode burst list dataset produced by the
  A column to identify the well a burst was recorded within will also be added.
 }
 \examples{
-output_electrode_burst <- create_electrode_dataset(data_path = "MEAanalysis/data/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
+output_electrode_burst <- create_electrode_dataset(data_path = system.file("extdata", "input_electrode_burst.csv", package = "MEAanalysis"), recording_identifier = "burst_recording_1")
 }

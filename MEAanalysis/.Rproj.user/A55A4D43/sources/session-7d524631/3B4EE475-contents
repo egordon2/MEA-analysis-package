@@ -23,7 +23,7 @@ selectively is preferable.
 * checking for hidden files and directories ... OK
 * checking for portable file names ... OK
 * checking serialization versions ... OK
-* checking whether package 'MEAanalysis' can be installed ... [37s] WARNING
+* checking whether package 'MEAanalysis' can be installed ... [32s] WARNING
 Found the following significant warnings:
   Warning: package 'kableExtra' was built under R version 4.3.3
 See 'C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis.Rcheck/00install.out' for details.
@@ -52,7 +52,7 @@ Packages in Depends field not imported from:
 * checking S3 generic/method consistency ... OK
 * checking replacement functions ... OK
 * checking foreign function calls ... OK
-* checking R code for possible problems ... [22s] NOTE
+* checking R code for possible problems ... [20s] NOTE
 MEA_heatmap: no visible binding for global variable 'Well'
 MEA_heatmap: no visible global function definition for '%>%'
 MEA_heatmap: no visible binding for global variable 'variable'
@@ -418,14 +418,31 @@ Extensions' manual.
 * checking data for ASCII and uncompressed saves ... OK
 * checking installed files from 'inst/doc' ... OK
 * checking files in 'vignettes' ... OK
-* checking examples ... [16s] OK
+* checking examples ... [17s] OK
 * checking for unstated dependencies in 'tests' ... OK
-* checking tests ... OK
+* checking tests ... [10s] ERROR
   Running 'testthat.R'
+Running the tests in 'tests/testthat.R' failed.
+Last 13 lines of output:
+   6.   └─vroom:::check_path(path)
+  ── Error ('test-create_synchrony_dataset.R:12:3'): create_synchrony dataset column classes are correct ──
+  Error: 'data/input_neuralMetric.csv' does not exist in current working directory ('C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis.Rcheck/tests/testthat').
+  Backtrace:
+      ▆
+   1. ├─MEAanalysis::create_synchrony_dataset(...) at test-create_synchrony_dataset.R:12:3
+   2. │ └─readr::read_csv(...)
+   3. │   └─vroom::vroom(...)
+   4. │     └─vroom:::vroom_(...)
+   5. └─vroom (local) `<fn>`("data/input_neuralMetric.csv")
+   6.   └─vroom:::check_path(path)
+  
+  [ FAIL 5 | WARN 0 | SKIP 0 | PASS 11 ]
+  Error: Test failures
+  Execution halted
 * checking for unstated dependencies in vignettes ... OK
 * checking package vignettes in 'inst/doc' ... OK
 * checking re-building of vignette outputs ... [31s] OK
 * checking for non-standard things in the check directory ... OK
 * checking for detritus in the temp directory ... OK
 * DONE
-Status: 3 WARNINGs, 4 NOTEs
+Status: 1 ERROR, 3 WARNINGs, 4 NOTEs

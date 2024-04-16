@@ -50,7 +50,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-output_electrode_burst <- create_electrode_dataset(data_path = "MEAanalysis/data/input_electrode_burst.csv", recording_identifier = "burst_recording_1")
+output_electrode_burst <- create_electrode_dataset(data_path = system.file("extdata", "input_electrode_burst.csv", package = "MEAanalysis"), recording_identifier = "burst_recording_1")
 
 
 
@@ -69,7 +69,7 @@ base::assign(".ptime", proc.time(), pos = "CheckExEnv")
 
 ### ** Examples
 
-output_neuralMetric <- create_synchrony_dataset(data_path = "MEAanalysis/data/input_neuralMetric.csv", heatmap_condition = "SI_condition_1")
+output_neuralMetric <- create_synchrony_dataset(data_path = system.file("extdata", "input_neuralMetric.csv", package = "MEAanalysis"), heatmap_condition = "SI_condition_1")
 
 
 
