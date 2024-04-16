@@ -9,14 +9,14 @@ library(MEAanalysis)
 knitr::opts_knit$set(root.dir = '..')
 
 ## ----warning = FALSE, message = FALSE-----------------------------------------
-baseline_data <- create_synchrony_dataset(data_path = "data/input_neuralMetric.csv",
+baseline_data <- create_synchrony_dataset(data_path = system.file("extdata", "input_neuralMetric.csv", package = "MEAanalysis"),
                                           heatmap_condition = "Baseline")
 
 # view first 10 lines of dataset
 head(baseline_data, 10)
 
 ## ----warning = FALSE, message = FALSE-----------------------------------------
-agonist_challenge_data <- create_synchrony_dataset(data_path = "data/comparison_agonist_challenge_neuralMetrics.csv",
+agonist_challenge_data <- create_synchrony_dataset(data_path = system.file("extdata", "comparison_agonist_challenge_neuralMetrics.csv", package = "MEAanalysis"),
                                           heatmap_condition = "Agonist Challenge")
 
 # view first 10 lines of dataset

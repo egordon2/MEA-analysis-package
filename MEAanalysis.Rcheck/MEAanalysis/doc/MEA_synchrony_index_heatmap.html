@@ -375,7 +375,7 @@ the user is able to define the name to which the dataset is assigned,
 the data path, and a unique identifier for the experimental condition
 the data is associated with.</p>
 <p>recording the data is associated with.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>baseline_data <span class="ot">&lt;-</span> <span class="fu">create_synchrony_dataset</span>(<span class="at">data_path =</span> <span class="st">&quot;data/input_neuralMetric.csv&quot;</span>,</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>baseline_data <span class="ot">&lt;-</span> <span class="fu">create_synchrony_dataset</span>(<span class="at">data_path =</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;input_neuralMetric.csv&quot;</span>, <span class="at">package =</span> <span class="st">&quot;MEAanalysis&quot;</span>),</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>                                          <span class="at">heatmap_condition =</span> <span class="st">&quot;Baseline&quot;</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co"># view first 10 lines of dataset</span></span>
@@ -391,7 +391,7 @@ the data is associated with.</p>
 <span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt;  8:   B2                  0.237206</span></span>
 <span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt;  9:   B3                  0.788551</span></span>
 <span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt; 10:   B4                  0.197240</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>agonist_challenge_data <span class="ot">&lt;-</span> <span class="fu">create_synchrony_dataset</span>(<span class="at">data_path =</span> <span class="st">&quot;data/comparison_agonist_challenge_neuralMetrics.csv&quot;</span>,</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>agonist_challenge_data <span class="ot">&lt;-</span> <span class="fu">create_synchrony_dataset</span>(<span class="at">data_path =</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;comparison_agonist_challenge_neuralMetrics.csv&quot;</span>, <span class="at">package =</span> <span class="st">&quot;MEAanalysis&quot;</span>),</span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>                                          <span class="at">heatmap_condition =</span> <span class="st">&quot;Agonist Challenge&quot;</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co"># view first 10 lines of dataset</span></span>

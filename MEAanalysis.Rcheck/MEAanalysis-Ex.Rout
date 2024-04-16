@@ -409,7 +409,7 @@ Warning: Removed 634 rows containing missing values (`geom_point()`).
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  9.13 5.53 15.75 NA NA 
+Time elapsed:  5.33 3.96 9.67 NA NA 
 > grDevices::dev.off()
 null device 
           1 

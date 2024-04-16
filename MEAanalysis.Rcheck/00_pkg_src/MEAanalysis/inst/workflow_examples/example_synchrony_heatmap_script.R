@@ -12,9 +12,9 @@
 ### Function should be run for each time interval within a recording which you wish to include as a variable of the heatmap
 ### User needs to update the assigned dataset titles (used for merging datasets), the data_path (direct to neural metric dataset), and heatmap_condition (determines heatmap x axis condition labels)
 
-baseline_data <- create_synchrony_dataset(data_path = "./data/input_neuralMetric.csv",
+baseline_data <- create_synchrony_dataset(data_path = system.file("extdata", "input_neuralMetric.csv", package = "MEAanalysis"),
                                           heatmap_condition = "Baseline")
-agonist_challenge_data <- create_synchrony_dataset(data_path = "./data/comparison_agonist_challenge_neuralMetrics.csv",
+agonist_challenge_data <- create_synchrony_dataset(data_path = system.file("extdata", "comparison_agonist_challenge_neuralMetrics.csv", package = "MEAanalysis"),
                                           heatmap_condition = "Agonist Challenge")
 
 ### Following code merges the above datasets by well
