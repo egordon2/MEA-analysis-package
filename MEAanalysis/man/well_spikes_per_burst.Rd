@@ -27,5 +27,8 @@ An electrode burst list table with three additional columns (mean, SD and SEM nu
 Function reads in electrode burst list data and creates new columns with the mean, SD, and SEM number of spikes per burst recorded for each well (within the specified time interval and recording).
 }
 \examples{
-output_MEA_data <- well_spikes_per_burst(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+output_MEA_data <- well_spikes_per_burst(data = input_MEA_data,
+                                         time_lower_bound = 0,
+                                         time_upper_bound = 30,
+                                         recording_identifier = "burst_recording_1")
 }

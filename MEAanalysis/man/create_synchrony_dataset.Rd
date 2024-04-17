@@ -20,5 +20,8 @@ Function reads in neural metric output dataset and reformats for use in synchron
  The synchrony index column name will also be updated to include a 'heatmap_condition'.
 }
 \examples{
-output_neuralMetric <- create_synchrony_dataset(data_path = system.file("extdata", "input_neuralMetric.csv", package = "MEAanalysis"), heatmap_condition = "SI_condition_1")
+output_neuralMetric <- create_synchrony_dataset(
+                                 data_path = system.file("extdata", "input_neuralMetric.csv",
+                                                          package = "MEAanalysis"),
+                                 heatmap_condition = "SI_condition_1")
 }

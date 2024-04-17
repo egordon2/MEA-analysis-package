@@ -8,7 +8,7 @@ single_electrode_barchart(
   data = output_table,
   electrode_parameter,
   electrode_filter =
-    "A1_|A2_|A3_|A4_|A5_|A6_|B1_|B2_|B3_|B4_|B5_|B6_|C1_|C2_|C3_|C4_|C5_|C6_|D1_|D2_|D3_|D4_|D5_|D6_",
+    "A1_|A2_|A3_|A4_|A5_|A6_|B1_|B2_|B3_|B4_|B5_|B6_|C1_\\n                                  |C2_|C3_|C4_|C5_|C6_|D1_|D2_|D3_|D4_|D5_|D6_",
   statistic = se
 )
 }
@@ -29,8 +29,22 @@ A bar chart of calculated MEA parameters by single electrode for a given time in
 Function creates a bar chart of calculated MEA parameters by single electrode for a given time interval and recording.
 }
 \examples{
-single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "burst_duration", electrode_filter = "A1_", statistic = se)
-single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "spikes_per_burst", electrode_filter = "A1_", statistic = se)
-single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "mean_burst_ISI", electrode_filter = "A1_", statistic = se)
-single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "number_of_bursts", electrode_filter = "A1_")
+single_electrode_barchart(data = input_electrode_barchart,
+                          electrode_parameter = "burst_duration",
+                          electrode_filter = "A1_",
+                          statistic = se)
+
+single_electrode_barchart(data = input_electrode_barchart,
+                          electrode_parameter = "spikes_per_burst",
+                          electrode_filter = "A1_",
+                          statistic = se)
+
+single_electrode_barchart(data = input_electrode_barchart,
+                          electrode_parameter = "mean_burst_ISI",
+                          electrode_filter = "A1_",
+                          statistic = se)
+
+single_electrode_barchart(data = input_electrode_barchart,
+                          electrode_parameter = "number_of_bursts",
+                          electrode_filter = "A1_")
 }
