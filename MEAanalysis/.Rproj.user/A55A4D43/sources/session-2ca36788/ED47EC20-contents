@@ -1,0 +1,10 @@
+
+
+#' @title Comparison input dataset for create_electrode_dataset MEA parameter function.
+#'
+#' @description A data set containing electrode burst list data produced by the axis navigator tool.
+#'
+#' @format A data frame with 8886 rows and 36variables:
+
+#' @source <https://www.github.com/egordon2/MEAanalysis>
+

@@ -1,0 +1,442 @@
+* using log directory 'C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis.Rcheck'
+* using R version 4.3.2 (2023-10-31 ucrt)
+* using platform: x86_64-w64-mingw32 (64-bit)
+* R was compiled by
+    gcc.exe (GCC) 12.3.0
+    GNU Fortran (GCC) 12.3.0
+* running under: Windows 10 x64 (build 19045)
+* using session charset: UTF-8
+* using options '--no-manual --as-cran'
+* checking for file 'MEAanalysis/DESCRIPTION' ... OK
+* this is package 'MEAanalysis' version '0.1.0'
+* package encoding: UTF-8
+* checking package namespace information ... OK
+* checking package dependencies ... NOTE
+Depends: includes the non-default packages:
+  'data.table', 'dplyr', 'ggplot2', 'janitor', 'kableExtra', 'readr',
+  'readxl', 'reshape2', 'stringr', 'tidyr', 'tidyverse'
+Adding so many packages to the search path is excessive and importing
+selectively is preferable.
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... OK
+* checking for portable file names ... OK
+* checking serialization versions ... OK
+* checking whether package 'MEAanalysis' can be installed ... [32s] WARNING
+Found the following significant warnings:
+  Warning: package 'kableExtra' was built under R version 4.3.3
+See 'C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis.Rcheck/00install.out' for details.
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking for future file timestamps ... OK
+* checking 'build' directory ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... WARNING
+Found the following non-empty subdirectories of 'inst' also used by R:
+  inst/data
+It is recommended not to interfere with package subdirectories used by
+R.
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking dependencies in R code ... NOTE
+Packages in Depends field not imported from:
+  'kableExtra' 'readxl' 'reshape2' 'tidyverse'
+  These packages need to be imported from (in the NAMESPACE file)
+  for when this namespace is loaded but not attached.
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... [21s] NOTE
+MEA_heatmap: no visible binding for global variable 'Well'
+MEA_heatmap: no visible global function definition for '%>%'
+MEA_heatmap: no visible binding for global variable 'variable'
+MEA_heatmap: no visible binding for global variable 'value'
+MEA_heatmap: no visible global function definition for 'aes'
+MEA_heatmap: no visible binding for global variable
+  'experimental_condition'
+MEA_heatmap: no visible binding for global variable 'synchrony_index'
+create_electrode_dataset: no visible binding for global variable
+  'Electrode'
+create_electrode_dataset: no visible global function definition for
+  ':='
+create_electrode_dataset: no visible binding for global variable '.SD'
+create_electrode_dataset: no visible binding for global variable
+  'Recording_identifier'
+create_electrode_dataset: no visible binding for global variable 'well'
+create_electrode_dataset: no visible global function definition for
+  'str_sub'
+create_synchrony_dataset: no visible binding for global variable 'X1'
+create_synchrony_dataset: no visible global function definition for
+  '%>%'
+create_synchrony_dataset: no visible binding for global variable 'Well'
+electrode_burst_duration: no visible binding for global variable
+  'output_table'
+electrode_burst_duration: no visible global function definition for
+  '%>%'
+electrode_burst_duration: no visible binding for global variable
+  'Time_s'
+electrode_burst_duration: no visible binding for global variable
+  'Recording_identifier'
+electrode_burst_duration: no visible binding for global variable
+  'Electrode'
+electrode_burst_duration: no visible binding for global variable
+  'Duration_s'
+electrode_burst_duration: no visible global function definition for
+  'sd'
+electrode_burst_duration: no visible binding for global variable
+  'Size_spikes'
+electrode_burst_duration: no visible binding for global variable
+  'duration_raw'
+electrode_burst_duration: no visible binding for global variable
+  'duration_mean'
+electrode_burst_duration: no visible binding for global variable
+  'duration_sd'
+electrode_burst_duration: no visible binding for global variable
+  'duration_se'
+electrode_mean_burst_ISI: no visible binding for global variable
+  'output_table'
+electrode_mean_burst_ISI: no visible global function definition for
+  '%>%'
+electrode_mean_burst_ISI: no visible binding for global variable
+  'Time_s'
+electrode_mean_burst_ISI: no visible binding for global variable
+  'Recording_identifier'
+electrode_mean_burst_ISI: no visible binding for global variable
+  'Duration_s'
+electrode_mean_burst_ISI: no visible binding for global variable
+  'Size_spikes'
+electrode_mean_burst_ISI: no visible binding for global variable
+  'Electrode'
+electrode_mean_burst_ISI: no visible binding for global variable
+  'mean_burst_ISI_s'
+electrode_mean_burst_ISI: no visible global function definition for
+  'sd'
+electrode_mean_burst_ISI: no visible binding for global variable
+  'avg_mean_burst_ISI'
+electrode_mean_burst_ISI: no visible binding for global variable
+  'sd_mean_burst_ISI'
+electrode_mean_burst_ISI: no visible binding for global variable
+  'se_mean_burst_ISI'
+electrode_number_of_bursts: no visible binding for global variable
+  'output_table'
+electrode_number_of_bursts: no visible global function definition for
+  '%>%'
+electrode_number_of_bursts: no visible binding for global variable
+  'Time_s'
+electrode_number_of_bursts: no visible binding for global variable
+  'Recording_identifier'
+electrode_number_of_bursts: no visible binding for global variable
+  'Electrode'
+electrode_number_of_bursts: no visible global function definition for
+  'add_count'
+electrode_number_of_bursts: no visible binding for global variable
+  'burst_count'
+electrode_spikes_per_burst: no visible binding for global variable
+  'output_table'
+electrode_spikes_per_burst: no visible global function definition for
+  '%>%'
+electrode_spikes_per_burst: no visible binding for global variable
+  'Time_s'
+electrode_spikes_per_burst: no visible binding for global variable
+  'Recording_identifier'
+electrode_spikes_per_burst: no visible binding for global variable
+  'Electrode'
+electrode_spikes_per_burst: no visible binding for global variable
+  'Size_spikes'
+electrode_spikes_per_burst: no visible global function definition for
+  'sd'
+electrode_spikes_per_burst: no visible binding for global variable
+  'Duration_s'
+electrode_spikes_per_burst: no visible binding for global variable
+  'spikes_raw'
+electrode_spikes_per_burst: no visible binding for global variable
+  'spikes_mean'
+electrode_spikes_per_burst: no visible binding for global variable
+  'spikes_sd'
+electrode_spikes_per_burst: no visible binding for global variable
+  'spikes_se'
+single_electrode_barchart: no visible binding for global variable
+  'output_table'
+single_electrode_barchart: no visible binding for global variable 'se'
+single_electrode_barchart: no visible global function definition for
+  '%>%'
+single_electrode_barchart: no visible binding for global variable
+  'Time_s'
+single_electrode_barchart: no visible binding for global variable
+  'Duration_s'
+single_electrode_barchart: no visible binding for global variable
+  'Size_spikes'
+single_electrode_barchart: no visible binding for global variable
+  'Recording_identifier'
+single_electrode_barchart: no visible binding for global variable
+  'Electrode'
+single_electrode_barchart: no visible binding for global variable
+  'variable'
+single_electrode_barchart: no visible binding for global variable
+  'recording_time'
+single_electrode_barchart: no visible binding for global variable
+  'parameter'
+single_electrode_barchart: no visible binding for global variable
+  'value'
+single_electrode_barchart: no visible global function definition for
+  'aes'
+single_electrode_barchart: no visible global function definition for
+  'position_dodge'
+single_electrode_barchart: no visible global function definition for
+  'position_jitterdodge'
+well_barchart: no visible binding for global variable 'output_table'
+well_barchart: no visible binding for global variable 'se'
+well_barchart: no visible global function definition for '%>%'
+well_barchart: no visible binding for global variable 'Time_s'
+well_barchart: no visible binding for global variable 'Duration_s'
+well_barchart: no visible binding for global variable 'Size_spikes'
+well_barchart: no visible binding for global variable
+  'Recording_identifier'
+well_barchart: no visible binding for global variable 'well'
+well_barchart: no visible binding for global variable 'variable'
+well_barchart: no visible binding for global variable 'parameter'
+well_barchart: no visible binding for global variable 'recording_time'
+well_barchart: no visible binding for global variable 'value'
+well_barchart: no visible global function definition for 'aes'
+well_barchart: no visible global function definition for
+  'position_dodge'
+well_barchart: no visible global function definition for
+  'position_jitterdodge'
+well_burst_duration: no visible binding for global variable
+  'output_table'
+well_burst_duration: no visible global function definition for '%>%'
+well_burst_duration: no visible binding for global variable 'Time_s'
+well_burst_duration: no visible binding for global variable
+  'Recording_identifier'
+well_burst_duration: no visible binding for global variable 'well'
+well_burst_duration: no visible binding for global variable
+  'Duration_s'
+well_burst_duration: no visible global function definition for 'sd'
+well_burst_duration: no visible global function definition for
+  'ungroup'
+well_burst_duration: no visible binding for global variable 'Electrode'
+well_burst_duration: no visible binding for global variable
+  'Size_spikes'
+well_burst_duration: no visible binding for global variable
+  'well_duration_raw'
+well_burst_duration: no visible binding for global variable
+  'well_duration_mean'
+well_burst_duration: no visible binding for global variable
+  'well_duration_sd'
+well_burst_duration: no visible binding for global variable
+  'well_duration_se'
+well_mean_burst_ISI: no visible binding for global variable
+  'output_table'
+well_mean_burst_ISI: no visible global function definition for '%>%'
+well_mean_burst_ISI: no visible binding for global variable 'Time_s'
+well_mean_burst_ISI: no visible binding for global variable
+  'Recording_identifier'
+well_mean_burst_ISI: no visible binding for global variable
+  'Duration_s'
+well_mean_burst_ISI: no visible binding for global variable
+  'Size_spikes'
+well_mean_burst_ISI: no visible binding for global variable 'well'
+well_mean_burst_ISI: no visible binding for global variable
+  'mean_burst_ISI_s'
+well_mean_burst_ISI: no visible global function definition for 'sd'
+well_mean_burst_ISI: no visible global function definition for
+  'ungroup'
+well_mean_burst_ISI: no visible binding for global variable 'Electrode'
+well_mean_burst_ISI: no visible binding for global variable
+  'well_avg_mean_burst_ISI'
+well_mean_burst_ISI: no visible binding for global variable
+  'well_sd_mean_burst_ISI'
+well_mean_burst_ISI: no visible binding for global variable
+  'well_se_mean_burst_ISI'
+well_number_of_bursts: no visible binding for global variable
+  'output_table'
+well_number_of_bursts: no visible global function definition for '%>%'
+well_number_of_bursts: no visible binding for global variable
+  'Electrode'
+well_number_of_bursts: no visible binding for global variable
+  'Recording_identifier'
+well_number_of_bursts: no visible binding for global variable 'well'
+well_number_of_bursts: no visible binding for global variable 'Time_s'
+well_number_of_bursts: no visible global function definition for
+  'add_count'
+well_number_of_bursts: no visible global function definition for
+  'ungroup'
+well_number_of_bursts: no visible binding for global variable
+  'electrode_burst_count'
+well_number_of_bursts: no visible global function definition for 'sd'
+well_number_of_bursts: no visible binding for global variable
+  'well_burst_count_mean'
+well_number_of_bursts: no visible binding for global variable
+  'well_burst_count_sd'
+well_number_of_bursts: no visible binding for global variable
+  'well_burst_count_se'
+well_spikes_per_burst: no visible binding for global variable
+  'output_table'
+well_spikes_per_burst: no visible global function definition for '%>%'
+well_spikes_per_burst: no visible binding for global variable 'Time_s'
+well_spikes_per_burst: no visible binding for global variable
+  'Recording_identifier'
+well_spikes_per_burst: no visible binding for global variable 'well'
+well_spikes_per_burst: no visible binding for global variable
+  'Size_spikes'
+well_spikes_per_burst: no visible global function definition for 'sd'
+well_spikes_per_burst: no visible global function definition for
+  'ungroup'
+well_spikes_per_burst: no visible binding for global variable
+  'Electrode'
+well_spikes_per_burst: no visible binding for global variable
+  'Duration_s'
+well_spikes_per_burst: no visible binding for global variable
+  'well_spikes_raw'
+well_spikes_per_burst: no visible binding for global variable
+  'well_spikes_mean'
+well_spikes_per_burst: no visible binding for global variable
+  'well_spikes_sd'
+well_spikes_per_burst: no visible binding for global variable
+  'well_spikes_se'
+Undefined global functions or variables:
+  %>% .SD := Duration_s Electrode Recording_identifier Size_spikes
+  Time_s Well X1 add_count aes avg_mean_burst_ISI burst_count
+  duration_mean duration_raw duration_sd duration_se
+  electrode_burst_count experimental_condition mean_burst_ISI_s
+  output_table parameter position_dodge position_jitterdodge
+  recording_time sd sd_mean_burst_ISI se se_mean_burst_ISI spikes_mean
+  spikes_raw spikes_sd spikes_se str_sub synchrony_index ungroup value
+  variable well well_avg_mean_burst_ISI well_burst_count_mean
+  well_burst_count_sd well_burst_count_se well_duration_mean
+  well_duration_raw well_duration_sd well_duration_se
+  well_sd_mean_burst_ISI well_se_mean_burst_ISI well_spikes_mean
+  well_spikes_raw well_spikes_sd well_spikes_se
+Consider adding
+  importFrom("stats", "sd")
+to your NAMESPACE file.
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd line widths ... NOTE
+Rd file 'MEA_heatmap.Rd':
+  \examples lines wider than 100 characters:
+     MEA_heatmap(data = input_heatmap_data, well_filter = "A1|A2|A3|A4|A5|A6|B1|B2|B3|B4|B5|B6|C1|C2|C3|C4|C5|C6|D1|D2|D3|D4|D5|D6")
+
+Rd file 'create_electrode_dataset.Rd':
+  \examples lines wider than 100 characters:
+     output_electrode_burst <- create_electrode_dataset(data_path = "MEAanalysis/data/input_electrode_burst.csv", recording_identifier = "bu ... [TRUNCATED]
+
+Rd file 'create_synchrony_dataset.Rd':
+  \examples lines wider than 100 characters:
+     output_neuralMetric <- create_synchrony_dataset(data_path = "MEAanalysis/data/input_neuralMetric.csv", heatmap_condition = "SI_conditio ... [TRUNCATED]
+
+Rd file 'electrode_burst_duration.Rd':
+  \examples lines wider than 100 characters:
+     output_MEA_data <- electrode_burst_duration(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+
+Rd file 'electrode_mean_burst_ISI.Rd':
+  \examples lines wider than 100 characters:
+     output_MEA_data <- electrode_mean_burst_ISI(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+
+Rd file 'electrode_number_of_bursts.Rd':
+  \examples lines wider than 100 characters:
+     output_MEA_data <- electrode_number_of_bursts(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+
+Rd file 'electrode_spikes_per_burst.Rd':
+  \examples lines wider than 100 characters:
+     output_MEA_data <- electrode_spikes_per_burst(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+
+Rd file 'single_electrode_barchart.Rd':
+  \usage lines wider than 90 characters:
+         "A1_|A2_|A3_|A4_|A5_|A6_|B1_|B2_|B3_|B4_|B5_|B6_|C1_|C2_|C3_|C4_|C5_|C6_|D1_|D2_|D3_|D4_|D5_|D6_",
+  \examples lines wider than 100 characters:
+     single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "burst_duration", electrode_filter = "A1_", statistic  ... [TRUNCATED]
+     single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "spikes_per_burst", electrode_filter = "A1_", statisti ... [TRUNCATED]
+     single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "mean_burst_ISI", electrode_filter = "A1_", statistic  ... [TRUNCATED]
+     single_electrode_barchart(data = input_electrode_barchart, electrode_parameter = "number_of_bursts", electrode_filter = "A1_")
+
+Rd file 'well_barchart.Rd':
+  \examples lines wider than 100 characters:
+     well_barchart(data = input_well_barchart, well_parameter = "burst_duration", well_filter = "A1|A2|A3|A4", statistic = se)
+     well_barchart(data = input_well_barchart, well_parameter = "spikes_per_burst", well_filter = "A1|A2|A3|A4", statistic = se)
+     well_barchart(data = input_well_barchart, well_parameter = "mean_burst_ISI", well_filter = "A1|A2|A3|A4", statistic = se)
+     well_barchart(data = input_well_barchart, well_parameter = "number_of_bursts", well_filter = "A1|A2|A3|A4", statistic = se)
+
+Rd file 'well_burst_duration.Rd':
+  \examples lines wider than 100 characters:
+     output_MEA_data <- well_burst_duration(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+
+Rd file 'well_mean_burst_ISI.Rd':
+  \examples lines wider than 100 characters:
+     output_MEA_data <- well_mean_burst_ISI(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+
+Rd file 'well_number_of_bursts.Rd':
+  \examples lines wider than 100 characters:
+     output_MEA_data <- well_number_of_bursts(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+
+Rd file 'well_spikes_per_burst.Rd':
+  \examples lines wider than 100 characters:
+     output_MEA_data <- well_spikes_per_burst(data = input_MEA_data, 0, 30, recording_identifier = "burst_recording_1")
+
+These lines will be truncated in the PDF manual.
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... WARNING
+Undocumented code objects:
+  'comparison_agonist_challenge_electrode_burst_list'
+  'comparison_agonist_challenge_neuralMetrics' 'input_electrode_burst'
+  'input_neuralMetric'
+Undocumented data sets:
+  'comparison_agonist_challenge_electrode_burst_list'
+  'comparison_agonist_challenge_neuralMetrics' 'input_electrode_burst'
+  'input_neuralMetric'
+All user-level objects in a package should have documentation entries.
+See chapter 'Writing R documentation files' in the 'Writing R
+Extensions' manual.
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking contents of 'data' directory ... OK
+* checking data for non-ASCII characters ... WARNING
+  Warning: found non-ASCII strings
+  '   Coincidence Event Window,160 <c2><b5>s,00002.973120,D1_24,10,0.04328' in object 'comparison_agonist_challenge_electrode_burst_list'
+  'Concentration,100 nM,100 nM,1 <c2><b5>M,1 <c2><b5>M,1 mM,1 mM,1 <c2><b5>M,1 <c2><b5>M,10 <c2><b5>M,10 <c2><b5>M,10 mM,10 mM,10 <c2><b5>M,10 <c2><b5>M,100 <c2><b5>M,100 <c2><b5>M,50 mM,50 mM,,0.01 %,,0.01 %,,0.01 %' in object 'comparison_agonist_challenge_electrode_burst_list'
+  'Treatment/ID,Mefloquine [30 <c2><b5>M],D-AP5 [50 <c2><b5>M],CNQX [10 <c2><b5>M],Mefloquine [30 <c2><b5>M],D-AP5 [50 <c2><b5>M],CNQX [10 <c2><b5>M],Mefloquine [30 <c2><b5>M],D-AP5 [50 <c2><b5>M],CNQX [10 <c2><b5>M],Mefloquine [30 <c2><b5>M],D-AP5 [50 <c2><b5>M],CNQX [10 <c2><b5>M],Mefloquine [10 <c2><b5>M],D-AP5 [25 <c2><b5>M],CNQX [5 <c2><b5>M],Mefloquine [10 <c2><b5>M],D-AP5 [25 <c2><b5>M],CNQX [5 <c2><b5>M],Mefloquine [10 <c2><b5>M],D-AP5 [25 <c2><b5>M],CNQX [5 <c2><b5>M],Mefloquine [10 <c2><b5>M],D-AP5 [25 <c2><b5>M],CNQX [5 <c2><b5>M]' in object 'comparison_agonist_challenge_neuralMetrics'
+  '   Coincidence Event Window,80 <c2><b5>s,31.87584,A6_22,5,0.0404,,,,,,,,,,,,,,,,,,,' in object 'input_electrode_burst'
+* checking LazyData ... OK
+* checking data for ASCII and uncompressed saves ... OK
+* checking installed files from 'inst/doc' ... OK
+* checking files in 'vignettes' ... OK
+* checking examples ... [17s] OK
+* checking for unstated dependencies in 'tests' ... OK
+* checking tests ... ERROR
+  Running 'testthat.R'
+Running the tests in 'tests/testthat.R' failed.
+Last 13 lines of output:
+  ✖ lubridate::yday()        masks data.table::yday()
+  ✖ lubridate::year()        masks data.table::year()
+  ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+  Warning message:
+  package 'kableExtra' was built under R version 4.3.3 
+  > 
+  > test_check("MEAanalysis")
+  Error in `test_dir()`:
+  ! No test files found
+  Backtrace:
+      ▆
+   1. └─testthat::test_check("MEAanalysis")
+   2.   └─testthat::test_dir("testthat", package = package, reporter = reporter, ..., load_package = "installed")
+   3.     └─rlang::abort("No test files found")
+  Execution halted
+* checking for unstated dependencies in vignettes ... OK
+* checking package vignettes in 'inst/doc' ... OK
+* checking re-building of vignette outputs ... [36s] OK
+* checking for non-standard things in the check directory ... OK
+* checking for detritus in the temp directory ... OK
+* DONE
+Status: 1 ERROR, 4 WARNINGs, 4 NOTEs

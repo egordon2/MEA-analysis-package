@@ -28,8 +28,23 @@ A bar chart of calculated MEA parameters by single electrode for a given time in
 Function creates a bar chart of calculated MEA parameters by well for a given time interval and recording.
 }
 \examples{
-well_barchart(data = input_well_barchart, well_parameter = "burst_duration", well_filter = "A1|A2|A3|A4", statistic = se)
-well_barchart(data = input_well_barchart, well_parameter = "spikes_per_burst", well_filter = "A1|A2|A3|A4", statistic = se)
-well_barchart(data = input_well_barchart, well_parameter = "mean_burst_ISI", well_filter = "A1|A2|A3|A4", statistic = se)
-well_barchart(data = input_well_barchart, well_parameter = "number_of_bursts", well_filter = "A1|A2|A3|A4", statistic = se)
+well_barchart(data = input_well_barchart,
+              well_parameter = "burst_duration",
+              well_filter = "A1|A2|A3|A4",
+              statistic = se)
+
+well_barchart(data = input_well_barchart,
+              well_parameter = "spikes_per_burst",
+              well_filter = "A1|A2|A3|A4",
+              statistic = se)
+
+well_barchart(data = input_well_barchart,
+              well_parameter = "mean_burst_ISI",
+              well_filter = "A1|A2|A3|A4",
+              statistic = se)
+
+well_barchart(data = input_well_barchart,
+              well_parameter = "number_of_bursts",
+              well_filter = "A1|A2|A3|A4",
+              statistic = se)
 }
