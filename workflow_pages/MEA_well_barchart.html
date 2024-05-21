@@ -563,17 +563,20 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<div id="creating-a-bar-chart-of-multi-electrode-array-well-average-burst-parameters" class="section level1">
-<h1>Creating a Bar Chart of Multi-electrode Array Well Average Burst
-Parameters</h1>
-<p>The following vignette describes the workflow used to create a bar
-chart visualisation of multi-electrode array (MEA) parameters calculated
-for each well. These parameters include number of bursts, number of
-spikes per burst, burst duration, and mean inter-spike interval within a
-burst. The purpose of these visualisations is to explore and compare the
-extracellular field potentials occurring within a well for a specific
-time interval of an MEA recording. For further information on each
-function’s arguments please see the associated function help pages.</p>
+<div id="creating-a-bar-chart-to-display-well-average-mea-burst-data" class="section level1">
+<h1>Creating a bar Chart to display well average MEA burst data</h1>
+<p>The following vignette describes the workflow used to create a
+barchart visualisation of MEA well average burst duration data. Similar
+visualisations can be created for other burst parameters using different
+functions within the MEAanalysis package; these include the number of
+bursts, number of spikes per burst, and mean inter-spike interval within
+a burst for a given time interval of a recording. These visualisations
+enable the user to explore and compare extracellular field potentials
+occurring within a well.</p>
+<p>Further examples and information on the arguments of each function
+can be found on the individual function help pages. To access these
+pages, please run the following code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">&quot;MEAanalysis&quot;</span>)</span></code></pre></div>
 </div>
 <div id="workflow" class="section level1">
 <h1>Workflow</h1>
@@ -588,108 +591,119 @@ parameter.</li>
 </ol>
 </div>
 <div id="load-electrode-burst-datasets" class="section level1">
-<h1>Load electrode burst datasets</h1>
-<p>First, electrode burst datasets produced by the axis navigator tool
-need to be loaded into the R environment. This should be done for each
-MEA recording the user wishes to include in the analysis and can be done
-using the MEAanalysis:: create_electrode_dataset function. This function
-reads in electrode burst data in csv format, before filtering and
-reformatting the data for use in the analysis. As demonstrated in the
-below example, the user is able to define the name to which the dataset
-is assigned, the data path, and a unique identifier for the recording
-the data is associated with.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>burst_recording_1 <span class="ot">&lt;-</span> <span class="fu">create_electrode_dataset</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  <span class="at">data_path =</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;input_electrode_burst.csv&quot;</span>, <span class="at">package =</span> <span class="st">&quot;MEAanalysis&quot;</span>), </span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_1&quot;</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co"># view first 10 lines of dataset</span></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="fu">head</span>(burst_recording_1, <span class="dv">10</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt;     Electrode   Time_s Size_spikes Duration_s Recording_identifier   well</span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt;        &lt;char&gt;    &lt;num&gt;       &lt;num&gt;      &lt;num&gt;               &lt;char&gt; &lt;char&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt;  1:     A1_21  0.14248          27    0.17600    burst_recording_1     A1</span></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt;  2:     A1_21  8.32536          41    0.22584    burst_recording_1     A1</span></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt;  3:     A1_21 68.18416          44    0.21480    burst_recording_1     A1</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt;  4:     A1_23  0.32824          10    0.12456    burst_recording_1     A1</span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt;  5:     A1_23 38.79848           6    0.05592    burst_recording_1     A1</span></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt;  6:     A1_23 68.33040           7    0.16360    burst_recording_1     A1</span></span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt;  7:     A2_21 24.87752           6    0.04824    burst_recording_1     A2</span></span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt;  8:     A2_21 70.39144           7    0.09264    burst_recording_1     A2</span></span>
-<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co">#&gt;  9:     A2_21 82.13224           5    0.05680    burst_recording_1     A2</span></span>
-<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="co">#&gt; 10:     A2_33  6.17064           5    0.02208    burst_recording_1     A2</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>burst_recording_2 <span class="ot">&lt;-</span> <span class="fu">create_electrode_dataset</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="at">data_path =</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;comparison_agonist_challenge_electrode_burst_list.csv&quot;</span>, <span class="at">package =</span> <span class="st">&quot;MEAanalysis&quot;</span>), </span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_2&quot;</span>)</span>
+<h1>1. Load electrode burst datasets</h1>
+<p>First, electrode burst csv files need to be processed and loaded into
+the R environment. This can be done using the MEAanalysis::
+create_electrode_dataset function, which reads in, filters, and
+reformats the data for use in analysis. This function is compatible with
+electrode burst csv files produced by the axis navigator tool (Axion
+Biosystems). As demonstrated in the below example, the user should
+assign the data table to an object name so that it is accessible from
+the R environment. The user should update the data path with respect to
+their current working directory. The user should also provide a unique
+identifier for the loaded recording; this will be used by other
+MEAanalysis functions to filter the data and calculate burst parameters.
+This step should be done for all MEA recordings the user wishes to
+include in the analysis.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>burst_recording_1 <span class="ot">&lt;-</span> <span class="fu">create_electrode_dataset</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="at">data_path =</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;input_electrode_burst.csv&quot;</span>, <span class="at">package =</span> <span class="st">&quot;MEAanalysis&quot;</span>), </span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_1&quot;</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># view first 10 lines of dataset</span></span>
 <span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="fu">head</span>(burst_recording_2, <span class="dv">10</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="fu">head</span>(burst_recording_1, <span class="dv">10</span>)</span>
 <span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt;     Electrode   Time_s Size_spikes Duration_s Recording_identifier   well</span></span>
 <span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;        &lt;char&gt;    &lt;num&gt;       &lt;num&gt;      &lt;num&gt;               &lt;char&gt; &lt;char&gt;</span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;  1:     A1_11  2.52936           7    0.06488    burst_recording_2     A1</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;  2:     A1_11  2.97080          26    0.43128    burst_recording_2     A1</span></span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;  3:     A1_11 24.99960          11    0.08080    burst_recording_2     A1</span></span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;  4:     A1_11 25.23640          20    0.37600    burst_recording_2     A1</span></span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt;  5:     A1_11 89.33472          33    0.38000    burst_recording_2     A1</span></span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt;  6:     A1_11 89.82216          21    0.42312    burst_recording_2     A1</span></span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt;  7:     A1_11 90.34880           5    0.01528    burst_recording_2     A1</span></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt;  8:     A1_11 90.62712           5    0.01024    burst_recording_2     A1</span></span>
-<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt;  9:     A1_11 90.77560           6    0.01704    burst_recording_2     A1</span></span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt; 10:     A1_11 90.98640           6    0.01736    burst_recording_2     A1</span></span></code></pre></div>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;  1:     A1_21  0.14248          27    0.17600    burst_recording_1     A1</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;  2:     A1_21  8.32536          41    0.22584    burst_recording_1     A1</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;  3:     A1_21 68.18416          44    0.21480    burst_recording_1     A1</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;  4:     A1_23  0.32824          10    0.12456    burst_recording_1     A1</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt;  5:     A1_23 38.79848           6    0.05592    burst_recording_1     A1</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt;  6:     A1_23 68.33040           7    0.16360    burst_recording_1     A1</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt;  7:     A2_21 24.87752           6    0.04824    burst_recording_1     A2</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt;  8:     A2_21 70.39144           7    0.09264    burst_recording_1     A2</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt;  9:     A2_21 82.13224           5    0.05680    burst_recording_1     A2</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt; 10:     A2_33  6.17064           5    0.02208    burst_recording_1     A2</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>burst_recording_2 <span class="ot">&lt;-</span> <span class="fu">create_electrode_dataset</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="at">data_path =</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;comparison_agonist_challenge_electrode_burst_list.csv&quot;</span>, <span class="at">package =</span> <span class="st">&quot;MEAanalysis&quot;</span>), </span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_2&quot;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co"># view first 10 lines of dataset</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="fu">head</span>(burst_recording_2, <span class="dv">10</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt;     Electrode   Time_s Size_spikes Duration_s Recording_identifier   well</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt;        &lt;char&gt;    &lt;num&gt;       &lt;num&gt;      &lt;num&gt;               &lt;char&gt; &lt;char&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt;  1:     A1_11  2.52936           7    0.06488    burst_recording_2     A1</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt;  2:     A1_11  2.97080          26    0.43128    burst_recording_2     A1</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt;  3:     A1_11 24.99960          11    0.08080    burst_recording_2     A1</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt;  4:     A1_11 25.23640          20    0.37600    burst_recording_2     A1</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt;  5:     A1_11 89.33472          33    0.38000    burst_recording_2     A1</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt;  6:     A1_11 89.82216          21    0.42312    burst_recording_2     A1</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt;  7:     A1_11 90.34880           5    0.01528    burst_recording_2     A1</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt;  8:     A1_11 90.62712           5    0.01024    burst_recording_2     A1</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt;  9:     A1_11 90.77560           6    0.01704    burst_recording_2     A1</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt; 10:     A1_11 90.98640           6    0.01736    burst_recording_2     A1</span></span></code></pre></div>
 </div>
 <div id="merge-electrode-burst-datasets" class="section level1">
-<h1>Merge electrode burst datasets</h1>
-<p>The electrode burst datasets for each individual MEA recording should
-then be merged vertically. This is done using the rbind() function as
-demonstrated below. The user should update this function to include the
-dataset names assigned when the electrode burst data was originally
-loaded into the environment. The specific MEA recording will still be
-identifiable using the unique identifier defined in the MEAanalysis::
-create_electrode_dataset function, which will be included in the
-‘Recording_identifier’ column.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>output_table <span class="ot">&lt;-</span> <span class="fu">rbind</span>(burst_recording_1, burst_recording_2)</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co"># view first 10 lines of dataset</span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="fu">head</span>(output_table, <span class="dv">10</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt;     Electrode   Time_s Size_spikes Duration_s Recording_identifier   well</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt;        &lt;char&gt;    &lt;num&gt;       &lt;num&gt;      &lt;num&gt;               &lt;char&gt; &lt;char&gt;</span></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt;  1:     A1_21  0.14248          27    0.17600    burst_recording_1     A1</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt;  2:     A1_21  8.32536          41    0.22584    burst_recording_1     A1</span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt;  3:     A1_21 68.18416          44    0.21480    burst_recording_1     A1</span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt;  4:     A1_23  0.32824          10    0.12456    burst_recording_1     A1</span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt;  5:     A1_23 38.79848           6    0.05592    burst_recording_1     A1</span></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt;  6:     A1_23 68.33040           7    0.16360    burst_recording_1     A1</span></span>
-<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt;  7:     A2_21 24.87752           6    0.04824    burst_recording_1     A2</span></span>
-<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt;  8:     A2_21 70.39144           7    0.09264    burst_recording_1     A2</span></span>
-<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt;  9:     A2_21 82.13224           5    0.05680    burst_recording_1     A2</span></span>
-<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt; 10:     A2_33  6.17064           5    0.02208    burst_recording_1     A2</span></span></code></pre></div>
+<h1>2. Merge electrode burst datasets</h1>
+<p>The electrode burst data tables for each individual MEA recording
+should then be merged vertically. This can be done using the rbind()
+function, as demonstrated below. The user should update this function to
+include the data table object names assigned when loading the electrode
+burst data into the R environment. As shown in the below example, the
+MEA recording which the burst data belongs too can still be identified
+using the ‘Recording_identifier’ column.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>output_table <span class="ot">&lt;-</span> <span class="fu">rbind</span>(burst_recording_1, burst_recording_2)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co"># view first 10 lines of dataset</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="fu">head</span>(output_table, <span class="dv">10</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt;     Electrode   Time_s Size_spikes Duration_s Recording_identifier   well</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt;        &lt;char&gt;    &lt;num&gt;       &lt;num&gt;      &lt;num&gt;               &lt;char&gt; &lt;char&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;  1:     A1_21  0.14248          27    0.17600    burst_recording_1     A1</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt;  2:     A1_21  8.32536          41    0.22584    burst_recording_1     A1</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt;  3:     A1_21 68.18416          44    0.21480    burst_recording_1     A1</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt;  4:     A1_23  0.32824          10    0.12456    burst_recording_1     A1</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt;  5:     A1_23 38.79848           6    0.05592    burst_recording_1     A1</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt;  6:     A1_23 68.33040           7    0.16360    burst_recording_1     A1</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt;  7:     A2_21 24.87752           6    0.04824    burst_recording_1     A2</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt;  8:     A2_21 70.39144           7    0.09264    burst_recording_1     A2</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt;  9:     A2_21 82.13224           5    0.05680    burst_recording_1     A2</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt; 10:     A2_33  6.17064           5    0.02208    burst_recording_1     A2</span></span></code></pre></div>
 </div>
 <div id="calculate-mea-parameters-for-specific-time-intervals-of-a-recording" class="section level1">
-<h1>Calculate MEA parameters for specific time intervals of a
+<h1>3. Calculate MEA parameters for specific time intervals of a
 recording</h1>
-<p>Additional calculated columns, including the mean, standard deviation
-(SD), and standard error of the mean (SEM) for a specific MEA parameter,
-may then be added to the merged electrode burst dataset. These columns
-are calculated for a specific time interval of a recording. For example,
-using the MEAanalysis:: well_burst_duration function, the user is able
-to add three calculated columns to the electrode burst dataset with the
-mean, SD, and SEM burst duration within each well for a defined time
-interval of a recording. The package also contains other functions which
-enable the well average number of bursts detected by an electrode,
-number of spikes per burst, and mean inter-spike interval within a burst
-to be calculated. These functions can be ran multiple times with
-different time intervals and recordings, enabling the user to compare
-parameters at different time points throughout an MEA experiment. The
-parameters should be calculated for each time interval the user wishes
-to include in the barchart visualisation, as demonstrated in the below
-example.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> output_table</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> <span class="fu">well_burst_duration</span>(<span class="at">data =</span> analysis_dataset, <span class="dv">0</span>, <span class="dv">30</span>, <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_1&quot;</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> <span class="fu">well_burst_duration</span>(<span class="at">data =</span> analysis_dataset, <span class="dv">30</span>, <span class="dv">60</span>, <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_1&quot;</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> <span class="fu">well_burst_duration</span>(<span class="at">data =</span> analysis_dataset, <span class="dv">60</span>, <span class="dv">90</span>, <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_1&quot;</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> <span class="fu">well_burst_duration</span>(<span class="at">data =</span> analysis_dataset, <span class="dv">60</span>, <span class="dv">90</span>, <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_2&quot;</span>)</span></code></pre></div>
+<p>Columns containing information regarding the mean, standard deviation
+(SD), and standard error of the mean (SEM) for a specific MEA burst
+parameter should then be calculated and added to the merged electrode
+burst data table. This should be done for defined time intervals of
+specified MEA recordings. These calculated columns can then be plotted
+in the barchart visualisation, grouped by well. The MEAanalysis package
+contains functions which calculate these measures for burst duration,
+number of bursts, number of spikes per burst, and mean inter-spike
+interval within a burst.</p>
+<p>In the below example, the merged electrode burst data table
+(‘output_table’) is assigned as a new object in the R environment
+(‘analysis_dataset’); this enables the user to refresh and remove any
+calculated columns from the analysis_dataset by rerunning this line of
+code. Using the MEAanalysis::well_burst_duration function, the mean, SD,
+and SEM burst duration within each well are then calculated for defined
+time intervals of an MEA recording. Additional columns are added to the
+analysis_dataset each time this function is run. Alternatively, the
+well_mean_burst_ISI, well_number_of_bursts, and well_spikes_per_burst
+functions from the MEAanalysis package can be used to respectively
+calculate these measures for mean inter-spike interval within a burst,
+number of bursts, and number of spikes per burst.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># assign the &#39;output_table&#39; data table object created above to a different object name &#39;analysis_dataset&#39;</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co"># this means that when columns are added to the &#39;analysis_dataset&#39; the data table can be refreshed by rerunning this line of code</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> output_table</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co"># add burst duration calculated columns for defined time intervals to the &#39;analysis_dataset&#39; </span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> <span class="fu">well_burst_duration</span>(<span class="at">data =</span> analysis_dataset, <span class="dv">0</span>, <span class="dv">60</span>, <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_1&quot;</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> <span class="fu">well_burst_duration</span>(<span class="at">data =</span> analysis_dataset, <span class="dv">0</span>, <span class="dv">60</span>, <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_2&quot;</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> <span class="fu">well_burst_duration</span>(<span class="at">data =</span> analysis_dataset, <span class="dv">60</span>, <span class="dv">120</span>, <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_1&quot;</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> <span class="fu">well_burst_duration</span>(<span class="at">data =</span> analysis_dataset, <span class="dv">60</span>, <span class="dv">120</span>, <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_2&quot;</span>)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <thead>
@@ -713,52 +727,52 @@ Size_spikes
 Duration_s
 </th>
 <th style="text-align:right;">
-well_duration_raw: burst_recording_1 0-30 (s)
+well_duration_raw: burst_recording_1 0-60 (s)
 </th>
 <th style="text-align:right;">
-well_duration_mean: burst_recording_1 0-30 (s)
+well_duration_mean: burst_recording_1 0-60 (s)
 </th>
 <th style="text-align:right;">
-well_duration_sd: burst_recording_1 0-30 (s)
+well_duration_sd: burst_recording_1 0-60 (s)
 </th>
 <th style="text-align:right;">
-well_duration_se: burst_recording_1 0-30 (s)
+well_duration_se: burst_recording_1 0-60 (s)
 </th>
 <th style="text-align:right;">
-well_duration_raw: burst_recording_1 30-60 (s)
+well_duration_raw: burst_recording_2 0-60 (s)
 </th>
 <th style="text-align:right;">
-well_duration_mean: burst_recording_1 30-60 (s)
+well_duration_mean: burst_recording_2 0-60 (s)
 </th>
 <th style="text-align:right;">
-well_duration_sd: burst_recording_1 30-60 (s)
+well_duration_sd: burst_recording_2 0-60 (s)
 </th>
 <th style="text-align:right;">
-well_duration_se: burst_recording_1 30-60 (s)
+well_duration_se: burst_recording_2 0-60 (s)
 </th>
 <th style="text-align:right;">
-well_duration_raw: burst_recording_1 60-90 (s)
+well_duration_raw: burst_recording_1 60-120 (s)
 </th>
 <th style="text-align:right;">
-well_duration_mean: burst_recording_1 60-90 (s)
+well_duration_mean: burst_recording_1 60-120 (s)
 </th>
 <th style="text-align:right;">
-well_duration_sd: burst_recording_1 60-90 (s)
+well_duration_sd: burst_recording_1 60-120 (s)
 </th>
 <th style="text-align:right;">
-well_duration_se: burst_recording_1 60-90 (s)
+well_duration_se: burst_recording_1 60-120 (s)
 </th>
 <th style="text-align:right;">
-well_duration_raw: burst_recording_2 60-90 (s)
+well_duration_raw: burst_recording_2 60-120 (s)
 </th>
 <th style="text-align:right;">
-well_duration_mean: burst_recording_2 60-90 (s)
+well_duration_mean: burst_recording_2 60-120 (s)
 </th>
 <th style="text-align:right;">
-well_duration_sd: burst_recording_2 60-90 (s)
+well_duration_sd: burst_recording_2 60-120 (s)
 </th>
 <th style="text-align:right;">
-well_duration_se: burst_recording_2 60-90 (s)
+well_duration_se: burst_recording_2 60-120 (s)
 </th>
 </tr>
 </thead>
@@ -795,16 +809,16 @@ NA
 NA
 </td>
 <td style="text-align:right;">
-NA
+0.06488
 </td>
 <td style="text-align:right;">
-NA
+0.253833
 </td>
 <td style="text-align:right;">
-NA
+0.2143075
 </td>
 <td style="text-align:right;">
-NA
+0.0315979
 </td>
 <td style="text-align:right;">
 NA
@@ -863,16 +877,16 @@ NA
 NA
 </td>
 <td style="text-align:right;">
-NA
+0.43128
 </td>
 <td style="text-align:right;">
-NA
+0.253833
 </td>
 <td style="text-align:right;">
-NA
+0.2143075
 </td>
 <td style="text-align:right;">
-NA
+0.0315979
 </td>
 <td style="text-align:right;">
 NA
@@ -931,16 +945,16 @@ NA
 NA
 </td>
 <td style="text-align:right;">
-NA
+0.08080
 </td>
 <td style="text-align:right;">
-NA
+0.253833
 </td>
 <td style="text-align:right;">
-NA
+0.2143075
 </td>
 <td style="text-align:right;">
-NA
+0.0315979
 </td>
 <td style="text-align:right;">
 NA
@@ -999,16 +1013,16 @@ NA
 NA
 </td>
 <td style="text-align:right;">
-NA
+0.37600
 </td>
 <td style="text-align:right;">
-NA
+0.253833
 </td>
 <td style="text-align:right;">
-NA
+0.2143075
 </td>
 <td style="text-align:right;">
-NA
+0.0315979
 </td>
 <td style="text-align:right;">
 NA
@@ -1094,13 +1108,13 @@ NA
 0.38000
 </td>
 <td style="text-align:right;">
-0.7160706
+0.1896349
 </td>
 <td style="text-align:right;">
-0.3512692
+0.3041469
 </td>
 <td style="text-align:right;">
-0.0851953
+0.032608
 </td>
 </tr>
 <tr>
@@ -1162,13 +1176,13 @@ NA
 0.42312
 </td>
 <td style="text-align:right;">
-0.7160706
+0.1896349
 </td>
 <td style="text-align:right;">
-0.3512692
+0.3041469
 </td>
 <td style="text-align:right;">
-0.0851953
+0.032608
 </td>
 </tr>
 <tr>
@@ -1227,16 +1241,16 @@ NA
 NA
 </td>
 <td style="text-align:right;">
-NA
+0.01528
 </td>
 <td style="text-align:right;">
-NA
+0.1896349
 </td>
 <td style="text-align:right;">
-NA
+0.3041469
 </td>
 <td style="text-align:right;">
-NA
+0.032608
 </td>
 </tr>
 <tr>
@@ -1295,16 +1309,16 @@ NA
 NA
 </td>
 <td style="text-align:right;">
-NA
+0.01024
 </td>
 <td style="text-align:right;">
-NA
+0.1896349
 </td>
 <td style="text-align:right;">
-NA
+0.3041469
 </td>
 <td style="text-align:right;">
-NA
+0.032608
 </td>
 </tr>
 <tr>
@@ -1363,16 +1377,16 @@ NA
 NA
 </td>
 <td style="text-align:right;">
-NA
+0.01704
 </td>
 <td style="text-align:right;">
-NA
+0.1896349
 </td>
 <td style="text-align:right;">
-NA
+0.3041469
 </td>
 <td style="text-align:right;">
-NA
+0.032608
 </td>
 </tr>
 <tr>
@@ -1431,16 +1445,16 @@ NA
 NA
 </td>
 <td style="text-align:right;">
-NA
+0.01736
 </td>
 <td style="text-align:right;">
-NA
+0.1896349
 </td>
 <td style="text-align:right;">
-NA
+0.3041469
 </td>
 <td style="text-align:right;">
-NA
+0.032608
 </td>
 </tr>
 </tbody>
@@ -1448,17 +1462,18 @@ NA
 </div>
 </div>
 <div id="create-barchart-of-well-average-burst-data-for-a-specific-parameter" class="section level1">
-<h1>Create barchart of well average burst data for a specific
+<h1>4. Create barchart of well average burst data for a specific
 parameter</h1>
 <p>The analysis dataset created above can then be used as an input for
 the MEAanalysis: well_barchart function. This function will create a
 barchart of the well average for a specified MEA parameter, grouped by
-time interval of a recording. This function contains arguments which
-enable the user to define the parameter to be visualised, as well as the
-functionality to filter for specific wells, and determine whether error
-bars represent SD or SEM.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">well_barchart</span>(<span class="at">data =</span> analysis_dataset, <span class="at">well_parameter =</span> <span class="st">&quot;burst_duration&quot;</span>, <span class="at">well_filter =</span> <span class="st">&quot;A1|A2|A3|A4&quot;</span>, <span class="at">statistic =</span> se)</span></code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
+time interval of a recording. The user should define which burst
+parameter they wish to visualise using the well_parameter argument. The
+user may also filter for specific wells using the well_filter argument
+and decide whether the error bars represent SD or SEM using the
+statistic argument.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">well_barchart</span>(<span class="at">data =</span> analysis_dataset, <span class="at">well_parameter =</span> <span class="st">&quot;burst_duration&quot;</span>, <span class="at">well_filter =</span> <span class="st">&quot;A1|A2|A3|A4&quot;</span>, <span class="at">statistic =</span> se)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 
 
