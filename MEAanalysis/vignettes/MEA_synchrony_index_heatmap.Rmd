@@ -1,5 +1,4 @@
 ---
-title: "MEA_synchrony_index_heatmap"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{MEA_synchrony_index_heatmap}
@@ -20,9 +19,15 @@ knitr::opts_knit$set(root.dir = '..')
 ```
 
 
-# Creating a Heat Map of  Multi-electrode Array Well Synchrony Index
+# Creating a Heat Map of Multi-electrode Array Well Synchrony Index
 
-The following vignette describes the workflow used to create a heat map visualisation of the well average synchrony index recorded by a multi-electrode array (MEA). The purpose of this visualisation is to compare the synchronicity of excitable cells in different experimental conditions, for example before and after addition of a pharmacological agent during an MEA recording. For further information on the arguments of each function please see the associated help pages.
+The following vignette describes the workflow used to create a heat map visualisation of the well average synchrony index recorded by a multi-electrode array (MEA). The purpose of this visualisation is to compare the synchronicity of excitable cells in different experimental conditions, for example before and after addition of a pharmacological agent during an MEA recording.
+
+Further examples and information on the arguments of each function can be found on the individual function help pages. To access these pages, please run the following code:
+
+```{r, warning = FALSE, message = FALSE}
+help(package = "MEAanalysis")
+```
 
 # Workflow
 
@@ -32,12 +37,9 @@ There are 3 steps to create this heatmap visualisation:
 2. Merge and reformat neural metric datasets.
 3. Create a heat map of well average synchrony index.
 
+# 1. Load neural metric dataset outputs for each experimental condition.
 
-# Load neural metric dataset outputs for each experimental condition.
-
-First, the user should run the axis navigator software neural metric tool for each recording time interval representative of an experimental condition. This will produce output neuralMetric datasets which can be loaded into the R environment using the MEAanalysis:: create_synchrony_dataset function. This function reads in the neuralMetric dataset in csv format, before filtering and reformatting the data for use in the analysis. As demonstrated in the below example, the user is able to define the name to which the dataset is assigned, the data path, and a unique identifier for the experimental condition the data is associated with.
-
-recording the data is associated with.
+First, the user should use the axis navigator and neural metric tools (Axion Biosystems) to generate neuralMetric csv files containing information related to network synchrony. This should be done for each experimental condition the user wishes to include in the heatmap analysis. For example, the user may generate separate csv files for before or after an agonist challenge during an experiment. These neuralMetric csv files need to be processed and loaded into the R environment. This can be done using the MEAanalysis:: create_synchrony_dataset function, which reads in, filters, and reformats the data for use in analysis. As demonstrated in the below example, the user should assign the data table to an object name so that it is accessible from the R environment.  The user should update the data path with respect to their current working directory. The user should also provide a unique identifier for the experimental condition the neuralMetric csv file is associated with in the function's heatmap_condition argument.
 
 ```{r, warning = FALSE, message = FALSE}
 baseline_data <- create_synchrony_dataset(
@@ -56,9 +58,9 @@ agonist_challenge_data <- create_synchrony_dataset(
 head(agonist_challenge_data, 10)
 ```
 
-# Merge and reformat neural metric datasets.
+# 2. Merge and reformat neural metric datasets.
 
-The neuralMetric datasets for each experimental condition should then be merged. This is done using the reduce() function as demonstrated below. The user should update the df_list to include the dataset names assigned when the neuralMetric data was originally loaded into the environment. The specific neuralMetric recording will still be identifiable using the unique identifier defined in the MEAanalysis:: create_synchrony_dataset function, which will be included in the 'heatmap_condition' column.
+The neuralMetric datasets for each experimental condition should then be merged. This can be done using the reduce() function, as demonstrated below. The user should update the df_list to include the data table object names assigned when loading the neuralMetric data into the R environment. As shown in the below example, the column titles will ensure the heatmap condition can still be identified.  
 
 ```{r}
 df_list <- list(baseline_data, agonist_challenge_data)
@@ -69,7 +71,7 @@ heatmap_data <- df_list %>%
 head(heatmap_data, 10)
 ```
 
-# Create a heat map of well average synchrony index.
+# 3. Create a heat map of well average synchrony index.
 
 The heatmap dataset created above can then be used as an input for the MEAanalysis: MEA_heatmap function. This function will create a heatmap of the well average synchrony index grouped by experimental condition. The function contains a 'well_filter' argument enabling the user to filter by specific well.
 
