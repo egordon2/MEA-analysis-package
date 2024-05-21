@@ -1,0 +1,31 @@
+---
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{function_help_page}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include = FALSE}
+library(MEAanalysis)
+knitr::opts_knit$set(root.dir = '..')
+```
+
+# MEAanalysis functions
+
+```{r, warning = FALSE, message = FALSE}
+# Store the help page of a package function in an object
+help_page <- help(package = "MEAanalysis", help_type = "html")
+
+# Print the help page object
+print(help_page)
+
+```
+

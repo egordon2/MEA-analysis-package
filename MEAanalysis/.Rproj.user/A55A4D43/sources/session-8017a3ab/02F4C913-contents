@@ -1,13 +1,13 @@
 
-#' Create Electrode Data Set
+#' Create Electrode Data set
 #'
-#' @description This function reads in, filters, and reformats electrode burst csv files produced by the axis navigator tool
-#' (Axion Biosystems) for use in analysis. This function filters the data to only contain information relating to single electrodes
-#' and burst characteristics. It also adds a 'Recording_identifier' column to enable other MEAanalysis functions to calculate
-#' burst parameters for a specific recording, as well as a column to identify the well a burst was recorded in.
+#' @description Function reads in and reformats the electrode burst list dataset produced by the axis navigator tool for use in analysis.
+#'  The data will be filtered to only contain information relating to single electrodes and burst characteristics.
+#'  A 'Recording_identifier' column is added to enable filtering for a specific recording when used alongside other functions.
+#'  A column to identify the well a burst was recorded within will also be added.
 #'
 #' @param data_path Include path to electrode burst dataset csv file produced by the axis navigator tool. This path should be written within quotation marks and with respect to the current working directory.
-#' @param recording_identifier Include a unique identifier for the MEA recording being loaded. This identifier will be added to the 'Recording_identifier' column and be used by other MEAanalysis functions to filter the data and calculate burst parameters.
+#' @param recording_identifier Include a unique identifier for this specific electrode burst dataset which will be added to the 'Recording_identifier' column. Other functions will use this column to filter for a specific recording.
 #'
 #' @return A reformatted and filtered electrode burst list for use in analysis.
 #' @importFrom data.table setcolorder setDT
