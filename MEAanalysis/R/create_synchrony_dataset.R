@@ -1,12 +1,9 @@
-
-
 #' Create Synchrony Data Set
 #'
-#' @description Function reads in neural metric output dataset and reformats for use in synchrony index analysis.
-#'  Data will be filtered to include the average synchrony index for each well.
-#'  The synchrony index column name will also be updated to include a 'heatmap_condition'.
+#' @description This function reads in, filters, and reformats neural metric csv files produced by the axis navigator neural metric tool
+#' (Axion Biosystems) for use in synchrony index analysis.
 #'
-#' @param data_path Include path to neural metric dataset csv file produced by the axis navigator neural metric tool in quotation marks.
+#' @param data_path Include path to neural metric dataset csv file produced by the axis navigator neural metric tool. This path should be written within quotation marks and with respect to the current working directory.
 #' @param heatmap_condition Include a unique identifier for this neuralMetric dataset's experimental condition, this argument will be used by the MEA_heatmap function to group data.
 #'
 #' @return A reformatted and filtered neural metric dataset for use in synchrony index analysis.
