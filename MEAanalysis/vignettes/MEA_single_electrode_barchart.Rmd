@@ -86,10 +86,10 @@ In the below example, the merged electrode burst data table ('output_table') is 
 analysis_dataset <- output_table
 
 # add burst duration calculated columns for defined time intervals to the 'analysis_dataset' 
-analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 0, 30, recording_identifier = "burst_recording_1")
-analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 30, 60, recording_identifier = "burst_recording_1")
-analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 60, 90, recording_identifier = "burst_recording_1")
-analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 60, 90, recording_identifier = "burst_recording_2")
+analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 0, 60, recording_identifier = "burst_recording_1")
+analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 0, 60, recording_identifier = "burst_recording_2")
+analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 60, 120, recording_identifier = "burst_recording_1")
+analysis_dataset <- electrode_burst_duration(data = analysis_dataset, 60, 120, recording_identifier = "burst_recording_2")
 ```
 
 ```{r, echo = FALSE}
