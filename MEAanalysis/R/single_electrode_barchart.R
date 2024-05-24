@@ -104,7 +104,9 @@ single_electrode_barchart <- function(data = output_table,
     #remove duplicate rows where value is NA (grouped by electrode, recording_time, and parameter)
     analysis_dataset_4 <- analysis_dataset_3 %>%
       group_by(Electrode, recording_time, parameter) %>%
-      slice(which.max(!is.na(value)))
+      filter(value == max(value)) %>%
+      distinct() %>%
+      ungroup()
 
     #pivot data wider so can plot individual columns
     analysis_dataset_5 <- analysis_dataset_4 %>%
