@@ -1,19 +1,19 @@
 {
-    "id": "2B389185",
-    "path": "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis/vignettes/MEA_well_barchart.Rmd",
-    "project_path": "vignettes/MEA_well_barchart.Rmd",
+    "id": "A938D2F3",
+    "path": "C:/Users/Emily Gordon/OneDrive - Nexus365/DPhil OXION/DB Rotation/Github Repository/MEA-analysis-package/MEAanalysis/vignettes/MEA_synchrony_index_heatmap.Rmd",
+    "project_path": "vignettes/MEA_synchrony_index_heatmap.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "1914922183",
     "contents": "",
     "dirty": false,
-    "created": 1716477364637.0,
+    "created": 1716548331444.0,
     "source_on_save": false,
-    "relative_order": 4,
+    "relative_order": 2,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "106,0",
-        "scrollLine": "81"
+        "cursorPosition": "41,857",
+        "scrollLine": "19"
     },
     "folds": "",
     "lastKnownWriteTime": 1716476655,
