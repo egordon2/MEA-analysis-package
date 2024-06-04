@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>MEA_synchrony_index_heatmap.knit</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+<div id="creating-a-heat-map-of-multi-electrode-array-well-synchrony-index" class="section level1">
+<h1>Creating a Heat Map of Multi-electrode Array Well Synchrony
+Index</h1>
+<p>The following vignette describes the workflow used to create a heat
+map visualisation of the well average synchrony index recorded by a
+multi-electrode array (MEA). The purpose of this visualisation is to
+compare the synchronicity of excitable cells in different experimental
+conditions, for example before and after addition of a pharmacological
+agent during an MEA recording.</p>
+<p>Further examples and information on the arguments of each function
+can be found on the individual function help pages. To access these
+pages, please run the following code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">&quot;MEAanalysis&quot;</span>)</span></code></pre></div>
+</div>
+<div id="workflow" class="section level1">
+<h1>Workflow</h1>
+<p>There are 3 steps to create this heatmap visualisation:</p>
+<ol style="list-style-type: decimal">
+<li>Load neural metric dataset outputs for each experimental
+condition.</li>
+<li>Merge and reformat neural metric datasets.</li>
+<li>Create a heat map of well average synchrony index.</li>
+</ol>
+</div>
+<div id="load-neural-metric-dataset-outputs-for-each-experimental-condition." class="section level1">
+<h1>1. Load neural metric dataset outputs for each experimental
+condition.</h1>
+<p>First, the user should use the axis navigator and neural metric tools
+(Axion Biosystems) to generate neuralMetric csv files containing
+information related to network synchrony. This should be done for each
+experimental condition the user wishes to include in the heatmap
+analysis. For example, the user may generate separate csv files for
+before or after an agonist challenge during an experiment. These
+neuralMetric csv files need to be processed and loaded into the R
+environment. This can be done using the MEAanalysis::
+create_synchrony_dataset function, which reads in, filters, and
+reformats the data for use in analysis. As demonstrated in the below
+example, the user should assign the data table to an object name so that
+it is accessible from the R environment. The user should update the data
+path with respect to their current working directory. The user should
+also provide a unique identifier for the experimental condition the
+neuralMetric csv file is associated with in the function’s
+heatmap_condition argument.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>baseline_data <span class="ot">&lt;-</span> <span class="fu">create_synchrony_dataset</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="at">data_path =</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;input_neuralMetric.csv&quot;</span>, <span class="at">package =</span> <span class="st">&quot;MEAanalysis&quot;</span>), </span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="at">heatmap_condition =</span> <span class="st">&quot;Baseline&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># view first 10 lines of dataset</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="fu">head</span>(baseline_data, <span class="dv">10</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt;       Well synchrony_index: Baseline</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt;     &lt;char&gt;                     &lt;num&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;  1:     A1                  0.598114</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;  2:     A2                  0.504325</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;  3:     A3                  0.672377</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;  4:     A4                  0.103646</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;  5:     A5                  0.222039</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt;  6:     A6                  0.526581</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt;  7:     B1                  0.217064</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt;  8:     B2                  0.237206</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt;  9:     B3                  0.788551</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt; 10:     B4                  0.197240</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>agonist_challenge_data <span class="ot">&lt;-</span> <span class="fu">create_synchrony_dataset</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="at">data_path =</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;comparison_agonist_challenge_neuralMetrics.csv&quot;</span>, <span class="at">package =</span> <span class="st">&quot;MEAanalysis&quot;</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  <span class="at">heatmap_condition =</span> <span class="st">&quot;Agonist Challenge&quot;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co"># view first 10 lines of dataset</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="fu">head</span>(agonist_challenge_data, <span class="dv">10</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt;       Well synchrony_index: Agonist Challenge</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt;     &lt;char&gt;                              &lt;num&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt;  1:     A1                           0.000000</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt;  2:     A2                           0.000000</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt;  3:     A3                           0.000000</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt;  4:     A4                           0.000000</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt;  5:     A5                           0.000000</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt;  6:     A6                           0.000000</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt;  7:     B1                           0.000000</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt;  8:     B2                           0.181607</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt;  9:     B3                           0.000000</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt; 10:     B4                           0.000000</span></span></code></pre></div>
+</div>
+<div id="merge-and-reformat-neural-metric-datasets." class="section level1">
+<h1>2. Merge and reformat neural metric datasets.</h1>
+<p>The neuralMetric datasets for each experimental condition should then
+be merged. This can be done using the reduce() function, as demonstrated
+below. The user should update the df_list to include the data table
+object names assigned when loading the neuralMetric data into the R
+environment. As shown in the below example, the column titles will
+ensure the heatmap condition can still be identified.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>df_list <span class="ot">&lt;-</span> <span class="fu">list</span>(baseline_data, agonist_challenge_data)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>heatmap_data <span class="ot">&lt;-</span> df_list <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="fu">reduce</span>(full_join, <span class="at">by =</span> <span class="st">&#39;Well&#39;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co"># view first 10 lines of dataset</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="fu">head</span>(heatmap_data, <span class="dv">10</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt;       Well synchrony_index: Baseline synchrony_index: Agonist Challenge</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;     &lt;char&gt;                     &lt;num&gt;                              &lt;num&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt;  1:     A1                  0.598114                           0.000000</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt;  2:     A2                  0.504325                           0.000000</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt;  3:     A3                  0.672377                           0.000000</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt;  4:     A4                  0.103646                           0.000000</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt;  5:     A5                  0.222039                           0.000000</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt;  6:     A6                  0.526581                           0.000000</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt;  7:     B1                  0.217064                           0.000000</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt;  8:     B2                  0.237206                           0.181607</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt;  9:     B3                  0.788551                           0.000000</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co">#&gt; 10:     B4                  0.197240                           0.000000</span></span></code></pre></div>
+</div>
+<div id="create-a-heat-map-of-well-average-synchrony-index." class="section level1">
+<h1>3. Create a heat map of well average synchrony index.</h1>
+<p>The heatmap dataset created above can then be used as an input for
+the MEAanalysis: MEA_heatmap function. This function will create a
+heatmap of the well average synchrony index grouped by experimental
+condition. The function contains a ‘well_filter’ argument enabling the
+user to filter by specific well.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">MEA_heatmap</span>(<span class="at">data =</span> heatmap_data, <span class="at">well_filter =</span> <span class="st">&quot;A1|A2|A3|A4|A5|A6|B1|B2|B3|B4|B5|B6|C1|C2|C3|C4|C5|C6|D1|D2|D3|D4|D5|D6&quot;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
