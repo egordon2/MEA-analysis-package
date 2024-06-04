@@ -15,7 +15,7 @@
 #' @export
 #'
 #' @examples
-#' MEA_heatmap(data = input_heatmap_data,
+#' p <- MEA_heatmap(data = input_heatmap_data,
 #'             x_axis_title = "Experimental Condition",
 #'             well_filter = "A1|A2|A3|A4|A5|A6|B1|B2|B3|B4|B5|B6|C1|C2|C3|C4|C5|C6|D1|D2|D3|D4|D5|D6")
 
@@ -41,20 +41,15 @@ MEA_heatmap <- function(data,
   data_2[, 1] <- sapply(data_2[, 1], as.factor)
 
   # create ggplot heatmap
-  data_2 %>%
+  p <- data_2 %>%
     ggplot(aes(x = experimental_condition, y = Well, fill = synchrony_index)) +
     geom_tile() +
     scale_fill_gradient(low = "white", high = "red") +
     labs(fill = "Synchrony Index", x = x_axis_title, y = "Well") +
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
+  return(p)
+
 }
-
-
-
-
-
-
-
 
 

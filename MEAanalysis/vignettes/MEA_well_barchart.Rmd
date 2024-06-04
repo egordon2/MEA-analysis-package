@@ -103,9 +103,20 @@ knitr::kable(analysis_dataset[1:10,]) %>% kableExtra::scroll_box(width = "100%")
 The analysis dataset created above can then be used as an input for the MEAanalysis: well_barchart function. This function will create a barchart of the well average for a specified MEA parameter, grouped by time interval of a recording.  The user should define which burst parameter they wish to visualise using the well_parameter argument. The user may also filter for specific wells using the well_filter argument and decide whether the error bars represent SD or SEM using the statistic argument.
 
 ```{r, warning = FALSE, fig.height = 5, fig.width = 7}
-well_barchart(data = analysis_dataset, well_parameter = "burst_duration", well_filter = "A1|A2|A3|A4", statistic = se)
+p <- well_barchart(data = analysis_dataset, 
+                   well_parameter = "burst_duration", 
+                   well_filter = "A1|A2|A3|A4", 
+                   statistic = se)
+print(p)
 ```
+As the underlying code for the well_barchart function utilises ggplot2, the user can add layers of code to personalise the output further.
 
+```{r, warning = FALSE, fig.height = 5, fig.width = 7}
+p <- p + 
+  scale_fill_grey() +
+  ggtitle("A barchart to show MEA well average burst duration 
+          within a given time period")
 
+print(p)
 
-
+```

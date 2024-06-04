@@ -19,22 +19,22 @@
 #' @export
 #'
 #' @examples
-#' single_electrode_barchart(data = input_electrode_barchart,
+#' p <- single_electrode_barchart(data = input_electrode_barchart,
 #'                           electrode_parameter = "burst_duration",
 #'                           electrode_filter = "A1_",
 #'                           statistic = se)
 #'
-#' single_electrode_barchart(data = input_electrode_barchart,
+#' p <- single_electrode_barchart(data = input_electrode_barchart,
 #'                           electrode_parameter = "spikes_per_burst",
 #'                           electrode_filter = "A1_",
 #'                           statistic = se)
 #'
-#' single_electrode_barchart(data = input_electrode_barchart,
+#' p <- single_electrode_barchart(data = input_electrode_barchart,
 #'                           electrode_parameter = "mean_burst_ISI",
 #'                           electrode_filter = "A1_",
 #'                           statistic = se)
 #'
-#' single_electrode_barchart(data = input_electrode_barchart,
+#' p <- single_electrode_barchart(data = input_electrode_barchart,
 #'                           electrode_parameter = "number_of_bursts",
 #'                           electrode_filter = "A1_")
 
@@ -152,14 +152,14 @@ single_electrode_barchart <- function(data = output_table,
     # plot barchart
   if (electrode_parameter == "number_of_bursts") {
 
-    analysis_dataset_5 %>%
+    p <- analysis_dataset_5 %>%
       ggplot(aes(x = Electrode, y = electrode_number_of_bursts, fill = recording_time)) +
       geom_bar(stat='identity', position=position_dodge()) +
       labs(fill = "Time Interval", y = y_axis_title)
 
   } else {
 
-    analysis_dataset_5 %>%
+    p <- analysis_dataset_5 %>%
       ggplot(aes(x = Electrode, y = mean, fill = recording_time)) +
       geom_bar(stat='identity', position=position_dodge()) +
       geom_errorbar(aes(ymin = mean - {{statistic}}, ymax = mean + {{statistic}}), linewidth = 0.4, colour = "orange", alpha = 0.9, size = 1.5, position=position_dodge()) +
@@ -168,6 +168,7 @@ single_electrode_barchart <- function(data = output_table,
 
   }
 
+  return(p)
 }
 
 

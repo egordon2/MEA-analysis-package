@@ -55,7 +55,11 @@ output_table <- well_number_of_bursts(data = output_table, 60, 90, recording_ide
 # User to update function arguments accordingly ii.e., well_barchart(data, well_parameter, well_filter, statistic)
 # For well_parameter argument include "number_of_bursts"/ "burst_duration"/ "spikes_per_burst"/ "mean_burst_ISI"
 
-well_barchart(data = output_table, well_parameter = "burst_duration", well_filter = "A1|A2|A3|A4", statistic = se)
-well_barchart(data = output_table, well_parameter = "spikes_per_burst", well_filter = "A1|A2|A3|A4", statistic = se)
-well_barchart(data = output_table, well_parameter = "mean_burst_ISI", well_filter = "A1|A2|A3|A4", statistic = se)
-well_barchart(data = output_table, well_parameter = "number_of_bursts", well_filter = "A1|A2|A3|A4", statistic = se)
+p <- well_barchart(data = output_table, well_parameter = "burst_duration", well_filter = "A1|A2|A3|A4", statistic = se)
+print(p)
+p <- well_barchart(data = output_table, well_parameter = "spikes_per_burst", well_filter = "A1|A2|A3|A4", statistic = se)
+print(p)
+p <- well_barchart(data = output_table, well_parameter = "mean_burst_ISI", well_filter = "A1|A2|A3|A4", statistic = se)
+print(p)
+p <- well_barchart(data = output_table, well_parameter = "number_of_bursts", well_filter = "A1|A2|A3|A4", statistic = se)
+print(p)
