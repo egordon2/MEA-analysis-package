@@ -56,8 +56,12 @@ output_table <- electrode_number_of_bursts(data = output_table, 60, 90, recordin
 # For electrode_parameter argument include "number_of_bursts"/ "burst_duration"/ "spikes_per_burst"/ "mean_burst_ISI"
 # Note statistics will not be calculated for the number of bursts within a given time interval
 
-single_electrode_barchart(data = output_table, electrode_parameter = "burst_duration", electrode_filter = "A1_", statistic = se)
-single_electrode_barchart(data = output_table, electrode_parameter = "spikes_per_burst", electrode_filter = "A1_", statistic = se)
-single_electrode_barchart(data = output_table, electrode_parameter = "mean_burst_ISI", electrode_filter = "A1_", statistic = se)
-single_electrode_barchart(data = output_table, electrode_parameter = "number_of_bursts", electrode_filter = "A1_")
+p <- single_electrode_barchart(data = output_table, electrode_parameter = "burst_duration", electrode_filter = "A1_", statistic = se)
+print(p)
+p <- single_electrode_barchart(data = output_table, electrode_parameter = "spikes_per_burst", electrode_filter = "A1_", statistic = se)
+print(p)
+p <- single_electrode_barchart(data = output_table, electrode_parameter = "mean_burst_ISI", electrode_filter = "A1_", statistic = se)
+print(p)
+p <- single_electrode_barchart(data = output_table, electrode_parameter = "number_of_bursts", electrode_filter = "A1_")
+print(p)
 

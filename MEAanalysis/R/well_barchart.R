@@ -18,22 +18,22 @@
 #' @export
 #'
 #' @examples
-#' well_barchart(data = input_well_barchart,
+#' p <- well_barchart(data = input_well_barchart,
 #'               well_parameter = "burst_duration",
 #'               well_filter = "A1|A2|A3|A4",
 #'               statistic = se)
 #'
-#' well_barchart(data = input_well_barchart,
+#' p <- well_barchart(data = input_well_barchart,
 #'               well_parameter = "spikes_per_burst",
 #'               well_filter = "A1|A2|A3|A4",
 #'               statistic = se)
 #'
-#' well_barchart(data = input_well_barchart,
+#' p <- well_barchart(data = input_well_barchart,
 #'               well_parameter = "mean_burst_ISI",
 #'               well_filter = "A1|A2|A3|A4",
 #'               statistic = se)
 #'
-#' well_barchart(data = input_well_barchart,
+#' p <- well_barchart(data = input_well_barchart,
 #'               well_parameter = "number_of_bursts",
 #'               well_filter = "A1|A2|A3|A4",
 #'               statistic = se)
@@ -125,13 +125,14 @@ well_barchart <- function(data = output_table, well_parameter,
   analysis_dataset_5[, 3:5] <- sapply(analysis_dataset_5[, 3:5], as.numeric)
 
   #plot barchart
-  analysis_dataset_5 %>%
+  p <- analysis_dataset_5 %>%
     ggplot(aes(x = well, y = mean, fill = recording_time)) +
     geom_bar(stat='identity', position=position_dodge()) +
     geom_errorbar(aes(ymin = mean - {{statistic}}, ymax = mean + {{statistic}}), linewidth = 0.4, colour = "orange", alpha = 0.9, size = 1.5, position=position_dodge()) +
     geom_point(data = analysis_dataset_4, aes(x = well, y = raw, fill = recording_time), position = position_jitterdodge(jitter.width = 0.1, dodge.width = 0.9)) +
     labs(fill = "Time Interval", y = y_axis_title)
 
+  return(p)
 
 }
 
