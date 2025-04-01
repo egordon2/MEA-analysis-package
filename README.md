@@ -19,8 +19,18 @@ designed to be compatible with 12- and 24- well MEA plates.
 The package can be installed from gitHub using
 devtools::install_github(“egordon2/MEA-analysis-package/MEAanalysis”) or
 by cloning the repository
-(<https://github.com/egordon2/MEA-analysis-package>). Once the package
-is installed it can be loaded using the library(“MEAanalysis”) command.
+(<https://github.com/egordon2/MEA-analysis-package>). It is possible the
+user will need to update existing packages to conform with the
+dependencies, however they should be notified of this in the terminal.
+Once the package is installed it can be loaded using the
+library(“MEAanalysis”) command.
+
+If the user requires workflow vignettes to be included in the package
+then they should run the
+devtools::install_github(“egordon2/MEA-analysis-package/MEAanalysis”,
+build_vignettes = TRUE) command during installation, ensuring the
+build_vignettes argument is included. These vignettes can then be viewed
+directly in R studio using the vignette(package=“MEAanalysis”) command.
 
 Example workflows to demonstrate how this package may be used to analyse
 MEA data have also been provided on the package website available here:
