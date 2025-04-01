@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>MEA_well_barchart.knit</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<style type="text/css">
+.lightable-minimal {
+border-collapse: separate;
+border-spacing: 16px 1px;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-minimal td {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal th {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal thead tr:last-child th {
+border-bottom: 2px solid #00000050;
+empty-cells: hide;
+}
+.lightable-minimal tbody tr:first-child td {
+padding-top: 0.5em;
+}
+.lightable-minimal.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic {
+border-top: 0.16em solid #111111;
+border-bottom: 0.16em solid #111111;
+width: 100%;
+margin-bottom: 10px;
+margin: 10px 5px;
+}
+.lightable-classic tfoot tr td {
+border: 0;
+}
+.lightable-classic tfoot tr:first-child td {
+border-top: 0.14em solid #111111;
+}
+.lightable-classic caption {
+color: #222222;
+}
+.lightable-classic td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic thead tr:last-child th {
+border-bottom: 0.10em solid #111111;
+}
+.lightable-classic.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic-2 {
+border-top: 3px double #111111;
+border-bottom: 3px double #111111;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-classic-2 tfoot tr td {
+border: 0;
+}
+.lightable-classic-2 tfoot tr:first-child td {
+border-top: 3px double #111111;
+}
+.lightable-classic-2 caption {
+color: #222222;
+}
+.lightable-classic-2 td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic-2 th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic-2 tbody tr:last-child td {
+border-bottom: 3px double #111111;
+}
+.lightable-classic-2 thead tr:last-child th {
+border-bottom: 1px solid #111111;
+}
+.lightable-classic-2.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #EEE;
+border-collapse: collapse;
+margin-bottom: 10px;
+}
+.lightable-material tfoot tr td {
+border: 0;
+}
+.lightable-material tfoot tr:first-child td {
+border-top: 1px solid #EEE;
+}
+.lightable-material th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+}
+.lightable-material td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+border-top: 1px solid #eeeeee;
+}
+.lightable-material.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #ddd;
+}
+.lightable-material-dark {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #FFFFFF12;
+border-collapse: collapse;
+margin-bottom: 10px;
+background-color: #363640;
+}
+.lightable-material-dark tfoot tr td {
+border: 0;
+}
+.lightable-material-dark tfoot tr:first-child td {
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF60;
+}
+.lightable-material-dark td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF;
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark.lightable-hover tbody tr:hover {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material-dark.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #FFFFFF12;
+}
+.lightable-paper {
+width: 100%;
+margin-bottom: 10px;
+color: #444;
+}
+.lightable-paper tfoot tr td {
+border: 0;
+}
+.lightable-paper tfoot tr:first-child td {
+border-top: 1px solid #00000020;
+}
+.lightable-paper thead tr:last-child th {
+color: #666;
+vertical-align: bottom;
+border-bottom: 1px solid #00000020;
+line-height: 1.15em;
+padding: 10px 5px;
+}
+.lightable-paper td {
+vertical-align: middle;
+border-bottom: 1px solid #00000010;
+line-height: 1.15em;
+padding: 7px 5px;
+}
+.lightable-paper.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-paper.lightable-striped tbody tr:nth-child(even) {
+background-color: #00000008;
+}
+.lightable-paper.lightable-striped tbody td {
+border: 0;
+}
+</style>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+
+
+<div id="creating-a-bar-chart-to-display-well-average-mea-burst-data" class="section level1">
+<h1>Creating a bar Chart to display well average MEA burst data</h1>
+<p>The following vignette describes the workflow used to create a
+barchart visualisation of MEA well average burst duration data. Similar
+visualisations can be created for other burst parameters using different
+functions within the MEAanalysis package; these include the number of
+bursts, number of spikes per burst, and mean inter-spike interval within
+a burst for a given time interval of a recording. These visualisations
+enable the user to explore and compare extracellular field potentials
+occurring within a well.</p>
+<p>Further examples and information on the arguments of each function
+can be found on the individual function help pages. To access these
+pages, please run the following code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">help</span>(<span class="at">package =</span> <span class="st">&quot;MEAanalysis&quot;</span>)</span></code></pre></div>
+</div>
+<div id="workflow" class="section level1">
+<h1>Workflow</h1>
+<p>There are 4 steps to create this visualisation:</p>
+<ol style="list-style-type: decimal">
+<li>Load electrode burst datasets.</li>
+<li>Merge electrode burst datasets.</li>
+<li>Calculate MEA parameters for specific time intervals of a
+recording.</li>
+<li>Create barchart of well average burst data for a specific
+parameter.</li>
+</ol>
+</div>
+<div id="load-electrode-burst-datasets" class="section level1">
+<h1>1. Load electrode burst datasets</h1>
+<p>First, electrode burst csv files need to be processed and loaded into
+the R environment. This can be done using the MEAanalysis::
+create_electrode_dataset function, which reads in, filters, and
+reformats the data for use in analysis. This function is compatible with
+electrode burst csv files produced by the axis navigator tool (Axion
+Biosystems). As demonstrated in the below example, the user should
+assign the data table to an object name so that it is accessible from
+the R environment. The user should update the data path with respect to
+their current working directory. The user should also provide a unique
+identifier for the loaded recording; this will be used by other
+MEAanalysis functions to filter the data and calculate burst parameters.
+This step should be done for all MEA recordings the user wishes to
+include in the analysis.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>burst_recording_1 <span class="ot">&lt;-</span> <span class="fu">create_electrode_dataset</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  <span class="at">data_path =</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;input_electrode_burst.csv&quot;</span>, <span class="at">package =</span> <span class="st">&quot;MEAanalysis&quot;</span>), </span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_1&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co"># view first 10 lines of dataset</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="fu">head</span>(burst_recording_1, <span class="dv">10</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt;     Electrode   Time_s Size_spikes Duration_s Recording_identifier   well</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;        &lt;char&gt;    &lt;num&gt;       &lt;num&gt;      &lt;num&gt;               &lt;char&gt; &lt;char&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;  1:     A1_21  0.14248          27    0.17600    burst_recording_1     A1</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;  2:     A1_21  8.32536          41    0.22584    burst_recording_1     A1</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;  3:     A1_21 68.18416          44    0.21480    burst_recording_1     A1</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;  4:     A1_23  0.32824          10    0.12456    burst_recording_1     A1</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt;  5:     A1_23 38.79848           6    0.05592    burst_recording_1     A1</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt;  6:     A1_23 68.33040           7    0.16360    burst_recording_1     A1</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt;  7:     A2_21 24.87752           6    0.04824    burst_recording_1     A2</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt;  8:     A2_21 70.39144           7    0.09264    burst_recording_1     A2</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt;  9:     A2_21 82.13224           5    0.05680    burst_recording_1     A2</span></span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt; 10:     A2_33  6.17064           5    0.02208    burst_recording_1     A2</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>burst_recording_2 <span class="ot">&lt;-</span> <span class="fu">create_electrode_dataset</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  <span class="at">data_path =</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;comparison_agonist_challenge_electrode_burst_list.csv&quot;</span>, <span class="at">package =</span> <span class="st">&quot;MEAanalysis&quot;</span>), </span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_2&quot;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co"># view first 10 lines of dataset</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="fu">head</span>(burst_recording_2, <span class="dv">10</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt;     Electrode   Time_s Size_spikes Duration_s Recording_identifier   well</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt;        &lt;char&gt;    &lt;num&gt;       &lt;num&gt;      &lt;num&gt;               &lt;char&gt; &lt;char&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt;  1:     A1_11  2.52936           7    0.06488    burst_recording_2     A1</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt;  2:     A1_11  2.97080          26    0.43128    burst_recording_2     A1</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt;  3:     A1_11 24.99960          11    0.08080    burst_recording_2     A1</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt;  4:     A1_11 25.23640          20    0.37600    burst_recording_2     A1</span></span>
+<span id="cb3-14"><a href="#cb3-14" tabindex="-1"></a><span class="co">#&gt;  5:     A1_11 89.33472          33    0.38000    burst_recording_2     A1</span></span>
+<span id="cb3-15"><a href="#cb3-15" tabindex="-1"></a><span class="co">#&gt;  6:     A1_11 89.82216          21    0.42312    burst_recording_2     A1</span></span>
+<span id="cb3-16"><a href="#cb3-16" tabindex="-1"></a><span class="co">#&gt;  7:     A1_11 90.34880           5    0.01528    burst_recording_2     A1</span></span>
+<span id="cb3-17"><a href="#cb3-17" tabindex="-1"></a><span class="co">#&gt;  8:     A1_11 90.62712           5    0.01024    burst_recording_2     A1</span></span>
+<span id="cb3-18"><a href="#cb3-18" tabindex="-1"></a><span class="co">#&gt;  9:     A1_11 90.77560           6    0.01704    burst_recording_2     A1</span></span>
+<span id="cb3-19"><a href="#cb3-19" tabindex="-1"></a><span class="co">#&gt; 10:     A1_11 90.98640           6    0.01736    burst_recording_2     A1</span></span></code></pre></div>
+</div>
+<div id="merge-electrode-burst-datasets" class="section level1">
+<h1>2. Merge electrode burst datasets</h1>
+<p>The electrode burst data tables for each individual MEA recording
+should then be merged vertically. This can be done using the rbind()
+function, as demonstrated below. The user should update this function to
+include the data table object names assigned when loading the electrode
+burst data into the R environment. As shown in the below example, the
+MEA recording which the burst data belongs too can still be identified
+using the ‘Recording_identifier’ column.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>output_table <span class="ot">&lt;-</span> <span class="fu">rbind</span>(burst_recording_1, burst_recording_2)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co"># view first 10 lines of dataset</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="fu">head</span>(output_table, <span class="dv">10</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt;     Electrode   Time_s Size_spikes Duration_s Recording_identifier   well</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt;        &lt;char&gt;    &lt;num&gt;       &lt;num&gt;      &lt;num&gt;               &lt;char&gt; &lt;char&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;  1:     A1_21  0.14248          27    0.17600    burst_recording_1     A1</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt;  2:     A1_21  8.32536          41    0.22584    burst_recording_1     A1</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt;  3:     A1_21 68.18416          44    0.21480    burst_recording_1     A1</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt;  4:     A1_23  0.32824          10    0.12456    burst_recording_1     A1</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt;  5:     A1_23 38.79848           6    0.05592    burst_recording_1     A1</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt;  6:     A1_23 68.33040           7    0.16360    burst_recording_1     A1</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt;  7:     A2_21 24.87752           6    0.04824    burst_recording_1     A2</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt;  8:     A2_21 70.39144           7    0.09264    burst_recording_1     A2</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt;  9:     A2_21 82.13224           5    0.05680    burst_recording_1     A2</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt; 10:     A2_33  6.17064           5    0.02208    burst_recording_1     A2</span></span></code></pre></div>
+</div>
+<div id="calculate-mea-parameters-for-specific-time-intervals-of-a-recording" class="section level1">
+<h1>3. Calculate MEA parameters for specific time intervals of a
+recording</h1>
+<p>Columns containing information regarding the mean, standard deviation
+(SD), and standard error of the mean (SEM) for a specific MEA burst
+parameter should then be calculated and added to the merged electrode
+burst data table. This should be done for defined time intervals of
+specified MEA recordings. These calculated columns can then be plotted
+in the barchart visualisation, grouped by well. The MEAanalysis package
+contains functions which calculate these measures for burst duration,
+number of bursts, number of spikes per burst, and mean inter-spike
+interval within a burst.</p>
+<p>In the below example, the merged electrode burst data table
+(‘output_table’) is assigned as a new object in the R environment
+(‘analysis_dataset’); this enables the user to refresh and remove any
+calculated columns from the analysis_dataset by rerunning this line of
+code. Using the MEAanalysis::well_burst_duration function, the mean, SD,
+and SEM burst duration within each well are then calculated for defined
+time intervals of an MEA recording. Additional columns are added to the
+analysis_dataset each time this function is run. Alternatively, the
+well_mean_burst_ISI, well_number_of_bursts, and well_spikes_per_burst
+functions from the MEAanalysis package can be used to respectively
+calculate these measures for mean inter-spike interval within a burst,
+number of bursts, and number of spikes per burst.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># assign the &#39;output_table&#39; data table object created above to a different object name &#39;analysis_dataset&#39;</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co"># this means that when columns are added to the &#39;analysis_dataset&#39; the data table can be refreshed by rerunning this line of code</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> output_table</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co"># add burst duration calculated columns for defined time intervals to the &#39;analysis_dataset&#39; </span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> <span class="fu">well_burst_duration</span>(<span class="at">data =</span> analysis_dataset, <span class="dv">0</span>, <span class="dv">60</span>, <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_1&quot;</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> <span class="fu">well_burst_duration</span>(<span class="at">data =</span> analysis_dataset, <span class="dv">0</span>, <span class="dv">60</span>, <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_2&quot;</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> <span class="fu">well_burst_duration</span>(<span class="at">data =</span> analysis_dataset, <span class="dv">60</span>, <span class="dv">120</span>, <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_1&quot;</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>analysis_dataset <span class="ot">&lt;-</span> <span class="fu">well_burst_duration</span>(<span class="at">data =</span> analysis_dataset, <span class="dv">60</span>, <span class="dv">120</span>, <span class="at">recording_identifier =</span> <span class="st">&quot;burst_recording_2&quot;</span>)</span></code></pre></div>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Electrode
+</th>
+<th style="text-align:left;">
+Recording_identifier
+</th>
+<th style="text-align:left;">
+well
+</th>
+<th style="text-align:right;">
+Time_s
+</th>
+<th style="text-align:right;">
+Size_spikes
+</th>
+<th style="text-align:right;">
+Duration_s
+</th>
+<th style="text-align:right;">
+well_duration_raw: burst_recording_1 0-60 (s)
+</th>
+<th style="text-align:right;">
+well_duration_mean: burst_recording_1 0-60 (s)
+</th>
+<th style="text-align:right;">
+well_duration_sd: burst_recording_1 0-60 (s)
+</th>
+<th style="text-align:right;">
+well_duration_se: burst_recording_1 0-60 (s)
+</th>
+<th style="text-align:right;">
+well_duration_raw: burst_recording_2 0-60 (s)
+</th>
+<th style="text-align:right;">
+well_duration_mean: burst_recording_2 0-60 (s)
+</th>
+<th style="text-align:right;">
+well_duration_sd: burst_recording_2 0-60 (s)
+</th>
+<th style="text-align:right;">
+well_duration_se: burst_recording_2 0-60 (s)
+</th>
+<th style="text-align:right;">
+well_duration_raw: burst_recording_1 60-120 (s)
+</th>
+<th style="text-align:right;">
+well_duration_mean: burst_recording_1 60-120 (s)
+</th>
+<th style="text-align:right;">
+well_duration_sd: burst_recording_1 60-120 (s)
+</th>
+<th style="text-align:right;">
+well_duration_se: burst_recording_1 60-120 (s)
+</th>
+<th style="text-align:right;">
+well_duration_raw: burst_recording_2 60-120 (s)
+</th>
+<th style="text-align:right;">
+well_duration_mean: burst_recording_2 60-120 (s)
+</th>
+<th style="text-align:right;">
+well_duration_sd: burst_recording_2 60-120 (s)
+</th>
+<th style="text-align:right;">
+well_duration_se: burst_recording_2 60-120 (s)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+A1_11
+</td>
+<td style="text-align:left;">
+burst_recording_2
+</td>
+<td style="text-align:left;">
+A1
+</td>
+<td style="text-align:right;">
+2.52936
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+0.06488
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.06488
+</td>
+<td style="text-align:right;">
+0.253833
+</td>
+<td style="text-align:right;">
+0.2143075
+</td>
+<td style="text-align:right;">
+0.0315979
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A1_11
+</td>
+<td style="text-align:left;">
+burst_recording_2
+</td>
+<td style="text-align:left;">
+A1
+</td>
+<td style="text-align:right;">
+2.97080
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+0.43128
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.43128
+</td>
+<td style="text-align:right;">
+0.253833
+</td>
+<td style="text-align:right;">
+0.2143075
+</td>
+<td style="text-align:right;">
+0.0315979
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A1_11
+</td>
+<td style="text-align:left;">
+burst_recording_2
+</td>
+<td style="text-align:left;">
+A1
+</td>
+<td style="text-align:right;">
+24.99960
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+0.08080
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.08080
+</td>
+<td style="text-align:right;">
+0.253833
+</td>
+<td style="text-align:right;">
+0.2143075
+</td>
+<td style="text-align:right;">
+0.0315979
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A1_11
+</td>
+<td style="text-align:left;">
+burst_recording_2
+</td>
+<td style="text-align:left;">
+A1
+</td>
+<td style="text-align:right;">
+25.23640
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.37600
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.37600
+</td>
+<td style="text-align:right;">
+0.253833
+</td>
+<td style="text-align:right;">
+0.2143075
+</td>
+<td style="text-align:right;">
+0.0315979
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A1_11
+</td>
+<td style="text-align:left;">
+burst_recording_2
+</td>
+<td style="text-align:left;">
+A1
+</td>
+<td style="text-align:right;">
+89.33472
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+0.38000
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.38000
+</td>
+<td style="text-align:right;">
+0.1896349
+</td>
+<td style="text-align:right;">
+0.3041469
+</td>
+<td style="text-align:right;">
+0.032608
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A1_11
+</td>
+<td style="text-align:left;">
+burst_recording_2
+</td>
+<td style="text-align:left;">
+A1
+</td>
+<td style="text-align:right;">
+89.82216
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+0.42312
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.42312
+</td>
+<td style="text-align:right;">
+0.1896349
+</td>
+<td style="text-align:right;">
+0.3041469
+</td>
+<td style="text-align:right;">
+0.032608
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A1_11
+</td>
+<td style="text-align:left;">
+burst_recording_2
+</td>
+<td style="text-align:left;">
+A1
+</td>
+<td style="text-align:right;">
+90.34880
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.01528
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.01528
+</td>
+<td style="text-align:right;">
+0.1896349
+</td>
+<td style="text-align:right;">
+0.3041469
+</td>
+<td style="text-align:right;">
+0.032608
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A1_11
+</td>
+<td style="text-align:left;">
+burst_recording_2
+</td>
+<td style="text-align:left;">
+A1
+</td>
+<td style="text-align:right;">
+90.62712
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0.01024
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.01024
+</td>
+<td style="text-align:right;">
+0.1896349
+</td>
+<td style="text-align:right;">
+0.3041469
+</td>
+<td style="text-align:right;">
+0.032608
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A1_11
+</td>
+<td style="text-align:left;">
+burst_recording_2
+</td>
+<td style="text-align:left;">
+A1
+</td>
+<td style="text-align:right;">
+90.77560
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0.01704
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.01704
+</td>
+<td style="text-align:right;">
+0.1896349
+</td>
+<td style="text-align:right;">
+0.3041469
+</td>
+<td style="text-align:right;">
+0.032608
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A1_11
+</td>
+<td style="text-align:left;">
+burst_recording_2
+</td>
+<td style="text-align:left;">
+A1
+</td>
+<td style="text-align:right;">
+90.98640
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0.01736
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0.01736
+</td>
+<td style="text-align:right;">
+0.1896349
+</td>
+<td style="text-align:right;">
+0.3041469
+</td>
+<td style="text-align:right;">
+0.032608
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="create-barchart-of-well-average-burst-data-for-a-specific-parameter" class="section level1">
+<h1>4. Create barchart of well average burst data for a specific
+parameter</h1>
+<p>The analysis dataset created above can then be used as an input for
+the MEAanalysis: well_barchart function. This function will create a
+barchart of the well average for a specified MEA parameter, grouped by
+time interval of a recording. The user should define which burst
+parameter they wish to visualise using the well_parameter argument. The
+user may also filter for specific wells using the well_filter argument
+and decide whether the error bars represent SD or SEM using the
+statistic argument.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">well_barchart</span>(<span class="at">data =</span> analysis_dataset, </span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>                   <span class="at">well_parameter =</span> <span class="st">&quot;burst_duration&quot;</span>, </span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>                   <span class="at">well_filter =</span> <span class="st">&quot;A1|A2|A3|A4&quot;</span>, </span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>                   <span class="at">statistic =</span> se)</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="fu">print</span>(p)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- -->
+As the underlying code for the well_barchart function utilises ggplot2,
+the user can add layers of code to personalise the output further.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> </span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  <span class="fu">scale_fill_grey</span>() <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;A barchart to show MEA well average burst duration </span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="st">          within a given time period&quot;</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="fu">print</span>(p)</span></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqAAAAHgCAMAAABNUi8GAAABfVBMVEUAAAAAADoAAGYAOjoAOmYAOpAAZmYAZpAAZrYzMzM6AAA6ADo6AGY6OgA6Ojo6OmY6OpA6ZmY6ZpA6ZrY6kJA6kLY6kNtNTU1NTW5NTY5NbqtNjshmAABmADpmAGZmOgBmOjpmOmZmOpBmZjpmZmZmkJBmkLZmkNtmtpBmtrZmtttmtv9uTU1uTW5uTY5ubo5ubqtuq8huq+SBgYGOTU2OTW6OTY6Obk2ObquOjm6Ojo6OyP+QOgCQOjqQZgCQZjqQZmaQkDqQkGaQkLaQtpCQttuQ27aQ2/+rbk2rbm6rbo6rjk2rq6uryKur5Mir5OSr5P+2ZgC2Zjq2Zma2kDq2tpC2ttu225C229u22/+2/7a2/9u2///Ijk3I///MzMzbkDrbkGbbtmbbtpDb27bb29vb/7bb/9vb///kq27k///rmgXr6+vzoQ33phH6qRT9rBf/pgL/rhn/tmb/trb/yI7/25D/27b/29v/5Kv//7b//8j//9v//+T///9SThOUAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAgAElEQVR4nO2diX/cxnmGQdpqaNpOHKclfTBR2iY9TMd1FdtNKyZtUjtSWqXVtkkdNzS1cVpbUpRY9Vab8hD+9s4MBpgDgw/nHIt9358tYoHBu0PMw7kwH5DlEJSwstgZgCBKABRKWgAUSloAFEpaABRKWgAUSloAFEpaABRKWsMAXWXH1fbF0V5b8quTa/cbDq3/+LS21ctA1+IrH8itX3/zIM+XmdReLdPE93T8rq7qcHnsX/3qhDyFp544kwlrGKCLTF3CcYAud09rW70MzGzt3BIb6/2sDqieaeJ7IgBq/eotgPLUAJTUev/LkoQ8LUB3XjwovJ7ZP7AdjUwT37MRgG6PBgG63P1w/6D8wEpgtZ89+xHf/uTFLNv5c3GJl9nuR/kn7MAtUe6fXhcHrCQ7+6x+E05XJ8XW769n0kvs/XuW+A3TQKYoOFryc6oCXez+UMB1dfLtOqB6pu2TuedXPqoBWua1MBKoqZTyN5RJcv677vyZyEmZxro8hTH/Pnmy/O3KXz2XLs/+QiSxEpffVKQuDpcXi336+YsyG3PTEEDZNddK8eLoGY4Zr51km3rMrhjbd+3+KisOXJ08e704YCURu3VAV/vylLzaWSSuDKoUS55KNNvrErzF7ofP81PXL3xYA9TMtHnyer/KqA5oldf1Pu+9rsRWlVL8hlWSMrFw1H8HdXl05vjJn8nfTgdUuDx7fa+WuPomDdCVykyVjdlpCKC8pNSI4+Io+6P7Vz/L+KVkf+isfPhWUTmxi/cJ22If2fX8lSOJ1cSznW/wUpKIrPe/dr9MXBmUKTg17LvZWasShsXuL0+46WJPMFv2QcVhM9PGySyfzPPX+3smoHpe+a7F7qmesvgNyyQXRzsf5L8/ETks09Quj2KOn1z9duoi6C5mYvVNVR9UXQq2tXefbbV3JjZPQwBlJaV1rS6OikspLvJ///wf9gsOT7WarfgoTzGSWICui2JdVGOdZ779C9NApRCfnv8RS7ooqzyWMb59cXRcB9TOtHayzOeSA2j2QWVeRYVbfLtKKTMuk6zEnxvPnUpjXR6dueLyyN9OXYTiXPU3oRLrmZGAqkthXN+ZaQCgRROWqb/6okBYGcoj5eUtWsZc733ZSWqAijNUlcjTvvyRZqClYGitdv/z6FhmIBcQ8gOr3dO13cRbmTZOXlUgm4BWeRXgFFWwnlJPIvoMIocqjXV5dObEyeVvpzJaVPFXVh/U/CYN0PJSaNd3dhoAaFkxSSxUCbDW7Kv/+B+fHhGA2klaAM1/fV1Q5QSU/b9g/cq96ms4oDw3C1mN6YBamTZObgBU5VVkllfBNqAqyRBAy9+uC6BaZgAoLXl1i6YrL1sW3soUV0w1UFoTb/KlktBNvNB//YCPDJRBlWK9/5esx7m89jNVLbItNlDaP64BamfaOFkRbgCq8sr5+vHRXm6l1JPoTbwxVlGXR2RPfNZ6Efy3s5t4cYqVWMuMq4kHoEorWQstqiqCD4P4KIBdsft86qMsZDFIWh+pj/UksubJ5ZY1SFqx8QWzNiufKgUb3j7P69EXq3IRldzOnwrmTEDtTBsns3x+kLOxidUHVXnl29/ilZuZUk9iDJJkGuvysCZdzBKVzFW/nboIzOWNIomdWMvMsppuUIMkAKpUlvFKDhovjr66X7RU5WxHVcgrOflh8GUmWeozLA3TTEYJaCmWmUBRza4UA6Fq5qls1lkyO9Pmyauy+bdG8WVexbYAzkhpJJFftqelsS5PcUCfQ9LOlamrJA2Jy9T2NBMArbQu50/K0SXrZLEr9RKfmBYTxx8syvqlmLx+wxgk2UkurvMZkrzaWtcn6r923ygBlULQVg1yc9ksLjhzFqAf2pm2Tuaez7xhNfEqr3lezeHoKc0k/Hf9i6M9LU1uXZ78V/vZy5+pPmj522kXgXdLn/2l+D2txOqbeOrPimpVTdQDUKiD1IQCNJEA6DRa73+JVfSLWd7MiSoAOo1UhxKaVAB0IlUdSmhSAVAoaQFQKGkFB1RMiZhRC32WCHdMOzIswnXqPGdxklccQM2oBQ+AjgyLAKDJKE4T7z2sxkNYBACNogCAmvEV7NNn5aJwGcYh79+YUQsqlqL4KAMqeFpnBIZ+ulp1vt4/+GSf7V7tZy+X92O0aAx+k+dZcRPUDOX4hRFRoQIxoOAKUYMa8RUaoGUYh1z5IG/cy3OcH/dytc7MisDQ0+uA8jvhO+/vZ85ojK+WwSpWKMdnxq1uFYgBBVcIQK34iqoPqsI4alELWoQDlxkK4Y7AMIIe1JK07I38E74WY73PT7SjMfbKaAw7lENfLKS+HQquEIAa8RUaoPqKx3rUQhnhwKVWWxanN0RgqNONNZNiFahs8MuDRb6Khe1yAb5mZC63VIEYUHAFGSTp8RXWKL5cM24vyFERDlxqvXoxS9UQgaFOV4AelNwuZJRppi1235PmdSN9wbpa5w4FVxBA9fiKboBqEQ5cFqBNERgAdH4KAqgeX9ENUD3cIq818U0RGG2A1qIxyoDLulG9iZ9n0GTyCgKoGV+hRS0QgKpwi7weL94QgaEBKr/ABLQejVGFrNtG1iCpDMSAQivMRL0WX1EAWj29pQFQPdyiMNCmmcRhdwSGCuio5kE1QGvRGM8Y0Ri6kTHNpAIxoNAKA6gWXyHKXkUtNA2S9HALrjKgogplckVgqNPLL7AAtaMx+GOTXv7IZaRHVOiBGFBgbdJqpqkDKtCr3ABtBqB+AioA6AZoMwD1E1ABQDdAmwGon4AKALoB2hBAoW0VAIWSFgCFkhYAhZIWAIWSFgCFklZ/QB8N1OAT520+2N0DDCkKgEY2B6C0AGhkcwBKC4BGNgegtABoZHMASguARjYHoLQAaGRzAEoLgEY2B6C0AGhkcwBKiwT0/K2z4uebh4c3y52hC2Lm5gCUFgXok8NXz/jPy3fv5uffuSv3hi6ImZsDUFoEoB+/8tOiBn3yOv9UVqGhC2Lm5gCUVqcmPi9q0Tx/jsl3jiBIU0dAn96+Ue4MXVPM3Bw1KK1ugF6+U/EJQBNx90lFQuo4ir+pdoYuiJmbA1BaXQA1+PQAqIh5H2rbZj6BAGhEtQLK/n9wyOVtFC+fzTnUlzafQgA0ohK4kwRAh523HUoH0FGMAtC5KgFApyAUgM5VKQAqBED7nrcdAqCRzQEorWQAfYQ+aM/ztkPpADpKm2sOQGkB0MjmAJQWAI1sDkBpAdDI5gCUFgCNbA5AaQHQyOYAlBYAjWwOQGkB0MjmAJQWAI1sDkBpAdDI5gCUFgCNbA5AaQHQyOYAlBYAjWwOQGkB0MjmAJQWAI1sDkBpAdDI5gCUFgCNbA5AaQHQyOYAlBYAjWwOQGkB0MjmAJQWAI1sDkBpAdDI5gCUFgCNbA5AaQHQyOYAlBYAjWwOQGkB0MjmAJQWAI1sDkBpAdDI5gCUFgCNbA5AaQHQyOYAlBYAjWwOQGkB0MjmAJQWAI1sDkBp9QfUj7IslZxASSmRGnTsm5JQg85VADSyOQClBUAjmwNQWgA0sjkApQVAI5sDUFoANLI5AKWVCKDjXuMFQOerVAAdqc01B6C0AGhkcwBKC4BGNgegtABoZHMASguARjYHoLQAaGRzAEoLgEY2B6C0AGhkcwBKC4BGNgegtABoZHMASguARjYHoLQAaGRzAErLAHQpFhVlB+QZoQti5uYAlJYC9OKoJHOZ7dxqPiN0QczcHIDSqgC9+Map2mt8sBS6IGZuDkBpoQ8a2RyA0gKgkc0BKC0D0KuTA/b/Hn1G6IKYuTkApWUAuuBsthEauiBmbg5AaemAXhwd8x+r3eYRUg5AU3H3ikU6AqCRzQEoLXOinqN5cYSJ+oDmAJSWOYpftd9IAqCJuHuEIiVhmimyOQClBUAjmwNQWiagyyw7Xl67T54RuiBmbg5AaZnzoNc+PTrGPGhQcwBKy5pm4jNNmGYKaQ5AaQHQyOYAlJY5D8qbeMyDBjUHoLQwDxrZHIDSwjRTZHMASguARjYHoLQMQMUoKSvHSJfvHL72UGydv3n46lmZKHRBzNwcgNKy14Mud0+XxTzo09s38wev863Ld9iWZBWApuIelpNosqaZ+Cy9nGa6fO8sP3/rjG2dv/0wv3z3rkwVuiBmbg5AadXmQQ9KQBWWaus5pijZhLZVOqBXJwernVtF4EeeP3mtxFI08a+gBk3LPTQpkWT0Qdf72V6+kItFtIadDZL++icANC33sJxEU/M0k+qDlp8KhS6ImZsDUFrNgD69faMcxbN6tNjiCl0QMzcHoLSIR98U86C8En1yeFjNMgHQRNzDchJNxsPDjostPDwsoDkApWVO1OPxi8HNASgt3IuPbA5AaQHQyOYAlBYAjWwOQGkB0MjmAJQWAI1sDkBpAdDI5gCUFh7cENkcgNLCgxsimwNQWoiLj2wOQGkB0MjmAJQWHtwQ2RyA0sKDGyKbA1BamGaKbA5AaQHQyOYAlJY5SMqkqImm0AUxc3MASsv5lg9yKjR0QczcHIDScr8niZppCl0QMzcHoLQAaGRzAErL/SIv6n586IKYuTkApeWYBz3OlwiaC2YOQGmlMc3E/izkPx7MRwuARlQSgGaVPJiPFwCNKPvZTFzBF4sA0CHnbYesp9tdnRzLsXyjPBRENprQ9lylSj8ApWVPMy0O8hW9pH76gpBkjiGUzJV/+scIgJKyAV3uBV8PWrHjCdAA1fMYAVBS9jPqGZ0tQUmTFwQAHXbedsgAlHVC8wX55LDcJ6Aj+omdAB3oDUBjKoVppjEToK3mhf+oLwCgEWWO4unxe6HQBTFz82kBvTopF0yun29uCPVjv/+ILG3KJogci0VaFLogZm4+fQ3azpSWoi1xUoCSa0QqhS6ImZsDUFquFfUIOw5o7gtQ9u/6+ff3s+yA3x88Llp/WbLVsWN+7KA8tH7hh9nOizxmcrl7Ku4qHqQFaDeFLoiZm/sEdJ+1iMuM/7N7KqIkZBNZHWMcssTlofW+THJ1ciC6e/J4VAHQyOZeAT3m6yuOxYdVsdb3ONeP8Zr0Vl4eKvfx///vfl4djyo8PCyyudcm/pb8xP5Zau8f0I7xn+UhsY/PhQsE+NrgncQA7fTwsLFfmPWvtKE+agBUq3dsQOWh4sTVtc8YoxdHO7eSq0FDPJtp1C2dNnNPmkUNutJuEFqAloeKEy++/v4Lp8WKoVViNSgAjWAeCtCrE4acRFE7xgu8PCRhXPDHIvCU6/3EAA3x8DAS0ETXc8wCUDGXpKrKajfHUR6SMK7EC90WbNeP2cApKUBDPDyM5tPLetCx2jBA56WUppk8AjqqXwFAIyo0oBQp/gAd1/MFoBFlDpJaWnehUQVBk+KtDwpAN1bmICnLstYFTaMKwtMgHoDOVnYTv8i8rqiPBCj6oBsrRx904XkedKhBu7knAdCIctSgNJ+4F5+Iuz8mkpJ5L761fc8BaCruvUpnGlhiCCEfkc0nBvQ5p2YCaKl/x4r6cOYAlFYN0IsjhHyENK/c+w4f3aUzd0A7zISOLQgv2lxzbY1CP0LdpTNrQEXQXOtq5ZEF4Uebaw5AaSlAl2IIvwCgYc0BKK0KUDmEB6CBzdEHpaVq0JXofgLQwOYYxdMyn82EPmhw8+CALhoGwesX6DuIOifHROLyEBvRlHF6DCx+A0jbsyzXza1fanmYjTWKX2EUH9jcG6CsJP0B2nxwJWcpeaLlXvWVq2v3tT0alsuWJZ61eVBGO+ZBA5r7AlQMupyAfovXQRxH9v/6K9d3T1d8/YU2/y12ys/sB6v8ig/l/mev8xp0/dIPRGXGd3yzukG+2Hm/AP3iG6cl83zT3MP/SFbFqg95sDugTP8LQMOZhwf02n2OlwR0/1ggwmo2VYOKJ4wsDvhOXuuxyq94c0G5f5UJQPeL1xnwHfoKDunDK8mLrxdBpAxlHpNX7eHfKL+1uUYnAKUVuiBmbh4eUE7ZcQko+1FipACVOxlDxU4B1Ndvif1ss+iDSgex4/t1QDm7pTMDm9Gp9mjwtrbxADSyefA+6L/dsgDlr8fiFZwJ6FHx5BvRWeQ7GITyHHl66cBSuACVEC74s3SLTYWleCpE8a0ANHXzGKN4OQwvAS2QsQAtuobDa1C9D/ongky1pxwjCVABaNrm4QEV3U1elfGnK8qn3NQAlS/M4n1Q9lH2Qcv9mQZoUx9UPIRMjeIZk2oPR1V+a/c+aPn0WjzANqx5eEC/JZrWZZb9oexjFlEUVyfVKP6FavhujuL5/quTchQvAWXHvuSoQfVZTzUjIPeIfvDwUTyt0AUxc/M53EnqPoVanjBiHrRVoQti5uYJASrfJdwe9aOreK5T31MH3ElCEx/HPCFAkxRq0MjmAJQWAI1sjqhOWnhGfWRzAEqr/zPqQxfEzM0nBvS7Ts0E0BCPAPekzTUHoLQAaGRzAEor9DPqPWlzzQEoreDPqPejzTUHoLS0iXq7Zb985/C1h2Lr6e3DV+6Wu0MXxMzNASgtVYMurJtIT2/fzB+8LjY/vpk/kawC0FTc3eU5Y0C5xC1VCenle2f5+VtnckspdEHM3ByA0nLcSVoWhJ6//TC/fPeu2Ppn2cTz22ZBswf1VDugocKO67HG8ph8f33HIGQLUL42RabmjboE9M2bAtdCoWuKmZt7q0FZW+gP0OaDZdhxPdZYHuNLpcWrGbsFIdtPWFa06zVoucUVuiBmbu4LULEuzQlouLDj3Ij8kMdWRShn1yBk++FhSlof9HsAND33wYCGCju2Yo21Y2YIHR2EbD88TOnp7RvaKB5NfGrugwENE3ZcizXWjvHopK5ByKoGrT1SpJgH5ZUo23r1rNwduiBmbh68Dxo27FiLPq6OiXuVXYOQjT4oS9X67DAAmoh7G6DEKD5I2LEda1wdEz2FvGsQsj3NtGyNKwldEDM3Dw9omLDjWqxxeazgM+8ahFyfB1XhpwA0gHl4QMOFHZuxxvLYUvSOj7sGITffSQKgQczncCepd9ixdXqneVDx9No2OLlCF8TMzRMCNGDYsalOd5Lqq5kaFLogZm6eEKBJClGdkc0BKC0AOon5iLeMI6qTFAAdaS7Q7P2So67u1Hl9SmckJREFQEeZF88KSgjQO04BUI8FkbJ5pmty95bznJo9oG3PFRkP6IjuWru5F3UDdHr3lvOcAqBjAR1VmG3mftQJUA/uLec5BUA3EdCR39jaBwWg/rQNgI79ylb6R9kDUFLhB0nh+6ABAPXmTpznFAAFoEHdifOcAqCTNPGTN/Ox+qD+3ZvPc6odUL9hxzKmOPf1tuMOGlkQEwwrms39iBzFe3RvOc8pBSXLmz9Amw7JmOLc49uOWzWyIOYEqPo10psHFXlzAuoz7HhVRWZ6eduxXNXnd0X9HAFN8E5SM6Cew47rsZqTve247eHfEwBalGPoPqgv880E1HPYMQ82yv287bgWGj85oH4mQR9F74MmCGhjH9Rz2HH5/GMfbzsmn7kDQF1Ktw9KjeI9hh3LmE1PbztueTo9ALU1xe8THFCfYccVn9O/7ThXb0P0OEjyRSgA7Q6oz7Djpbgix5KmDXzbMQDt4d5y3kBAPah32HG686AzA3SKmfp0AE37bcfFefxbvL7lY1590Jju7tKJUoP6lPmepKKngPckBTQHoLQc86B401xIc0R10gKgkc0BKK3QTTz6oFO5u0vnnlNzAdT/IGluo/iI7u7SmTmgXTSqIBIFlM4UAI0oAPqoNVcANKL0t3wEuNWZZh8UgKYrPPrmEQBNWZhm4kIfNFn1BxRKWTMGdFkFC9GBH+NrCg/90JSrZ0/u7tJpBzRU2LGHtx37D/kQ8jGSnwGgfS+Ku3QUlMzPH6BNh1TYsZe3HXfSqILINA01ajT3pSCA9r4k7tLR+VSERgo7zid923EeIOw4yzwRCkC7Axoq7Hjitx3nIoyEZaitoR9TEAC00T0coGHCjqd/23HRBy3+VsICGnFZenxzqg9Kz87SgDb2QcOGHU/6tmMOKKtnfc6DVmyafEYL7IlvPjjiqQ1QYhQfJOzYx9uOF4LOlmfYjioIV+MeCNDhXzIzQMOEHXt52zE/adEW+TSuINwNWQBAR3zLzAANF3Y8/duOu8hLQQw1bTfXvmTTAB3XB20C1IN6hx1bp3edB/X/6BtvmgugVh591KAEKEm/7TgPdifJh2bSB7X+isg/KnfpRKlBfcqMSWp9xUe+uYAmag5AaQV+NpO87EM92s1dGntbYJMA7ZV4ExTlLR9hVzONvnG1SX3Q2SkSoCFXM20SoH3O2w6Fb+IB6DTunsFIRfUaVN3ad2t0QTTR4o2hzemD9jpvO+Ro4j0uFnHf63ykjowz9yQAGlEuQEMsFqkLgD7q1Yr4IiIxOQBd+F8sAkDd7n2ugS8iEpNjkORzsQgAJd0BaE2hp5maBywAFIA6FONdnQ0Jkp0JQh80onRAV+IPuG3ByCQFMbU21xyjeFoKULlg9eKoZcVI6ILobz71fYDIgDa0+57BSEXak0UkmDIqr1HeCmKMhnbkeptPrzb3pmGlVyzSUQWoWq3sMybJlwDoXKU/H1RubfrT7QDonDRDQNEHnZMSAXQsUxjFz1VpADq6VQagc5UGaHkb0nfIh0MAdMB526EU4uIB6KDztkNpAIo+6IDztkOJACqExSK9ztsOJQTomHZ+QK4el2LfWm1PZd5DAJTU9gLa/WsjAkpkzQMMKSqh9yQB0JqovHnFIh0lBGikPigATVrEe5Iu3zl87aHYenJ4+OpZmc5HQYzWGPPWvwsAGlHNT7d7evtm/uB1vnX+1pnc4vJREKM1ztw9NprIvE3og5JqHiRdvncm0CyktrwUxFgFAXTqRSime+/ztkMGoMUruWUX9Pzth/nlu3floaIGfY4pbP6C6ItOqUR76zknkC37JQrL3VP5zPsnrylAz998pSR1Q2tQsvbrVoNOvs7UcO9/3nbI6oNenVSvoTFrULUVuiAmMafhAqDpygKUv2NJAmr2QfOPb8qN0AUxibk3QMczC0BJWa9C5G+8WRRN/NPbN2TPU2/shwP6RXU/8X8e07cWh5RWy3FfgE5QqwJQUvbLZPfUo5mKeVAxx3R4OGUfdDIsXeYN8tQHBaC+FeNefAxASQ2fZgKgvhXjPUmbCqhL6IN6Voz3JD2efjQ81ztJ1HnbofDvSWqK8x4lADpXBX+JQgZAO7g/bp/y8AxGKorx+EUA2sO9MW8eYEhRsQAd6kKbN4r+xqiAUvPDPBqlMVfboThN/FCPNvMmtXxp/BpUZK+WDTLbnsFIReHek3RHil3zO5WGmtVKiz7cUmtHB7TIHgB1KNx7khSVvwOgljsFaFO+fRGRmMK9JykmoJPci28ybvnqNrUD6v4GX0QkpnDvSYoK6BT34htshfEITpv7oBkADfmepIiAts0cjAZ0zMiv+RYwAM1DTjPFA7R16nUkoNn0gN7jqgC9V8g6bzs0JaB0Ic0S0Ec+AeWE3lN8bj2giyw7WO9XYfFNaimrRs0Z0GmeOVEDlOtztWmdtx1SgLKx0dVJdjz8NTTJAurugz6n9Jtqq7/56GE8ACVlvoZGzDANnQd1A1rt+51LHRZF9Czl5sxZeyYCdLScf7gAtJT5jPoC0KHzoA18yr13XFIJx61iBqBz1ZSAVtLqRQGo2IwK6ARN/PgpebfKS5Hpt4ANQMtxkpWr7ZAXQJUeJ1GDTtEHpSclR0jxyQmVmN6rhvGf36tmmqxcbYd8A6oqnniAutEaCqhhMwGwBqAS0zufC4lP8l8mK1fbIc+vodGwiw6otXcKQKeoUp2AVhVoMROKGrSHel39dACt7R3QB60ROiGgd8oWvgYo+qD91OvqJwGouyEeDqgyk59GdU7VxfjdHUcfVA2XAGg39br6CQDahM4UgOo7hxJqAip1zyUrV9uh2QPaiM4IQBsIHZZ1AErKC6DfrfRbtekEtMOEdCcFALS5jQegHgVAOwPqmgsdz6f7FjAALTUWUO11bepuekqATtYHfWROqFa/NvvFi73OVQTt4LZcFwDaV00UaCWRFKBNGgmouaepBu1QtQJQUvMClKChdmjqQZJ5zmOthqWXaQFQUp4BZXsDAkrUV/VDPQFtGA61dEF71KCZe7EIAO2rRgBUBaHzWREaC9CsDLucFlCZV22nM+cd+6DSAoDWNOEoXgH621Liqsvt8IBqjaxa9lcdHQEo/1zj0w1o+wSvxicArcsLoLFqUEd9JYl6PLoP6gTUqFaNnLvM3e4AlJRfQFv7oJ+71PgNzWrMVQVoTVM08RafTYCyo50ARR+0Ls+AamqpQRsLopNoQJ3t7EhA1YJNIftPSzcXCdoBLX4AUFMTvnxSvfFyJKDTZSkXb9jMnW/jdAJK+iixz3YNauX8N5rEcb7hNFaAatWouhiZWtA06jpsqtKoQbNMX1fW+A3Napuoj9jEP9ehBtUWg1qAZtqlsXK1HRoLqLOY+wJalnCtmDvLCahWAzlKORyg7X3QOyWlANRWCoBmVjm30djEkC1VwC6Gpga0aRSvyel+xyTU6voA0N5nmJdpAkCz5mLurG6AZokD6uz64NlMPWVepo0A1GneHdAvyvn+SmyHB0AzNdFUrz4BaFeZl0ld/Ux2tIYB6qzkuovsg44FtHoGMlmDEn3QboAKFwBqaTJAxcXsCmhm9LWychxTK+bOaga08Xb5b1xqRMgE1ERogho000KOAaiuKICqolBXPzig3RESa9wNQMs1743Vc09ATfatPigA7SfzMk0GqLOh7CwnoJ9/7rjdMxAhswq90zr/AEAnUow+qFYSrjrOXw1qmE8N6Jg+aAOgyhiAdpd5mbTL33UUXysIq5TTBNSGaFJA7xjWpjv6oD1lXibnUKMDoPWC8FaDFoOwGv3DAe2S877u5mXR3O8B0J4yL5OzIAhAXU3ZcECzcpFn7tqrla3jCVxD69Sw9n4AAAafSURBVDhHIzwJoEbMBwAtFRhQq52sT9T3AlScUZSWa6+FZzZ0FN8NUA93kkw+AWg3mZdpCKDWKH4QoJn5/iwK0AaGNgBQSwC0k8IDmjkj4YzXExGANjE0CaCNQXO9Ac20Bh6AKkUB1LyTZPNpA6owrO3LrD5o5fPICahhPhRQGyH3n1ZfQHVrAKopDqBGQdh8DgfUwLN2u9wy1/KbVVO4HQB1rtgEoL4UZxRvFkQmp4Hc6x4bo911GrsFXjYAKo51Q0hlH4CGUWhAXfN99Gi16eEHNKDtSzb7Amr1Qi08R08zZeiDOpUCoFX5NgDqVkdAOwySOgJqEkqbYxQ/lSIB2uOWXgugj9oA7TDNlHXogwLQOAo/SGq6F6+a+kYgm3cQT6eZ6l58CEAzaxILgAYGtChdjVCtmFVT38Qn8Rwu5xMSvQBaQqTMnStZBwFqXxcAmhCg97oCql4Eqr0hmQC0cJ0CUMea90aEAOhEmhDQrH3Bsk6Q3cRnvWrQzHygzahBUjeEqj+toIBmWA/aV02AiqvbAijVB3U1lBahNq4K0C8eW5GXj8vAy+lvdVrzoBMCWu+DVtcEgHbWKED1onYB6igIG05hJhJrDxh3vpC4xudUgGZ3Wuu4YYBWAqClIgLqGgubBaG9QkQ96d0JqAuhlup5CKB3lHsLQgB0IoXtg5ocOQB1N/F6tSifTMb5pAB1hQ2ZpWxnug2hwjMwoOiDRltR72bIPUgyAP2tS3pgcLFRiwy2S9mu9jsiZFTP/gHVBUA7aRSgbZVcQzdRp6jRvLLtUYP2BrT0NuMua+YAdCptBqCOkNFMPVzcZX7HZT4VoJOHHQPQRm0qoCKtuwbNus1hPVcS2gchIucA1ItS64M6GBoAqKpBbfhH3UkCoOEVazWTXsyN00zqGe/yHxV0X53RAGhp7hfQScOOAahLsdaDZsZYuAHQwk2DwKpBFaG12tkJ6NhbnZr35EFzANStFEI+ugOaleb6PrL/MBmgJp5YDxpKCQTNtQVedgbU4tMXoA2PvgGgXpQCoG0MTQaog34Amrg2AdCC0XJGqOqDaj8C3Iu323gAGkYEoJfvHL720NrKJ+iD1gqiA6BdzN2ANk4RDEMoc02yOlayAtCJ1Azo09s38wevm1tc4wB1FoQs41pM0nBAzVJWeI4G1JFz7ScAnVzNgF6+d5afv3VmbHF5ALSpIHqaW7WzZq74nBjQRoQA6ERqBvT87Yf55bt3jS1+lYNlDYIoQJ+8VmKptric1UAHDT5x3uaD3YPgEV/9alCu0AUxc3MASmtsH9R/QczcHIDSokbxN6pR/I3GUbz/gpi5OQCl1ToPyqtOYh7Uf0HM3ByA0hp7J8l/QczcHIDSAqCRzQEoLQAa2RyA0gKgkc0BKC0AGtkcgNICoJHNASgtABrZHIDSAqCRzQEoLQAa2RyA0gKgkc0BKC0AGtkcgNLqD+hQeV3pvLnmnt03XgA0sjkApQVAI5sDUFoANLI5AKUVDlAIGiAACiUtAAolLQAKJS0ACiWtIICWQfUqdnly8/M3Dw9v+jJ/cnj46tn05tV14Q+/gtwKAuiTv7shfngpZmHOi/r8O3fbUw8x539XKux6anemBz7+tmaiEIA+/cm/fO9hnn/8yk891KCF+RPOz8eTF7PMee6n8i/dz//qbwBok0IAev72w4IdH6VcmWtP5/Fg7qMGle5Pf/KvaOIbFQLQBzeKGs4LoJU5f/6JL/PzN1+ZvvtQuj+4gT5oswIA+vT2oRxkeAC0Mr98Z3o+Vc59VM/SndWjALRZAQDlD8cr+oceAC3Nz9/0UMYq5z46uNL9wSHX9H9dM1EAQB/woi1ayukBleZe+CzNzeejTu2eY5qJkn9An/7TWS6byOkBLc3/VlRDExdzlXNWyU3fB9WuCwBtFu4kQUkLgEJJC4BCSQuAQkkLgEJJC4BCSWubAV0/f4v9FzsXECkAGjsXECkAGjsXEKltAfTq5CDPV9lxni/22Ics2z0FoJugbQE0X167ny++fMDgPL462ROfAegGaGsAXb9wevX9HzEqXzhdsdozvzg6BqAboK0BlNWc65c+/cYpqzmXmdABAN0AbQ2grO+52rs6eYP1RXlrzwVAN0DbA+jq2g+O8+UffP1WvtopqASgG6DtAfTiiHG5yljteXXC/mGUAtAN0PYAmi8YlhdHB3kuppkYrQB0A7RFgEKbKAAKJS0ACiUtAAolLQAKJS0ACiUtAAolLQAKJS0ACiUtAAolrf8HiIx7b4j7dX0AAAAASUVORK5CYII=" /><!-- --></p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
