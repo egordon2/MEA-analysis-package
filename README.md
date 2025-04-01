@@ -20,7 +20,7 @@ The package can be installed from gitHub using
 devtools::install_github(“egordon2/MEA-analysis-package/MEAanalysis”) or
 by cloning the repository
 (<https://github.com/egordon2/MEA-analysis-package>). It is possible the
-user will need to update existing packages to conform with the
+user will need to update existing packages to conform with the package
 dependencies, however they should be notified of this in the terminal.
 Once the package is installed it can be loaded using the
 library(“MEAanalysis”) command.
