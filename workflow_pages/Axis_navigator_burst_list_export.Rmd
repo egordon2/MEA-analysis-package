@@ -1,0 +1,39 @@
+---
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{MEA-single-electrode-barchart}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include = FALSE}
+library(MEAanalysis)
+knitr::opts_knit$set(root.dir = '..')
+```
+
+# Export Electrode Burst Files from AxIS Navigator 3.6.2 software
+
+The following vignette describes the workflow used to analyse Axion Biosystems MEA recordings and export the associated electrode burst csv files for use in the MEAanalysis package. 
+
+1) Load your Axion Biosystems MEA recording into the AxIS Navigator 3.6.2 software (click file, click open recordings, navigate to your recording and click open).
+
+2) Right click the chosen recording in the 'Streams' panel and click configuration. Select the spontaneous and viability configuration.
+
+3) Right click the Spike Detector and selective an Adaptive Threshold Crossing of 6x standard deviation.
+
+4) Right click the Burst Detector (ISI) and set the Maximum Inter-Spike Interval to 100 mS and the Minimum Number of Spikes to 5.
+
+5) On the recording panel, ensure that 'Electrode Burst List' is selected in the Burst Detector (ISI) selection box.
+
+6) Click record. Once the recording is complete the electrode burst list file will be exported to the same file directory as the recording. 
+
+
+
+
