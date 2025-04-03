@@ -7,7 +7,7 @@
 create_synchrony_dataset(data_path, heatmap_condition)
 }
 \arguments{
-\item{data_path}{Include path to neural metric dataset csv file produced by the axis navigator neural metric tool. This path should be written within quotation marks and with respect to the current working directory.}
+\item{data_path}{Include path to neural metric dataset csv or excel file produced by the axis navigator neural metric tool. This path should be written within quotation marks and with respect to the current working directory.}
 
 \item{heatmap_condition}{Include a unique identifier for this neuralMetric dataset's experimental condition, this argument will be used by the MEA_heatmap function to group data.}
 }

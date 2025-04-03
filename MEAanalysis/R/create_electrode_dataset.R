@@ -6,7 +6,7 @@
 #' and burst characteristics. It also adds a 'Recording_identifier' column to enable other MEAanalysis functions to calculate
 #' burst parameters for a specific recording, as well as a column to identify the well a burst was recorded in.
 #'
-#' @param data_path Include path to electrode burst dataset csv file produced by the axis navigator tool. This path should be written within quotation marks and with respect to the current working directory.
+#' @param data_path Include path to electrode burst dataset csv or excel file produced by the axis navigator tool. This path should be written within quotation marks and with respect to the current working directory.
 #' @param recording_identifier Include a unique identifier for the MEA recording being loaded. This identifier will be added to the 'Recording_identifier' column and be used by other MEAanalysis functions to filter the data and calculate burst parameters.
 #'
 #' @return A reformatted and filtered electrode burst list for use in analysis.
@@ -28,7 +28,17 @@ create_electrode_dataset <- function(data_path, recording_identifier) {
   data_3 <- NULL
 
   # read in electrode_burst_list file produced by axis navigator software (update data_path accordingly)
-  input_data <- read_csv(file = data_path, col_select = 3:6, show_col_types = FALSE)
+  if (str_detect(data_path, ".csv")) {
+    input_data <- read_csv(file = data_path, col_select = 3:6, show_col_types = FALSE)
+  } else if (str_detect(data_path, ".xlsx")) {
+    input_data <- read_xlsx(path = data_path) %>%
+      select(3:6)
+  } else if (str_detect(data_path, ".xls")) {
+    input_data <- read_xls(path = data_path) %>%
+      select(3:6)
+  } else {
+    stop("Unsupported file format. Please provide a CSV or Excel file.")
+  }
 
   # convert data frame to data table format for efficiency
   setDT(input_data)
