@@ -7,7 +7,7 @@
 create_electrode_dataset(data_path, recording_identifier)
 }
 \arguments{
-\item{data_path}{Include path to electrode burst dataset csv file produced by the axis navigator tool. This path should be written within quotation marks and with respect to the current working directory.}
+\item{data_path}{Include path to electrode burst dataset csv or excel file produced by the axis navigator tool. This path should be written within quotation marks and with respect to the current working directory.}
 
 \item{recording_identifier}{Include a unique identifier for the MEA recording being loaded. This identifier will be added to the 'Recording_identifier' column and be used by other MEAanalysis functions to filter the data and calculate burst parameters.}
 }

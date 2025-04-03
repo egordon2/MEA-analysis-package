@@ -3,7 +3,7 @@
 #' @description This function reads in, filters, and reformats neural metric csv files produced by the axis navigator neural metric tool
 #' (Axion Biosystems) for use in synchrony index analysis.
 #'
-#' @param data_path Include path to neural metric dataset csv file produced by the axis navigator neural metric tool. This path should be written within quotation marks and with respect to the current working directory.
+#' @param data_path Include path to neural metric dataset csv or excel file produced by the axis navigator neural metric tool. This path should be written within quotation marks and with respect to the current working directory.
 #' @param heatmap_condition Include a unique identifier for this neuralMetric dataset's experimental condition, this argument will be used by the MEA_heatmap function to group data.
 #'
 #' @return A reformatted and filtered neural metric dataset for use in synchrony index analysis.
@@ -26,13 +26,33 @@ create_synchrony_dataset <- function(data_path, heatmap_condition) {
   data_2 <- NULL
 
   # read in electrode_burst_list file produced by axis navigator software (update data_path accordingly)
-  input_data <- read_csv(file = data_path, skip = 29, col_names = FALSE, show_col_types = FALSE)
+  if (str_detect(data_path, ".csv")) {
 
-  # convert data frame to data table format for efficiency
-  setDT(input_data)
+    input_data <- read_csv(file = data_path, skip = 29, col_names = FALSE, show_col_types = FALSE)
+    # convert data frame to data table format for efficiency
+    setDT(input_data)
+    # extract well and synchrony index data
+    data_1 <- input_data[str_detect(X1, "Well Averages|Synchrony Index"), ]
 
-  # extract well and synchrony index data
-  data_1 <- input_data[str_detect(X1, "Well Averages|Synchrony Index"), ]
+  } else if (str_detect(data_path, ".xlsx")) {
+
+    input_data <- read_excel(path = data_path, skip = 29, col_names = FALSE)
+    # convert data frame to data table format for efficiency
+    setDT(input_data)
+    # extract well and synchrony index data
+    data_1 <- input_data[str_detect(...1, "Well Averages|Synchrony Index"), ]
+
+  } else if (str_detect(data_path, ".xls")) {
+
+    input_data <- read_excel(path = data_path, skip = 29, col_names = FALSE)
+    # convert data frame to data table format for efficiency
+    setDT(input_data)
+    # extract well and synchrony index data
+    data_1 <- input_data[str_detect(...1, "Well Averages|Synchrony Index"), ]
+
+  } else {
+    stop("Unsupported file format. Please provide a CSV or Excel file.")
+  }
 
   # transpose data table
   data_2 <- transpose(data_1)
