@@ -11,10 +11,12 @@ data relating to excitable cell activity. This data can often be complex
 and time-consuming to analyse in a reproducible manner. Furthermore,
 limited resources are available to calculate burst parameters for
 individual electrodes as opposed to the whole well. The MEAanalysis
-package therefore provides a range of functions which can assist MEA
-data analysis and exploration, whilst enabling comparison of bursting
-parameters between different time intervals. This package has been
-designed to be compatible with 12- and 24- well MEA plates.
+package provides functions which can assist with MEA data analysis and
+exploration at the single electrode level, through downstream
+visualisation of electrode burst list files produced by AxIS Navigator
+3.6.2 software (Axion BioSystems), whilst enabling comparison of
+bursting parameters between different time intervals. This package has
+been designed to be compatible with 12- and 24- well MEA plates.
 
 The package can be installed from gitHub using
 devtools::install_github(“egordon2/MEA-analysis-package/MEAanalysis”) or
