@@ -32,7 +32,7 @@ The following vignette describes the workflow used to analyse Axion Biosystems M
 
 5) On the recording panel, ensure that 'Electrode Burst List' is selected in the Burst Detector (ISI) selection box.
 
-6) Click record. Once the recording is complete the electrode burst list file will be exported to the same file directory as the recording. 
+6) Click record. Once the recording is complete the electrode burst list file will be exported to the same file directory as the recording. This can be used as an input to the MEAanalysis create_electrode_dataset and create_synchrony_dataset functions.
 
 
 
