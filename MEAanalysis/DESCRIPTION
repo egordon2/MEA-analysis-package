@@ -1,9 +1,14 @@
 Package: MEAanalysis
 Version: 0.1.0
-Title: Analyse Multi Electrode Array Single Electrode, Well, and Synchrony Data
-Author: Emily Gordon
+Title: Analyse and Visualise Multi Electrode Array Single Electrode, Well, and Synchrony Data Downstream of AxIS Navigator 3.6.2 Software (Axion BioSystems) Processing
+Authors@R: person(given = "Emily", 
+                  family = "Gordon",
+                  role = c("aut", "cre"), 
+                  email = "emily.gordon@wadham.ox.ac.uk")
 Maintainer: Emily Gordon <emily.gordon@wadham.ox.ac.uk>
-Description: A package containing functions to analyse single electrode, well, and synchrony data obtained using the multi electrode array techinique. Functions utilise Axis Navigator software output files.
+Description: Functions to assist MEA data analysis and exploration at the single electrode level utilising electrode burst list files produced
+             by 'AxIS Navigator 3.6.2 Software' (Axion BioSystems). Compare bursting parameters between time intervals and recordings using the bar chart
+             visualisation function. Compatible with 12- and 24- well MEA plates.
 License: GPL (>= 2)
 Depends: 
   data.table (>= 1.15.4),
@@ -27,3 +32,5 @@ Suggests:
     testthat (>= 3.2.1)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
+URl: https://egordon2.github.io/MEA-analysis-package/
+BugReports: https://github.com/egordon2/MEA-analysis-package/issues
