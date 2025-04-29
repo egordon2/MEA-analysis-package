@@ -6,9 +6,9 @@ Authors@R: person(given = "Emily",
                   role = c("aut", "cre"), 
                   email = "emily.gordon@wadham.ox.ac.uk")
 Maintainer: Emily Gordon <emily.gordon@wadham.ox.ac.uk>
-Description: Functions to assist multi-electrode array data analysis and exploration at the single electrode level utilising electrode burst list files produced
+Description: Functions to assist multielectrode array data analysis and exploration at the single electrode level utilising electrode burst list files produced
              by 'AxIS Navigator 3.6.2 Software' (Axion BioSystems). Compare bursting parameters between time intervals and recordings using the bar chart
-             visualisation function. Compatible with 12- and 24- well MEA plates.
+             visualisation functions. Compatible with 12- and 24- well plates.
 License: GPL (>= 2)
 Imports: 
   data.table (>= 1.15.4),
