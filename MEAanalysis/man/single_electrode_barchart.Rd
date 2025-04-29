@@ -8,7 +8,7 @@ single_electrode_barchart(
   data = output_table,
   electrode_parameter,
   electrode_filter =
-    "A1_|A2_|A3_|A4_|A5_|A6_|B1_|B2_|B3_|B4_|B5_|B6_|C1_\\n                                  |C2_|C3_|C4_|C5_|C6_|D1_|D2_|D3_|D4_|D5_|D6_",
+    "A1|A2|A3|A4|A5|A6|B1|B2|B3|B4|B5|B6|C1|C2|C3|C4|C5|C6|D1|D2|D3|D4|D5|D6",
   statistic = se
 )
 }
