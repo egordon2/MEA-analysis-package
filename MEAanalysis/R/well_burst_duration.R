@@ -10,6 +10,7 @@
 #'
 #' @return An electrode burst list table with three additional columns (mean, SD and SEM burst duration recorded for each well within the specified time interval and recording).
 #' @importFrom dplyr filter between group_by mutate ungroup select distinct
+#' @importFrom stats sd
 #' @export
 #'
 #' @examples

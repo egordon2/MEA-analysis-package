@@ -10,6 +10,7 @@
 #'
 #' @return An electrode burst list table with three additional columns (mean, SD and SEM number of spikes per burst for single electrodes within the specified time interval and recording).
 #' @importFrom dplyr between distinct filter group_by mutate select
+#' @importFrom stats sd
 #' @export
 #'
 #' @examples
