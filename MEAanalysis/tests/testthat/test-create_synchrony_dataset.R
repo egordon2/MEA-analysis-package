@@ -2,7 +2,7 @@
 test_that("create_synchrony_dataset output is a data table", {
   # Load dataset
   dataset <- create_synchrony_dataset(data_path = system.file("extdata", "input_neuralMetric.csv", package = "MEAanalysis"), heatmap_condition = "Baseline")
-  expect_equal(is.data.table(dataset), TRUE)
+  expect_equal(data.table::is.data.table(dataset), TRUE)
 })
 
 
@@ -12,7 +12,7 @@ test_that("create_synchrony dataset column classes are correct",{
   dataset <- create_synchrony_dataset(data_path = system.file("extdata", "input_neuralMetric.csv", package = "MEAanalysis"), heatmap_condition = "Baseline")
 
   # Define expected column names and classes
-  expected_columns <- data.table(
+  expected_columns <- data.table::data.table(
     Well = character(),
     "synchrony_index: Baseline" = numeric()
   )

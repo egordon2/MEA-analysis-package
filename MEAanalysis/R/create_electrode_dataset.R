@@ -12,7 +12,8 @@
 #' @return A reformatted and filtered electrode burst list for use in analysis.
 #' @importFrom data.table setcolorder setDT
 #' @importFrom readr read_csv
-#' @importFrom stringr str_detect
+#' @importFrom readxl read_xlsx read_xls
+#' @importFrom stringr str_detect str_sub
 #' @export
 #'
 #' @examples output_electrode_burst <- create_electrode_dataset(

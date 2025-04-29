@@ -9,7 +9,8 @@
 #' @param recording_identifier Define recording for which to calculate the MEA parameter. Use recording_identifier defined in create_electrode_dataset function.
 #'
 #' @return An electrode burst list table with three additional columns (mean, SD and SEM number of bursts recorded for each well within the specified time interval and recording).
-#' @importFrom dplyr between distinct filter group_by mutate select
+#' @importFrom dplyr select distinct filter between group_by ungroup mutate add_count coalesce
+#' @importFrom stats sd
 #' @export
 #'
 #' @examples
