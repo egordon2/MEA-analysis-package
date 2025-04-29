@@ -12,8 +12,8 @@
 #'
 #' @return A bar chart of calculated MEA parameters by single electrode for a given time interval and recording.
 #' @importFrom data.table melt
-#' @importFrom dplyr contains distinct filter group_by mutate select slice
-#' @importFrom ggplot2 geom_bar geom_errorbar geom_point ggplot labs
+#' @importFrom dplyr contains distinct filter group_by ungroup mutate select slice
+#' @importFrom ggplot2 geom_bar geom_errorbar geom_point ggplot labs aes position_dodge position_jitterdodge scale_fill_grey
 #' @importFrom stringr str_detect
 #' @importFrom tidyr pivot_wider unnest
 #' @export

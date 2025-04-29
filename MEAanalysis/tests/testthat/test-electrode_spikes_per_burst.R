@@ -8,5 +8,5 @@ test_that("electrode_spikes_per_burst output is a datatable", {
                                                          time_upper_bound = 30,
                                                          recording_identifier = "burst_recording_1")
 
-  expect_equal(is.data.table(dataset), TRUE)
+  expect_equal(data.table::is.data.table(dataset), TRUE)
 })

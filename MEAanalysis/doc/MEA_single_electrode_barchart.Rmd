@@ -1,7 +1,8 @@
 ---
+title: "MEA_single_electrode_barchart"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{MEA-single-electrode-barchart}
+  %\VignetteIndexEntry{MEA_single_electrode_barchart}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,6 +16,7 @@ knitr::opts_chunk$set(
 
 ```{r setup, include = FALSE}
 library(MEAanalysis)
+library(tidyverse)
 knitr::opts_knit$set(root.dir = '..')
 ```
 

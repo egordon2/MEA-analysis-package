@@ -10,6 +10,7 @@
 #' @importFrom data.table setDT transpose
 #' @importFrom janitor row_to_names
 #' @importFrom readr read_csv
+#' @importFrom readxl read_excel
 #' @importFrom stringr str_detect
 #' @export
 #'

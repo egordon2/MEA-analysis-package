@@ -9,8 +9,8 @@
 #'
 #' @return A heatmap of the synchrony index for each well grouped by heatmap condition.
 #' @importFrom data.table melt
-#' @importFrom dplyr rename
-#' @importFrom ggplot2 ggplot geom_tile scale_fill_gradient labs
+#' @importFrom dplyr rename %>%
+#' @importFrom ggplot2 ggplot geom_tile scale_fill_gradient labs aes theme element_text
 #' @importFrom stringr str_detect
 #' @export
 #'

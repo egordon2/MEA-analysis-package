@@ -6,6 +6,7 @@ knitr::opts_chunk$set(
 
 ## ----setup, include = FALSE---------------------------------------------------
 library(MEAanalysis)
+library(tidyverse)
 knitr::opts_knit$set(root.dir = '..')
 
 ## ----warning = FALSE, message = FALSE-----------------------------------------
