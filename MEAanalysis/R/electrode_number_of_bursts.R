@@ -31,7 +31,7 @@ electrode_number_of_bursts <- function(data = output_table, time_lower_bound = 0
 
   if (paste0("electrode_number_of_bursts: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("column already exists")
+    message("column already exists")
     stop()
 
   }

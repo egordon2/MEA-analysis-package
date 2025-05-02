@@ -35,22 +35,22 @@ well_number_of_bursts <- function(data = output_table, time_lower_bound = 0, tim
 
   if (paste0("well_burst_count_mean: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   } else if (paste0("well_burst_count_sd: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   } else if (paste0("well_burst_count_se: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   } else if (paste0("well_burst_count_raw: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   }

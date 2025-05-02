@@ -32,22 +32,22 @@ electrode_spikes_per_burst <- function(data = output_table, time_lower_bound = 0
 
   if (paste0("electrode_spikes_mean: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   } else if (paste0("electrode_spikes_sd: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   } else if (paste0("electrode_spikes_se: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   } else if (paste0("electrode_spikes_raw: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   }
