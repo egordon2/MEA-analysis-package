@@ -33,22 +33,22 @@ electrode_mean_burst_ISI <- function(data = output_table, time_lower_bound = 0, 
 
   if (paste0("electrode_avg_mean_burst_ISI: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   } else if (paste0("electrode_sd_mean_burst_ISI: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   } else if (paste0("electrode_se_mean_burst_ISI: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   } else if (paste0("electrode_raw_mean_burst_ISI: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   }

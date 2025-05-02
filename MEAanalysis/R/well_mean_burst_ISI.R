@@ -33,22 +33,22 @@ well_mean_burst_ISI <- function(data = output_table, time_lower_bound = 0, time_
 
   if (paste0("well_avg_mean_burst_ISI: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   } else if (paste0("well_sd_mean_burst_ISI: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   } else if (paste0("well_se_mean_burst_ISI: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   } else if (paste0("well_raw_mean_burst_ISI: ", recording_identifier, " ", time_interval, " (s)") %in% colnames(data)) {
 
-    print("columns already exist")
+    message("columns already exist")
     stop()
 
   }
